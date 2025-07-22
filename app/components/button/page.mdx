@@ -1,0 +1,541 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicButton from '../../../src/demo/button/BasicButton.jsx'
+import ButtonDisabled from '../../../src/demo/button/ButtonDisabled.jsx'
+import ButtonVariant from '../../../src/demo/button/ButtonVariant.jsx'
+import ButtonSize from '../../../src/demo/button/ButtonSize.jsx'
+import RoundedButton from '../../../src/demo/button/RoundedButton.jsx'
+import FullButton from '../../../src/demo/button/FullButton.jsx'
+import ColorButton from '../../../src/demo/button/ColorButton.jsx'
+import IconButton from '../../../src/demo/button/IconButton.jsx'
+import HyperlinkButton from '../../../src/demo/button/HyperlinkButton.jsx'
+import LoadingButton from '../../../src/demo/button/LoadingButton.jsx'
+import LoadingPosition from '../../../src/demo/button/LoadingPosition.jsx'
+import CustomLoadingIcon from '../../../src/demo/button/CustomLoadingIcon.jsx'
+
+# Button
+
+Buttons allow users to take actions, and make choices, with a single tap.
+Button communicate actions that users can take.
+
+## Basic button
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <Button>Button</Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Button from 'wind-ui/Button'
+// or
+import { Button } from 'wind-ui'
+```
+```jsx
+<Button>Button</Button>
+```
+
+## Variant
+The `Button` comes with three variants: ghost(default), filled, outlined, link.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ButtonVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-wrap items-center justify-center gap-2'>
+          <Button variant="filled">Filled</Button>
+          <Button variant="outlined">Outlined</Button>
+          <Button variant="ghost">Ghost</Button>
+          <Button variant="link">Link</Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Disabled Button
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ButtonDisabled />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-wrap items-center justify-center gap-2'>
+          <Button variant="filled" disabled>Filled disabled</Button>
+          <Button variant="outlined" disabled>Outlined disabled</Button>
+          <Button variant="ghost" disabled>Ghost disabled</Button>
+          <Button variant="link" disabled>Link disabled</Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Sizes
+Use `size` prop to change the size of the button.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ButtonSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant="ghost" size='lg'>Large</Button>
+            <Button variant="ghost" size='md'>Medium</Button>
+            <Button variant="ghost" size='sm'>Small</Button>
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant="outlined" size='ld' className='px-8'>Large</Button>
+            <Button variant="outlined" size='md'>Medium</Button>
+            <Button variant="outlined" size='sm'>Small</Button>
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant="filled" size='lg'>Large</Button>
+            <Button variant="filled" size='md'>Medium</Button>
+            <Button variant="filled" size='sm'>Small</Button>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Rounded Button
+For different border rdius for buttons use `rounded` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <RoundedButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-wrap items-center justify-center gap-2'>
+          <Button variant="filled" rounded='none'>None</Button>
+          <Button variant="filled" rounded='sm'>Small</Button>
+          <Button variant="filled" rounded='lg'>Large</Button>
+          <Button variant="filled" rounded='full'>Full</Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Full Width
+Use `fullwidth` prop to make the button full-width.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FullButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <Button variant="filled" fullwidth>Full Width</Button>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ColorButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant="filled" color="primary">Primary</Button>
+            <Button variant="filled" color="secondary">Secondary</Button>
+            <Button variant="filled" color="info">Info</Button>
+            <Button variant="filled" color="warning">Warning</Button>
+            <Button variant="filled" color="success">Success</Button>
+            <Button variant="filled" color="error">Error</Button>
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant="outlined" color="primary">Primary</Button>
+            <Button variant="outlined" color="secondary">Secondary</Button>
+            <Button variant="outlined" color="info">Info</Button>
+            <Button variant="outlined" color="warning">Warning</Button>
+            <Button variant="outlined" color="success">Success</Button>
+            <Button variant="outlined" color="error">Error</Button>
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant="ghost" color="primary">Primary</Button>
+            <Button variant="ghost" color="secondary">Secondary</Button>
+            <Button variant="ghost" color="info">Info</Button>
+            <Button variant="ghost" color="warning">Warning</Button>
+            <Button variant="ghost" color="success">Success</Button>
+            <Button variant="ghost" color="error">Error</Button>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Hyperlink Button
+To use the `Button` component as hyperlink, just pass `href` prop or change the root element to `<a>` tag using `component` prop.
+
+If `href` prop is passed, an `<a>` element will be used as the root node.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <HyperlinkButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='link' component='a' href='#'>Link</Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Buttons with icons and label
+Sometimes you might want to have icons for certain buttons to enhance the UX of the applications as we recognize logos more easily then plan text.
+For example, if you have a delete button you can label it with a trash/dustbin icon.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+    import { Save, Trash } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Button variant="outlined" startIcon={<Trash />}>Delete</Button>
+          <Button variant="filled" endIcon={<Save />}>Save</Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Loading Button
+Use the `loading` prop to set buttons in a loading state and disable interactions.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LoadingButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useEffect, useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+
+      const [loading, setLoading] = useState(false)
+  
+      useEffect(() => {
+        const timeout = setTimeout(() => {
+          setLoading(false);
+        }, 2000)
+        return () => clearTimeout(timeout)
+      })
+
+      return (
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <div className='flex items-center justify-center gap-2'>
+            <Switch onChange={() => setLoading(!loading)} checked={loading} />
+            <p>loading</p>
+          </div>
+          <Button variant="filled" color='primary' loading={loading} onClick={() => setLoading(true)}>
+            Click me
+          </Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Loading Position
+loading indicator can be placed before / after the children if the button is in loading state.
+
+Toggle the loading switch to see the transition between the different states.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LoadingPosition />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+
+      const [loading, setLoading] = useState(true)
+
+      const handleClick = () => {
+        setLoading(!loading);
+      }
+
+      return (
+        <div className='flex flex-col items-center justify-center gap-6'>
+          <div className='flex items-center justify-center gap-2'>
+            <Switch onChange={() => setLoading(!loading)} checked={loading} />
+            <p>loading</p>
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Button variant='outlined' loading={loading} onClick={handleClick} disabled>
+              Disabled
+            </Button>
+            <Button variant='filled' color='primary' onClick={handleClick} loading={loading} loadingIndicator='Loading...'>
+              Fetch Data
+            </Button>
+            <Button variant='outlined' color='secondary' startIcon={<Save />} onClick={handleClick} loading={loading} loadingPosition='start'>
+              Save
+            </Button>
+            <Button variant='filled' color='secondary' fullwidth startIcon={<SendHorizonal />} onClick={handleClick} loading={loading} loadingPosition='start'>
+              Full width with start icon
+            </Button>
+            <Button variant='outlined' color='info' fullwidth endIcon={<SendHorizonal />} onClick={handleClick} loading={loading} loadingPosition='end'>
+              Full width with end icon
+            </Button>
+            <Button variant='outlined' color='warning' onClick={handleClick} loading={loading} loadingPosition='start'>
+              Submit
+            </Button>
+            <Button variant='filled' color='success' onClick={handleClick} loading={loading} loadingPosition='end'>
+              Submit
+            </Button>
+            <Button variant='outlined' color='error' startIcon={<Save />} onClick={handleClick} loading={loading} loadingPosition='end'>
+              Save
+            </Button>
+            <Button variant='outlined' color='error' endIcon={<Trash />} onClick={handleClick} loading={loading} loadingPosition='start'>
+              Delete
+            </Button>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Custom loading indicator
+To customize the default loading indicator, use the `loadingIndicator` prop.
+
+By default, it renders a `<CircularProgress />` component as loading indicator.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CustomLoadingIcon />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useEffect, useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Switch from 'wind-ui/Switch'
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+
+      const [loading, setLoading] = useState(false)
+  
+      useEffect(() => {
+        const timeout = setTimeout(() => {
+          setLoading(false);
+        }, 2000)
+        return () => clearTimeout(timeout)
+      })
+
+      return (
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <div className='flex items-center justify-center gap-2'>
+              <Switch onChange={() => setLoading(!loading)} checked={loading} />
+              <p>loading</p>
+          </div>
+          <Button variant="filled" color='primary' loading={loading} onClick={() => setLoading(true)} loadingIndicator={<CircularProgress color='warning' size='sm' />}>
+            Click me
+          </Button>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Button API
+API reference docs for the React Button component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'filled' | 'outlined' | 'ghost' | 'link'`</Table.Td>
+      <Table.Td>`'ghost'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>rounded</Table.Td>
+      <Table.Td>`'none' | 'full' | 'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'sm'`</Table.Td>
+      <Table.Td>The border-radius of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>component</Table.Td>
+      <Table.Td>`elementType`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The component used for the root node. Either a string to use a HTML element or a component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>href</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The URL to link to when the button is clicked. If defined, an `<a>` element will be used as the root node.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>fullwidth</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the button will take up the full width of its container.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>endIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Element placed after the children.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>startIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Element placed before the children.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>loading</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`null`</Table.Td>
+      <Table.Td>If `true`, the loading indicator is visible and the button is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>loadingIndicator</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<CircularProgress size="sm" />`</Table.Td>
+      <Table.Td>Element is placed before the children if the button is in loading state. By default, it renders a 'CircularProgress' as loading indicator.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>loadingPosition</Table.Td>
+      <Table.Td>`'center' | 'end' | 'start'`</Table.Td>
+      <Table.Td>`'center'`</Table.Td>
+      <Table.Td>The loading indicator can be positioned on the start, end, or the center of the button.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

@@ -1,0 +1,131 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicLink from '../../../src/demo/link/BasicLink.jsx'
+import UnderlineLink from '../../../src/demo/link/UnderlineLink.jsx'
+import ColorLink from '../../../src/demo/link/ColorLink.jsx'
+
+# Link
+
+Links are used to provide accessible navigation.
+
+## Basic Link
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicLink />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Link from 'wind-ui/Link'
+
+    export default function MyReactPage() {
+      return (
+        <Link href='#'>Link</Link>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Link from 'wind-ui/Link'
+// or
+import { Link } from 'wind-ui'
+```
+```jsx
+<Link href='#'>Link</Link>
+```
+
+## Underline
+The `underline` prop can be used to set underline behavior. The default is `always`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <UnderlineLink />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Link from 'wind-ui/Link'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Link href='#' underline='none'>Underline-none</Link>
+          <Link href='#' underline='hover'>Underline on hover</Link>
+          <Link href='#' underline='always'>Underline always</Link>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ColorLink />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Link from 'wind-ui/Link'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Link href='#' underline='hover' color='primary'>Click me</Link>
+          <Link href='#' underline='hover' color='secondary'>Click me</Link>
+          <Link href='#' underline='hover' color='info'>Click me</Link>
+          <Link href='#' underline='hover' color='warning'>Click me</Link>
+          <Link href='#' underline='hover' color='success'>Click me</Link>
+          <Link href='#' underline='hover' color='error'>Click me</Link>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Link API
+API reference docs for the React Link component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>underline</Table.Td>
+      <Table.Td>`'always' | 'hover' | 'none'`</Table.Td>
+      <Table.Td>`'always'`</Table.Td>
+      <Table.Td>Controls when the link should have an underline.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

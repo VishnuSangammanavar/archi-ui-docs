@@ -1,0 +1,469 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicPagination from '../../../src/demo/pagination/BasicPagination.jsx'
+import DisabledPagination from '../../../src/demo/pagination/DisabledPagination.jsx'
+import PaginationVariant from '../../../src/demo/pagination/PaginationVariant.jsx'
+import PaginationShape from '../../../src/demo/pagination/PaginationShape.jsx'
+import PaginationSize from '../../../src/demo/pagination/PaginationSize.jsx'
+import PaginationControls from '../../../src/demo/pagination/PaginationControls.jsx'
+import PaginationCustomControls from '../../../src/demo/pagination/PaginationCustomControls.jsx'
+import PaginationRange from '../../../src/demo/pagination/PaginationRange.jsx'
+import ControlledPagination from '../../../src/demo/pagination/ControlledPagination.jsx'
+
+# Pagination
+
+The Pagination component enables the user to select a specific page from a range of pages.
+
+## Basic Pagination
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicPagination />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <Pagination totalPages={10} />
+          <Pagination totalPages={10} color='primary' />
+          <Pagination totalPages={10} color='secondary' />
+          <Pagination totalPages={10} disabled />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Pagination from 'wind-ui/Pagination'
+// or
+import { Pagination } from 'wind-ui'
+```
+```jsx
+<Pagination totalPages={10} />
+```
+
+## Disabled
+Use `disabled` prop to make the pagination disabled.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DisabledPagination />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Pagination totalPages={5} />
+          <Pagination totalPages={5} disabled />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Variant
+The `Pagination` comes with two variants: ghost(default), outlined.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PaginationVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Pagination variant='ghost' totalPages={5} color='primary' />
+          <Pagination variant='outlined' totalPages={5} color='primary' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Shape
+Use `shape` prop to give different shape to the pagination item.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PaginationShape />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <Pagination
+            totalPages={8}
+            shape='pill'
+            variant='outlined'
+          />
+          <Pagination
+            totalPages={8}
+            shape='pill'
+            variant='ghost'
+          />
+          <Pagination
+            totalPages={8}
+            shape='rounded'
+            variant='outlined'
+          />
+          <Pagination
+            totalPages={8}
+            shape='rounded'
+            variant='ghost'
+          />
+          <Pagination
+            totalPages={8}
+            shape='square'
+            variant='outlined'
+          />
+          <Pagination
+            totalPages={8}
+            shape='square'
+            variant='ghost'
+          />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+The `Pagination` comes with three variants: outlined(default), filled, standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PaginationSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Pagination
+            totalPages={8}
+            size='sm'
+            color='primary'
+          />
+          <Pagination
+            totalPages={8}
+            size='md'
+            color='primary'
+          />
+          <Pagination
+            totalPages={8}
+            size='lg'
+            color='primary'
+          />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Customization
+You can optionally enable first-page and last-page buttons using `showFirstButton` and `showLastButton` props, and can also customize the control icons using `firstButtonIcon` and `lastButtonIcon` props
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PaginationControls />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <Pagination
+            totalPages={8}
+            variant='ghost'
+            color='primary'
+            showFirstButton
+            showLastButton
+            firstButtonIcon='<-'
+            lastButtonIcon='->'
+          />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Custome icons
+It's possible to customize the control icons using `previousIcon`, `nextIcon` props
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PaginationCustomControls />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Pagination
+            totalPages={8}
+            variant='ghost'
+            color='primary'
+            previousIcon='Previous'
+            nextIcon='Next'
+          />
+          <Pagination
+            totalPages={8}
+            variant='ghost'
+            color='primary'
+            previousIcon='<'
+            nextIcon='>'
+          />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Pagination ranges
+You can specify how many digits to display either side of the current page with the `siblingCount` prop, and adjacent to the start and end page number with the `boundaryCount` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PaginationRange />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <Pagination
+            totalPages={20}
+            defaultPage={10}
+            color='primary'
+            siblingCount={1}
+            boundaryCount={1}
+          />
+          <Pagination
+            totalPages={20}
+            defaultPage={10}
+            color='secondary'
+            siblingCount={0}
+          />
+          <Pagination
+            totalPages={20}
+            defaultPage={10}
+            color='primary'
+            siblingCount={0}
+            boundaryCount={2}
+          />
+          <Pagination
+            totalPages={20}
+            defaultPage={10}
+            color='secondary'
+            siblingCount={1}
+            boundaryCount={2}
+          />
+          <Pagination
+            totalPages={20}
+            defaultPage={10}
+            color='primary'
+            siblingCount={2}
+            boundaryCount={3}
+          />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Controlled
+If the `page` is set using useState, to update to next page or previous page on click, use `onPageChange()` to update the state of `page`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ControlledPagination />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Pagination from 'wind-ui/Pagination'
+
+    export default function MyReactPage() {
+
+      const [page, setPage] = useState(3);
+
+      const handlePageChange = (page) => {
+        setPage(page)
+      }
+
+      return (
+        <div className="flex items-center justify-center">
+          <Pagination
+            totalPages={8}
+            variant='ghost'
+            color='secondary'
+            page={page}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Pagination API
+API reference docs for the React Pagination component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'ghost' | 'outlined'`</Table.Td>
+      <Table.Td>`'ghost'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'default'`</Table.Td>
+      <Table.Td>The active color.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>shape</Table.Td>
+      <Table.Td>`'pill' | 'rounded' | 'square'`</Table.Td>
+      <Table.Td>`'rounded'`</Table.Td>
+      <Table.Td>The shape of the pagination items.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>totalPages</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>1</Table.Td>
+      <Table.Td>The total number of pages.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultPage</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>1</Table.Td>
+      <Table.Td>The page selected by default when the component is uncontrolled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>page</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The current page of pagination.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>previousIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<ArrowSmLeftIcon />`</Table.Td>
+      <Table.Td>Override the default `previous` icon element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>nextIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<ArrowSmRightIcon />`</Table.Td>
+      <Table.Td>Override the default `next` icon element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>showFirstButton</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>false</Table.Td>
+      <Table.Td>If true, show the first-page button.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>showLastButton</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>false</Table.Td>
+      <Table.Td>If true, show the last-page button.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>firstButtonIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<ArrowNarrowLeftIcon />`</Table.Td>
+      <Table.Td>Override the default `first-page` icon element. Shown only if `showFirstButton` is set.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>lastButtonIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<ArrowNarrowRightIcon />`</Table.Td>
+      <Table.Td>Override the default `last-page` icon element. Shown only if `showLastButton` is set.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>siblingCount</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>`1`</Table.Td>
+      <Table.Td>Number of always visible pages before and after the current page.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>boundaryCount</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>`1`</Table.Td>
+      <Table.Td>Number of always visible pages at the beginning and end.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onPageChange</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the page is changed. <br /> Signature: `function(page: number) => void`. <br /> `page`: The page selected.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

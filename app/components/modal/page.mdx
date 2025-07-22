@@ -1,0 +1,197 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicModal from '../../../src/demo/modal/BasicModal.jsx'
+import NestedModal from '../../../src/demo/modal/NestedModal.jsx'
+
+# Modal
+
+The model component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.
+
+The component renders its children node in front of backdrop component. The model offers important features:
+
+- Manages model stacking when one-at-a time just isn't enough.
+- Creates a backdrop, for disabling interaction below the modal.
+- It disables scrolling of the page content while open.
+- It provides manages moving to the modal content, and keeping it there until the modal is closed.
+
+## Basic Modal
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicModal />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Modal from 'wind-ui/Modal'
+    import Typography from 'wind-ui/Typography'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='filled' onClick={handleClick}>Open Modal</Button>
+          <Modal open={open} onClose={handleClose}>
+            <Typography variant='h2'>This is Modal</Typography>
+            <Typography className="mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam culpa aliquam aperiam commodi ullam iure laboriosam animi magni asperiores. Rem ratione odit explicabo ut eveniet illo eum dicta reprehenderit unde.</Typography>
+          </Modal>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Modal from 'wind-ui/Modal'
+import Typography from 'wind-ui/Typography'
+// or
+import { Modal, Typography } from 'wind-ui'
+```
+```jsx
+<Modal open={true}>
+  <Typography variant='h2'>This is Modal</Typography>
+  <Typography className="mt-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam culpa aliquam aperiam commodi ullam iure laboriosam animi magni asperiores. Rem ratione odit explicabo ut eveniet illo eum dicta reprehenderit unde.</Typography>
+</Modal>
+```
+
+## Nested Modal
+Modals can be nested, for example a Select within a dialog, but stacking of more than two models, or any two models with a backdrop is discouraged.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <NestedModal />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Modal from 'wind-ui/Modal'
+    import Button from 'wind-ui/Button'
+    import Typography from 'wind-ui/Typography'
+
+    const ChildModal = () => {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true)
+      }
+
+      const handleClose = () => {
+        setOpen(false)
+      }
+
+      return (
+        <React.Fragment>
+          <Button onClick={handleClick}>Open child modal</Button>
+          <Modal open={open} onClose={handleClose} style={{ width: 250 }}>
+            <Typography variant='h3'>Text in a child modal</Typography>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <Button onClick={handleClose}>Close child modal</Button>
+          </Modal>
+        </React.Fragment>
+      )
+    }
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true)
+      }
+
+      const handleClose = () => {
+        setOpen(false)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button onClick={handleClick}>Open modal</Button>
+          <Modal open={open} onClose={handleClose}>
+            <Typography variant='h3'>Text in a modal</Typography>
+            <p>Ullam minus atque cum maiores recusandae reiciendis in sed rem voluptatem veniam harum repellendus.</p>
+            <ChildModal />
+          </Modal>
+        </div>
+      )
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Modal API
+API reference docs for the React Modal component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>A single child content element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableEscapeKeyDown</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, hitting escape will not fire the `onClose` callback.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>maxWidth</Table.Td>
+      <Table.Td>`'xl' | 'lg' | 'md' | 'sm' | 'xs'`</Table.Td>
+      <Table.Td>`'sm'`</Table.Td>
+      <Table.Td>Determine the max-width of the modal. The modal width grows with the size of the screen.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onClose</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be closed. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onBackdropClick</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>A function is triggred if provided when backdrop is been clicked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>BackdropProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Props applied to the `Backdrop` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>hideBackdrop</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the backdrop is not rendered.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableScrollLock</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>Disable the scroll lock behavior.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

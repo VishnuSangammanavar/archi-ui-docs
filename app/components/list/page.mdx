@@ -1,0 +1,928 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicList from '../../../src/demo/list/BasicList.jsx'
+import FolderList from '../../../src/demo/list/FolderList.jsx'
+import DifferentList from '../../../src/demo/list/DifferentList.jsx'
+import SelectedListItem from '../../../src/demo/list/SelectedListItem.jsx'
+import ControlList from '../../../src/demo/list/ControlList.jsx'
+import SettingsList from '../../../src/demo/list/SettingsList.jsx'
+import AvatarControlledList from '../../../src/demo/list/AvatarControlledList.jsx'
+import StickyHeader from '../../../src/demo/list/StickyHeader.jsx'
+import GutterlessList from '../../../src/demo/list/GutterlessList.jsx'
+
+# List
+
+Lists are continuous, vertical indexes of text or images.
+
+Lists are composed of items containing primary and supplemental actions, which are represented by icons and text.
+
+## Introduction
+Lists present information in a concise, easy-to-follow format through a continuous, vertical index of text or images.
+
+ElementX UI lists are implemented using a collection of related compenents:
+
+- List: a wrapper for list items. Renders as a `<ul>` by default.
+- List Item: a common list item. Renders as an `<li>` by default.
+- List Item Button: an action element to be used inside a list item.
+- List Item Icon: an icon to be used inside of a list item.
+- List Item Avatar: an avatar to be used inside of a list item.
+- List Item Text: a container inside a list item, used to display text content.
+- Divider: a separator between list items.
+- List Subheader: a label for a nested list.
+
+## Basic List
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+
+    export default function MyReactPage() {
+      return (
+        <List>
+          <ListItem divider>Item 1</ListItem>
+          <ListItem divider selected>selected</ListItem>
+          <ListItem divider disabled>disabled</ListItem>
+          <ListItem divider disableGutters>disable Gutters</ListItem>
+          <ListItem divider disablePadding>disable Padding</ListItem>
+        </List>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import List from 'wind-ui/List'
+import ListItem from 'wind-ui/ListItem'
+// or
+import { List, ListItem } from 'wind-ui'
+```
+```jsx
+<List>
+  <ListItem divider>Item 1</ListItem>
+  <ListItem divider selected>selected</ListItem>
+  <ListItem divider disabled>disabled</ListItem>
+  <ListItem divider disableGutters>disable Gutters</ListItem>
+  <ListItem divider disablePadding>disable Padding</ListItem>
+</List>
+```
+
+## Folder List
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FolderList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemIcon from 'wind-ui/ListItemIcon'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <List style={{ width: '300px' }} className='bg-accent'>
+            <ListItem>
+              <ListItemIcon>
+                <Avatar />
+              </ListItemIcon>
+              <ListItemText primary='Photos' secondary='May 18, 2026' />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <Avatar />
+              </ListItemIcon>
+              <ListItemText primary='Work' secondary='May 20, 2026' />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <Avatar />
+              </ListItemIcon>
+              <ListItemText primary='Vacation' secondary='May 25, 2026' />
+            </ListItem>
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## List with different settings
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DifferentList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemIcon from 'wind-ui/ListItemIcon'
+    import ListItemText from 'wind-ui/ListItemText'
+    import ListItemAvatar from 'wind-ui/ListItemAvatar'
+    import Avatar from 'wind-ui/Avatar'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <div className='flex flex-wrap items-center justify-center gap-4'>
+            <div>
+              <Typography variant='h6'>Text only</Typography>
+              <div>
+                <List className='bg-accent' style={{ width: '350px' }}>
+                  <ListItem>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                </List>
+              </div>
+            </div>
+            <div>
+              <Typography variant='h6'>Icon with text</Typography>
+              <div>
+                <List className='bg-accent' style={{ width: '350px' }}>
+                  <ListItem>
+                    <ListItemIcon>
+                      icon
+                    </ListItemIcon>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemIcon>
+                      icon
+                    </ListItemIcon>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemIcon>
+                      icon
+                    </ListItemIcon>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                </List>
+              </div>
+            </div>
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-4'>
+            <div>
+              <Typography variant='h6'>Avatar with text</Typography>
+              <div>
+                <List className='bg-accent' style={{ width: '350px' }}>
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>V</Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>R</Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>S</Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                </List>
+              </div>
+            </div>
+            <div>
+              <Typography variant='h6'>Avatar with text and icon</Typography>
+              <div>
+                <List className='bg-accent' style={{ width: '350px' }}>
+                  <ListItem secondaryAction={'+'}>
+                    <ListItemAvatar>
+                      <Avatar>V</Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem secondaryAction={'+'}>
+                    <ListItemAvatar>
+                      <Avatar>R</Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                  <ListItem secondaryAction={'+'}>
+                    <ListItemAvatar>
+                      <Avatar>S</Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Single-line item' secondary='Secondary text' />
+                  </ListItem>
+                </List>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Selected ListItem
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SelectedListItem />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import List from 'wind-ui/List'
+    import ListItemButton from 'wind-ui/ListItemButton'
+    import ListItemIcon from 'wind-ui/ListItemIcon'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Divider from 'wind-ui/Divider'
+
+    export default function MyReactPage() {
+
+      const [selected, setSelected] = useState(1);
+
+      const handleListItemClick = (index) => {
+        setSelected(index)
+      }
+      
+      return (
+        <div className='flex items-center justify-center'>
+          <List className='bg-accent' style={{ width: '350px' }}>
+            <ListItemButton
+              selected={selected === 0}
+              onClick={() => handleListItemClick(0)}
+            >
+              <ListItemIcon>
+                {'Index'}
+              </ListItemIcon>
+              <ListItemText primary='Index' />
+            </ListItemButton>
+            <ListItemButton
+              selected={selected === 1}
+              onClick={() => handleListItemClick(1)}
+            >
+              <ListItemIcon>
+                {'Draft'}
+              </ListItemIcon>
+              <ListItemText primary='Drafts' />
+            </ListItemButton>
+            <Divider />
+            <ListItemButton
+              selected={selected === 2}
+              onClick={() => handleListItemClick(2)}
+            >
+              <ListItemText   primary='Trash'/>
+            </ListItemButton>
+            <ListItemButton
+              selected={selected === 3}
+              onClick={() => handleListItemClick(3)}
+            >
+              <ListItemText  primary='Spam' />
+            </ListItemButton>
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## List Controls
+
+### Checkbox
+A checkbox can either be a primary action or a secondary action.
+
+The checkbox is the primary action and the state indicator for the list item. The comment button is a secondary action and a separate target.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ControlList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemButton from 'wind-ui/ListItemButton'
+    import ListItemIcon from 'wind-ui/ListItemIcon'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Checkbox from 'wind-ui/Checkbox'
+
+    export default function MyReactPage() {
+
+      const [checked, setChecked] = useState([0]);
+
+      const handleToggle = (value) => {
+        const currentIndex = checked.indexOf(value);
+        const newChecked = [...checked];
+
+        if (currentIndex === -1) {
+          newChecked.push(value);
+        }
+        else {
+          newChecked.splice(currentIndex, 1);
+        }
+
+        setChecked(newChecked)
+      }
+      
+      return (
+        <div className='flex items-center justify-center'>
+          <List
+            style={{ width: '300px' }}
+            className='bg-accent'
+          >
+            {[0, 1, 2, 3].map((value) => {
+              return (
+                <ListItem
+                  secondaryAction={<IconButton>+</IconButton>}
+                  disablePadding
+                  key={value}
+                >
+                  <ListItemButton onClick={() => handleToggle(value)} dense>
+                    <ListItemIcon>
+                      <Checkbox checked={checked.includes(value)} />
+                    </ListItemIcon>
+                    <ListItemText primary={`List item ${value + 1}`} />
+                  </ListItemButton>
+                </ListItem>
+              )
+            })}
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+The checkbox is the secondary action for the list item and a separate target.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarControlledList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemButton from 'wind-ui/ListItemButton'
+    import ListItemAvatar from 'wind-ui/ListItemAvatar'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Checkbox from 'wind-ui/Checkbox'
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+
+      const [checked, setChecked] = useState([1]);
+
+      const handleToggle = (value) => {
+        const currentIndex = checked.indexOf(value);
+        const newChecked = [...checked];
+
+        if (currentIndex === -1) {
+          newChecked.push(value);
+        }
+        else {
+          newChecked.splice(currentIndex, 1);
+        }
+
+        setChecked(newChecked)
+      }
+      
+      return (
+        <div className='flex items-center justify-center'>
+          <List
+            style={{ width: '300px' }}
+            className='bg-accent'
+          >
+            {[0, 1, 2, 3].map((value) => {
+              return (
+                <ListItem
+                  secondaryAction={<Checkbox onChange={() => handleToggle(value)} checked={checked.includes(value)} />}
+                  disablePadding
+                  key={value}
+                >
+                  <ListItemButton dense>
+                    <ListItemAvatar>
+                      <Avatar />
+                    </ListItemAvatar>
+                    <ListItemText primary={`List item ${value + 1}`} />
+                  </ListItemButton>
+                </ListItem>
+              )
+            })}
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+
+### Switch
+The switch is the secondary action and a separate target.
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SettingsList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemIcon from 'wind-ui/ListItemIcon'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Avatar from 'wind-ui/Avatar'
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+
+      const [checked, setChecked] = useState('wifi');
+
+      const handleToggle = (value) => {
+        const currentIndex = checked.indexOf(value);
+        const newChecked = [...checked];
+
+        if (currentIndex === -1) {
+          newChecked.push(value);
+        }
+        else {
+          newChecked.splice(currentIndex, 1);
+        }
+
+        setChecked(newChecked)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <List style={{ width: '300px' }} className='bg-accent'>
+            <ListItem>
+              <ListItemIcon>
+                <Avatar />
+              </ListItemIcon>
+              <ListItemText primary='Photos' secondary='May 18, 2026' />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <Avatar />
+              </ListItemIcon>
+              <ListItemText primary='Work' secondary='May 20, 2026' />
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <Avatar />
+              </ListItemIcon>
+              <ListItemText primary='Vacation' secondary='May 25, 2026' />
+            </ListItem>
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Sticky Header
+Upon scrolling, subheaders remain pinned to the top of the screen until pushed off screen by the next subheader. This feature relies on CSS sticky positioning.
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <StickyHeader />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemText from 'wind-ui/ListItemText'
+    import ListSubheader from 'wind-ui/ListSubheader'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <List
+            style={{width: '100%', maxWidth: 360, position: 'relative', overflow: 'auto', maxHeight: '300px', '& ul': { padding: 0 },}}
+            subheader={<li />}
+            className='bg-accent'
+          >
+            {[0, 1, 2, 3, 4].map((sectionId) => (
+              <li key={`section-${sectionId}`}>
+                <ul>
+                  <ListSubheader>{`I'm sticky ${sectionId}`}</ListSubheader>
+                  {[0, 1, 2].map((item) => (
+                    <ListItem key={`item-${sectionId}-${item}`}>
+                      <ListItemText primary={`Item ${item}`} />
+                    </ListItem>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Gutterless List
+When rendering a list within a component that defines its own gutters, `ListItem` gutters can be disabled with `disableGutters`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <GutterlessList />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemText from 'wind-ui/ListItemText'
+    import IconButton from 'wind-ui/IconButton'
+
+    export default function MyReactPage() {  
+      return (
+        <div className='flex items-center justify-center'>
+          <List style={{ width: '300px' }} className='bg-accent'>
+            {[1, 2, 3].map((value) => (
+              <ListItem
+                key={value}
+                disableGutters
+                divider
+              >
+                <ListItemText primary={`List item ${value}`} />
+                <IconButton>
+                  +
+                </IconButton>
+              </ListItem>
+            ))}
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## List API
+API reference docs for the React List component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disablePadding</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, vertical padding is removed from list.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>subheader</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the subheader, normally `ListSubheader`.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## ListItem API
+API reference docs for the React ListItem component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>alignItems</Table.Td>
+      <Table.Td>`'center' | 'flex-start'`</Table.Td>
+      <Table.Td>`'center'`</Table.Td>
+      <Table.Td>Defines the align-items style property.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disablePadding</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, all padding is removed.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>selected</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, use to apply selected styling.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableGutters</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the left and right padding is removed.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>divider</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, a 1px light border is added to the bottom off the list item.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>secondaryAction</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The element to display at the end of ListItem.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## ListItemAvatar API
+API reference docs for the React ListItemAvatar component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## ListItemButton API
+API reference docs for the React ListItemButton component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>alignItems</Table.Td>
+      <Table.Td>`'center' | 'flex-start'`</Table.Td>
+      <Table.Td>`'center'`</Table.Td>
+      <Table.Td>Defines the align-items style property.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>selected</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, use to apply selected styling.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableGutters</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the left and right padding is removed.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>divider</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, a 1px light border is added to the bottom off the list item.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## ListItemIcon API
+API reference docs for the React ListItemIcon component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## ListItemText API
+API reference docs for the React ListItemText component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Alias for the `primary` prop.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>inset</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the children are indented. This should be used if there is no left avatar or left icon.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>primary</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The main content element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>secondary</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The secondary content element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>primaryTypographyProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>These props will be forwarded to the primary typography component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>secondaryTypographyProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>These props will be forwarded to the secondary typography component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## ListSubheader API
+API reference docs for the React ListSubheader component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary'`</Table.Td>
+      <Table.Td>`'default'`</Table.Td>
+      <Table.Td>The color of the component. It supports those those theme colors that make sense for this component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>inset</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the List Subheader is indented.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableGutters</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the List Subheader will not have gutters.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disablePadding</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, all padding is removed.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableSticky</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the List Subheader will not stick to the top during scroll.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

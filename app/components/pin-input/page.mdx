@@ -1,0 +1,148 @@
+import { Tabs, Table } from 'nextra/components'
+import PinInputField from '../../../src/demo/pinInput/PinInputField.jsx'
+import PinInputVariant from '../../../src/demo/pinInput/PinInputVariant.jsx'
+import PinInputSize from '../../../src/demo/pinInput/PinInputSize.jsx'
+import PinInputControlled from '../../../src/demo/pinInput/PinInputControlled.jsx'
+import PinInputValidation from '../../../src/demo/pinInput/PinInputValidation.jsx'
+
+# PinInput
+
+Used to capture a pin code or otp from the user.
+## Basic PinInput
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PinInputField />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import PinInput from 'wind-ui/PinInput'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <PinInput length={6} />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Input from 'wind-ui/Input'
+// or
+import { Input } from 'wind-ui'
+```
+```jsx
+<Input type="text" placeholder='Enter name' />
+```
+
+## Variants
+The `Input` comes with three variants: outlined(default), filled, standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PinInputVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Input type="text" variant="filled" placeholder="Filled" />
+          <Input type="text" variant="outlined" placeholder="Outlined" />
+          <Input type="text" variant="standard" placeholder="Standard" />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+For different size of Input like small, medium, large use `size` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PinInputSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col flex-wrap items-center justify-center gap-2'>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Input type="text" variant="filled" placeholder="Medium" size='md' />
+            <Input type="text" variant="filled" placeholder="Small" size='sm' />
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Input type="text" variant="outlined" placeholder="Medium" size='md' />
+            <Input type="text" variant="outlined" placeholder="Small" size='sm' />
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Input type="text" variant="standard" placeholder="Medium" size='md' />
+            <Input type="text" variant="standard" placeholder="Small" size='sm' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Controlled PinInput
+Used to capture a pin code or otp from the user.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PinInputControlled />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import PinInput from 'wind-ui/PinInput'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <PinInput length={6} />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## PinInput Validation
+The `error` prop toggles the error state. The `FormHelperText` can then be used to provide feedback to the user about the error.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PinInputValidation />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Input type="text" placeholder='Filled' variant='filled' error />
+          <Input type="text" placeholder='Outlined' variant='outlined' error />
+          <Input type="text" placeholder='Standard' variant='standard' error />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>

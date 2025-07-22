@@ -1,0 +1,101 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicBackdrop from '../../../src/demo/backdrop/BasicBackdrop.jsx'
+
+# Backdrop
+
+The Backdrop component narrows the user's focus to a particular element on the screen.
+
+In its simplest form, The Backdrop component will add a dimmed layer over your application.
+
+## Usage
+```jsx
+import Backdrop from 'wind-ui/Backdrop'
+// or
+import { Backdrop } from 'wind-ui'
+```
+```jsx
+<Backdrop open={true} />
+```
+
+## Basic Backdrop
+The demo below shows a basic Backdrop with a Circular Progress component in the foreground to indicate a loading state. After clicking Show Backdrop, you can click anywhere on the page to close it.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicBackdrop />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    "use client"
+
+    import React, { useState } from 'react'
+    import Backdrop from 'wind-ui/Backdrop'
+    import Button from 'wind-ui/Button'
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false)
+  
+      const handleOpen = () => {
+        setOpen(true)
+      }
+
+      const handleClose = () => {
+        alert("You clicked on backdrop")
+        setOpen(false)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button onClick={handleOpen} variant='filled'>Show Backdrop</Button>
+          <Backdrop open={open} onClick={handleClose}>
+            <CircularProgress />
+          </Backdrop>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Backdrop API
+API reference docs for the React Backdrop component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>invisible</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If true, the backdrop is invisible. It can be used when rendering a menu or a custom select component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

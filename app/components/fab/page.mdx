@@ -1,0 +1,282 @@
+---
+title: FAB
+---
+
+import { Tabs, Table } from 'nextra/components'
+import BasicFab from '../../../src/demo/fab/BasicFab.jsx'
+import FabDisabled from '../../../src/demo/fab/FabDisabled.jsx'
+import FabVariant from '../../../src/demo/fab/FabVariant.jsx'
+import FabColor from '../../../src/demo/fab/FabColor.jsx'
+import FabSize from '../../../src/demo/fab/FabSize.jsx'
+
+# Floating Action Button
+
+A Floating Action Button (FAB) performs the primary, or most common, action on a screen.
+
+A floating action button appears in front of all screen content, typically as a circular shape with an icon in its center.
+
+Only use a FAB if it is the most suitable way to present a screen's primary action. Only one component is recommended per screen to represent the most common action.
+
+## Basic Fab
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicFab />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Fab from 'wind-ui/Fab'
+    import { Heart, Pencil, Plus } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Fab color='primary'>
+            <Plus />
+          </Fab>
+          <Fab color='secondary'>
+            <Pencil />
+          </Fab>
+          <Fab disabled>
+            <Heart />
+          </Fab>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Fab from 'wind-ui/Fab'
+import { Plus } from 'lucide-react'
+// or
+import { Fab } from 'wind-ui'
+import { Plus } from 'lucide-react'
+```
+```jsx
+<Fab>
+  <Plus />
+</Fab>
+```
+
+## Disabled
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FabDisabled />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Fab from 'wind-ui/Fab'
+    import { Plus } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Fab>
+            <Plus />
+          </Fab>
+          <Fab disabled>
+            <Plus />
+          </Fab>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Variants
+FABs come in two types: circular, and extended.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FabVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Fab from 'wind-ui/Fab'
+    import { ChevronRight, Phone, Plus } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Fab variant='circular' color='primary'>
+            <Plus />
+          </Fab>
+          <Fab variant='circular' color='success'>
+            <Phone />
+          </Fab>
+          <Fab variant='extended'>
+            <ChevronRight />
+            Extended
+          </Fab>
+          <Fab variant='circular' disabled>
+            <Plus />
+          </Fab>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors to component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FabColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Fab from 'wind-ui/Fab'
+    import { Plus } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Fab color='default'>
+            <Plus />
+          </Fab>
+          <Fab color='primary'>
+            <Plus />
+          </Fab>
+          <Fab color='secondary'>
+            <Plus />
+          </Fab>
+          <Fab color='info'>
+            <Plus />
+          </Fab>
+          <Fab color='success'>
+            <Plus />
+          </Fab>
+          <Fab color='warning'>
+            <Plus />
+          </Fab>
+          <Fab color='error'>
+            <Plus />
+          </Fab>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+By default, the size is `lg`. Use the `size` prop for smaller floating action button.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FabSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Fab from 'wind-ui/Fab'
+    import { ChevronRight, Plus } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-2">
+            <Fab color='secondary' size='sm'>
+              <Plus />
+            </Fab>
+            <Fab color='secondary' size='md'>
+              <Plus />
+            </Fab>
+            <Fab color='secondary' size='lg'>
+              <Plus />
+            </Fab>
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <Fab color='primary' variant='extended' size='sm'>
+              <ChevronRight />
+              Navigate
+            </Fab>
+            <Fab color='primary' variant='extended' size='md'>
+              <ChevronRight />
+              Navigate
+            </Fab>
+            <Fab color='primary' variant='extended' size='lg'>
+              <ChevronRight />
+              Navigate
+            </Fab>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## FAB API
+API reference docs for the React FAB component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'circular' | 'extended'`</Table.Td>
+      <Table.Td>`'circular'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'lg'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`'bool'`</Table.Td>
+      <Table.Td>`'false'`</Table.Td>
+      <Table.Td>If true, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'default'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>href</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The URL to link to when the fab is cliked. If defined, an `a` element will be used as the root node.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>component</Table.Td>
+      <Table.Td>`elementType`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The component used for the root node. Either a string to use a HTML element or a component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

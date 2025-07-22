@@ -1,0 +1,338 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicCheckbox from '../../../src/demo/checkbox/BasicCheckbox.jsx'
+import DefaultCheckedCheckbox from '../../../src/demo/checkbox/DefaultCheckedCheckbox.jsx'
+import CheckboxSize from '../../../src/demo/checkbox/CheckboxSize.jsx'
+import CheckboxColor from '../../../src/demo/checkbox/CheckboxColor.jsx'
+import IconCheckbox from '../../../src/demo/checkbox/IconCheckbox.jsx'
+import IndeterminateIcon from '../../../src/demo/checkbox/IndeterminateIcon.jsx'
+import Controlled from '../../../src/demo/checkbox/Controlled.jsx'
+
+# Checkbox
+
+Checkboxs allow the user to select one or more items from a set.
+
+If you have multiple options appearing in a list, you can preserve space by using checkboxes instead of on/off switches. If you have a single option, avoid using a checkbox and use an on/off switch instead.
+
+## Basic Checkbox
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicCheckbox />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Checkbox from 'wind-ui/Checkbox'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Checkbox />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Checkbox from 'wind-ui/Checkbox'
+// or
+import { Checkbox } from 'wind-ui'
+```
+```jsx
+<Checkbox />
+```
+
+## Default Checked
+use the `defaultChecked` prop to ckeck Checkbox by default.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DefaultCheckedCheckbox />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Checkbox from 'wind-ui/Checkbox'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Checkbox />
+          <Checkbox defaultChecked />
+          <Checkbox disabled />
+          <Checkbox disabled defaultChecked />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+Use the `size` prop to change the size of the checkboxs.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CheckboxSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Checkbox from 'wind-ui/Checkbox'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-2">
+            <Checkbox defaultChecked color='primary' size='lg' />
+            <Checkbox defaultChecked color='primary' size='md' />
+            <Checkbox defaultChecked color='primary' size='sm' />
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <Checkbox defaultChecked color='secondary' size='lg' />
+            <Checkbox defaultChecked color='secondary' size='md' />
+            <Checkbox defaultChecked color='secondary' size='sm' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CheckboxColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Checkbox from 'wind-ui/Checkbox'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Checkbox defaultChecked color='primary'  />
+          <Checkbox defaultChecked color='secondary' />
+          <Checkbox defaultChecked color='info' />
+          <Checkbox defaultChecked color='warning' />
+          <Checkbox defaultChecked color='success' />
+          <Checkbox defaultChecked color='error' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Icon
+You can modifie the icon for checked using `checkedIcon` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconCheckbox />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers showLineNumbers
+    import React from 'react';
+    import Checkbox from 'wind-ui/Checkbox'
+    import { CheckCheck } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Checkbox defaultChecked />
+          <Checkbox defaultChecked checkedIcon={<CheckCheck />} />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Indeterminate
+A checkbox input can only have two states in a form: checked or unchecked. It either submits its value or doesn't. Visually, there are three states a checkbox can be in: checked, unchecked, or indeterminate.
+
+You can change the indeterminate icon using the `indeterminateIcon` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IndeterminateIcon />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Checkbox from 'wind-ui/Checkbox'
+    import FormControl from 'wind-ui/FormControl'
+    import Label from 'wind-ui/Label'
+
+    export default function MyReactPage() {
+
+      const [checked, setChecked] = useState([true, false]);
+
+      const handleChange1 = (event) => {
+        setChecked([event.target.checked, event.target.checked]);
+      };
+
+      const handleChange2 = (event) => {
+        setChecked([event.target.checked, checked[1]]);
+      };
+
+      const handleChange3 = (event) => {
+        setChecked([checked[0], event.target.checked]);
+      };
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <FormControl>
+            <Checkbox
+              checked={checked[0] && checked[1]}
+              indeterminate={checked[0] !== checked[1]}
+              onChange={handleChange1}
+            />
+            <Label htmlFor='parent'>Parent</Label>
+          </FormControl>
+          <div className="flex flex-col ml-4 gap-2">
+            <FormControl>
+              <Checkbox checked={checked[0]} onChange={handleChange2} />
+              <Label htmlFor='parent'>Parent</Label>
+            </FormControl>
+            <FormControl>
+              <Checkbox checked={checked[1]} onChange={handleChange3} />
+              <Label htmlFor='parent'>Parent</Label>
+            </FormControl>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Controlled
+You can control the checkbox with the `checked` and `onChange` props.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <Controlled />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react';
+    import Checkbox from 'wind-ui/Checkbox'
+
+    export default function MyReactPage() {
+
+      const [check, setCheck] = useState(false);
+
+      const handleCheck = () => {
+        setCheck(!check)
+      }
+
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Checkbox checked={check} onChange={handleCheck} />
+          <p>Checkbox is checked: {String(check)}</p>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Checkbox API
+API reference docs for the React Checkbox component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>checked</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is checked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultChecked</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The default checked state. Use when the component is not Controlled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>checkedIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display when the component is checked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>indeterminate</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component appears indeterminate. This does not set the native input element to indeterminate due to inconsistent behaviour across browsers, However, we set a `data-indeterminate` attribute on the `input`. </Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>indeterminateIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<Minus />`</Table.Td>
+      <Table.Td>The icon to display when the component is indeterminate.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onChange</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the state is changed. `function(event: React.changeEvent) => void`. You can pull out the new checked state by accessing `event.target.checked` (boolean).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>required</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the `input` element is required.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>value</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The value of the component. The DOM API casts this to a string. the browser uses "on" as the default value.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

@@ -1,0 +1,243 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicDivider from '../../../src/demo/divider/BasicDivider.jsx'
+import DividerVariant from '../../../src/demo/divider/DividerVariant.jsx'
+import DividerChildren from '../../../src/demo/divider/DividerChildren.jsx'
+import DividerOrientation from '../../../src/demo/divider/DividerOrientation.jsx'
+
+# Divider
+
+The divider component provides a thin, unobtrusive line for grouping elements to reinforce visual hierarchy.
+
+# Introduction
+The Wind-UI Divider component renders as a dark gray `<hr>` by default, and features several useful props for quick style adjustments.
+
+## Basic Divider
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicDivider />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Card from 'wind-ui/Card'
+    import CardContent from 'wind-ui/CardContent'
+    import Chip from 'wind-ui/Chip'
+    import Divider from 'wind-ui/Divider'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <Card style={{ maxWidth: 360 }}>
+            <CardContent>
+              <Typography gutterBottom variant='h5'>Toothbrush</Typography>
+              <Typography gutterBottom variant='h6'>$4.50</Typography>
+              <Typography gutterBottom variant='body2'>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati natus id, expedita culpa iure earum? Vel harum blanditiis accusantium illum!
+              </Typography>
+              <Divider />
+              <div>
+                <Typography gutterBottom variant='body2'>Select type</Typography>
+                <div className='flex gap-2'>
+                  <Chip color='primary' size='sm'>Soft</Chip>
+                  <Chip size='sm'>Medium</Chip>
+                  <Chip size='sm'>Hard</Chip>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Divider from 'wind-ui/Divider'
+// or
+import { Divider } from 'wind-ui'
+```
+```jsx
+<Divider />
+```
+
+## Variant
+The Divider component supports three variants: `fullwidth`(default), `inset`, and `middle`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DividerVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Divider from 'wind-ui/Divider'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <List className="w-full h-auto p-0 rounded-md border border-border border-solid bg-accent">
+            <ListItem>
+              <ListItemText primary='Full width variant below' />
+            </ListItem>
+            <Divider variant='fullwidth' />
+            <ListItem>
+              <ListItemText primary='Inset variant below' />
+            </ListItem>
+            <Divider variant='inset' />
+            <ListItem>
+              <ListItemText primary='Middle variant below' />
+            </ListItem>
+            <Divider variant='middle' />
+            <ListItem>
+              <ListItemText primary='List item' />
+            </ListItem>
+          </List>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Orientation
+Use the `orientation` prop to change the Divider from horizontal to vertical. When using vertical orientation, the Divider renders a `<div>` with the corresponding accessibility attributes instead of `<hr>`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DividerOrientation />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Card from 'wind-ui/Card'
+    import Divider from 'wind-ui/Divider'
+    import Typography from 'wind-ui/Typography'
+    import { AlignCenter, AlignLeft, AlignRight, Bold, Italic } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <Card variant='outlined' className='flex items-center justify-center gap-2 px-2 py-1'>
+            <Typography>Cut</Typography>
+            <Divider orientation='vertical' className='h-5' />
+            <Typography>Copy</Typography>
+            <Divider orientation='vertical' className='h-5' />
+            <Typography>Paste</Typography>
+            <Divider orientation='vertical' className='h-5' />
+            <Typography>Select All</Typography>
+          </Card>
+          <Card variant='outlined' className='flex items-center justify-center gap-2 px-2 py-1'>
+            <AlignLeft />
+            <AlignCenter />
+            <AlignRight />
+            <Divider orientation='vertical' className='h-5' />
+            <Bold />
+          </Card>
+          <Card variant='outlined' className='flex items-center justify-center gap-2 px-2 py-1'>
+            <Bold />
+            <Divider orientation='vertical' className='h-5' />
+            <Italic />
+          </Card>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## With children
+Use the `textAlign` prop to align elements that are wrapped by the Divider.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DividerChildren />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Divider from 'wind-ui/Divider'
+    import Chip from 'wind-ui/Chip'
+
+    export default function MyReactPage() {
+      return (
+        <div className='w-full text-center bg-accent border border-solid rounded-md p-4'>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium doloribus labore sequi, alias impedit vel.</p>
+          <Divider>Center</Divider>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium doloribus labore sequi, alias impedit vel.</p>
+          <Divider textAlign='start'>Left</Divider>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium doloribus labore sequi, alias impedit vel.</p>
+          <Divider textAlign='end'>Right</Divider>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium doloribus labore sequi, alias impedit vel.</p>
+          <Divider><Chip>Chip</Chip></Divider>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium doloribus labore sequi, alias impedit vel.</p>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Divider API
+API reference docs for the React Divider component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>light</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the divider will have a lighter color.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>orientation</Table.Td>
+      <Table.Td>`'horizontal' | 'vertical'`</Table.Td>
+      <Table.Td>`'horizontal'`</Table.Td>
+      <Table.Td>The component orientation.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>textAlign</Table.Td>
+      <Table.Td>`'center' | 'start' | 'end'`</Table.Td>
+      <Table.Td>`center`</Table.Td>
+      <Table.Td>The text alignment.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'fullwidth' | 'middle' | 'inset'`</Table.Td>
+      <Table.Td>`'fullwidth'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>thickness</Table.Td>
+      <Table.Td>`'thin' | 'normal' | 'thick'`</Table.Td>
+      <Table.Td>`thin`</Table.Td>
+      <Table.Td>The thickness of the divider component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

@@ -1,0 +1,889 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicInputField from '../../../src/demo/input/BasicInputField.jsx'
+import InputVariant from '../../../src/demo/input/InputVariant.jsx'
+import FormProps from '../../../src/demo/input/FormProps.jsx'
+import InputSize from '../../../src/demo/input/InputSize.jsx'
+import InputFullwidth from '../../../src/demo/input/InputFullwidth.jsx'
+import InputColor from '../../../src/demo/input/InputColor.jsx'
+import InputValidation from '../../../src/demo/input/InputValidation.jsx'
+import InputFormHelpertext from '../../../src/demo/input/InputFormHelpertext.jsx'
+import InputFormHelpertextError from '../../../src/demo/input/InputFormHelpertextError.jsx'
+import InputFormControll from '../../../src/demo/input/InputFormControll.jsx'
+import InputControlled from '../../../src/demo/input/InputControlled.jsx'
+import InputAddornments from '../../../src/demo/input/InputAddornments.jsx'
+import InputLeadingTailingIcons from '../../../src/demo/input/InputLeadingTailingIcons.jsx'
+import TextareaField from '../../../src/demo/input/TextareaField.jsx'
+
+# Input
+
+Input fields allow users to enter text into a UI. They typically appear in forms and dialogs.
+
+## Basic Input
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicInputField />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <Input type="text" placeholder='Basic input' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Input from 'wind-ui/Input'
+// or
+import { Input } from 'wind-ui'
+```
+```jsx
+<Input type="text" placeholder='Enter name' />
+```
+
+## Variants
+The `Input` comes with three variants: outlined(default), filled, standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Input type="text" variant="filled" placeholder="Filled" />
+          <Input type="text" variant="outlined" placeholder="Outlined" />
+          <Input type="text" variant="standard" placeholder="Standard" />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Form props
+Standard form attributes are supported, for example required, disabled, type, etc.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FormProps />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import FormControl from 'wind-ui/FormControl'
+    import FormHelperText from 'wind-ui/FormHelperText'
+    import Input from 'wind-ui/Input'
+    import Label from 'wind-ui/Label'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl>
+              <Label htmlFor="fname" required>First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Required'
+                required
+                variant='standard'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="fname" disabled>First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard disabled'
+                disabled
+                variant='standard'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                type='password'
+                placeholder='Password'
+                variant='standard'
+                id="password"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Read only</Label>
+              <Input
+                type='text'
+                placeholder='Read only'
+                defaultValue="Read only"
+                readOnly
+                variant='standard'
+                id="readonly"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Search</Label>
+              <Input
+                type='search'
+                placeholder='search'
+                variant='standard'
+                id="search"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Helper Text</Label>
+              <Input
+                type='text'
+                placeholder='Password'
+                id="helpertext"
+                defaultValue="Default Value"
+                variant='standard'
+              />
+              <FormHelperText>Helper text</FormHelperText>
+            </FormControl>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl>
+              <Label htmlFor="fname" required>First name</Label>
+              <Input
+                type='text'
+                placeholder='Outlined Required'
+                required
+                id="fname"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="fname" disabled>First name</Label>
+              <Input
+                type='text'
+                placeholder='Outlined disabled'
+                disabled
+                id="fname"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                type='password'
+                placeholder='Password'
+                id="password"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Read only</Label>
+              <Input
+                type='text'
+                placeholder='Read only'
+                defaultValue="Read only"
+                readOnly
+                variant='outlined'
+                id="readonly"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Search</Label>
+              <Input
+                type='search'
+                placeholder='search'
+                variant='outlined'
+                id="search"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Helper Text</Label>
+              <Input
+                type='text'
+                placeholder='Password'
+                id="helpertext"
+                defaultValue="Default Value"
+                variant='outlined'
+              />
+              <FormHelperText>Helper text</FormHelperText>
+            </FormControl>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl>
+              <Label htmlFor="fname" required>First name</Label>
+              <Input
+                type='text'
+                placeholder='Filled Required'
+                variant='filled'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="fname" disabled>First name</Label>
+              <Input
+                type='text'
+                placeholder='Filled disabled'
+                disabled
+                variant='filled'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Password</Label>
+              <Input
+                type='password'
+                placeholder='Password'
+                variant='filled'
+                id="password"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Read only</Label>
+              <Input
+                type='text'
+                placeholder='Read only'
+                defaultValue="Read only"
+                readOnly
+                variant='filled'
+                id="readonly"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Search</Label>
+              <Input
+                type='search'
+                placeholder='search'
+                variant='filled'
+                id="search"
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="password">Helper Text</Label>
+              <Input
+                type='text'
+                placeholder='Password'
+                id="helpertext"
+                defaultValue="Default Value"
+                variant='filled'
+              />
+              <FormHelperText>Helper text</FormHelperText>
+            </FormControl>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+For different size of Input like small, medium, large use `size` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col flex-wrap items-center justify-center gap-2'>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Input type="text" variant="filled" placeholder="Medium" size='md' />
+            <Input type="text" variant="filled" placeholder="Small" size='sm' />
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Input type="text" variant="outlined" placeholder="Medium" size='md' />
+            <Input type="text" variant="outlined" placeholder="Small" size='sm' />
+          </div>
+          <div className='flex flex-wrap items-center justify-center gap-2'>
+            <Input type="text" variant="standard" placeholder="Medium" size='md' />
+            <Input type="text" variant="standard" placeholder="Small" size='sm' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Full-width
+`fullwidth` can be used to make the input take up the full width of its container.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputFullwidth />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center gap-2 w-full">
+          <Input type="text" placeholder='Medium' variant='filled' size='md' fullwidth />
+          <Input type="text" placeholder='Small' variant='filled' size='sm' fullwidth />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+The `color` prop changes the highlight color of the text field when focused.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-wrap items-center justify-center gap-2'>
+          <div className="flex flex-wrap items-center gap-2">
+            <Input type="text" placeholder='Outlined primary' variant='outlined' color='primary' />
+            <Input type="text" placeholder='Filled secondary' variant='filled' color='secondary' />
+            <Input type="text" placeholder='Standard info' variant='standard' color='info' />
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <Input type="text" placeholder='Outlined warning' variant='outlined' color='warning' />
+            <Input type="text" placeholder='Filled success' variant='filled' color='success' />
+            <Input type="text" placeholder='Standard error' variant='standard' color='error' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Input Validation
+The `error` prop toggles the error state. The `FormHelperText` can then be used to provide feedback to the user about the error.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputValidation />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import FormControl from 'wind-ui/FormControl'
+    import FormHelperText from 'wind-ui/FormHelperText'
+    import Input from 'wind-ui/Input'
+    import Label from 'wind-ui/Label'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Error'
+                defaultValue="Default Value"
+                variant='standard'
+                error
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Error with helper text'
+                defaultValue="Default Value"
+                variant='standard'
+                error
+              />
+              <FormHelperText error>Incorrect entry.</FormHelperText>
+            </FormControl>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Error'
+                defaultValue="Default Value"
+                variant='filled'
+                error
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Error with helper text'
+                defaultValue="Default Value"
+                variant='filled'
+                error
+              />
+              <FormHelperText error>Incorrect entry.</FormHelperText>
+            </FormControl>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Error'
+                defaultValue="Default Value"
+                error
+              />
+            </FormControl>
+            <FormControl>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Error with helper text'
+                defaultValue="Default Value"
+                error
+              />
+              <FormHelperText error>Incorrect entry.</FormHelperText>
+            </FormControl>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Helper Text
+Pair the `Input` with `FormHelperText` component to add helper text for users to better understand.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputFormHelpertext />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Input from 'wind-ui/Input'
+    import FormHelperText from 'wind-ui/FormHelperText'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <div className="flex flex-col">
+            <Input type="text" placeholder='Outlined' variant='outlined' />
+            <FormHelperText>Helper text</FormHelperText>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Helper Text with Error
+Use `error` prop if you want helpertext to be displayed in an error state.
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputFormHelpertextError />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Input from 'wind-ui/Input'
+    import FormHelperText from 'wind-ui/FormHelperText'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-col">
+            <Input type="text" placeholder='Filled' variant='filled' error />
+            <FormHelperText error>Helper text</FormHelperText>
+          </div>
+          <div className="flex flex-col">
+            <Input type="text" placeholder='Outlined' variant='outlined' error />
+            <FormHelperText error>Helper text</FormHelperText>
+          </div>
+          <div className="flex flex-col">
+            <Input type="text" placeholder='Standard' variant='standard' error />
+            <FormHelperText error>Helper text</FormHelperText>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## FormControl
+Provides context such as variant/color/size/error/required/disabled/fullwidth for form inputs. Relying on the context provides high flexibility and ensures that the state always stays consistent across the children of the FormControl.
+
+This context is used by following components:
+- Label
+- FormHelperText
+- Input
+- PinInput
+- Textarea
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputFormControll />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import FormControl from 'wind-ui/FormControl'
+    import FormHelperText from 'wind-ui/FormHelperText'
+    import Input from 'wind-ui/Input'
+    import Label from 'wind-ui/Label'
+    
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl variant='standard' required>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard Required'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl variant='standard' disabled>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Standard disabled'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl variant='standard' error>
+              <Label htmlFor="password">Helper Text</Label>
+              <Input
+                type='text'
+                placeholder='Password'
+                id="helpertext"
+                defaultValue="Default Value"
+              />
+              <FormHelperText>Helper text</FormHelperText>
+            </FormControl>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl variant='outlined' required>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Outlined Required'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl variant='outlined' disabled>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Outlined disabled'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl variant='outlined' error>
+              <Label htmlFor="password">Helper Text</Label>
+              <Input
+                type='text'
+                placeholder='Password'
+                id="helpertext"
+                defaultValue="Default Value"
+                variant='outlined'
+              />
+              <FormHelperText>Helper text</FormHelperText>
+            </FormControl>
+          </div>
+          <div className="flex flex-wrap justify-center gap-2">
+            <FormControl variant='filled' required>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Filled Required'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl variant='filled' disabled>
+              <Label htmlFor="fname">First name</Label>
+              <Input
+                type='text'
+                placeholder='Filled disabled'
+                id="fname"
+              />
+            </FormControl>
+            <FormControl variant='filled' error>
+              <Label htmlFor="password">Helper Text</Label>
+              <Input
+                type='text'
+                placeholder='Password'
+                id="helpertext"
+                defaultValue="Default Value"
+              />
+              <FormHelperText>Helper text</FormHelperText>
+            </FormControl>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Uncontrolled vs. Controlled
+The component can be controlled or uncontrolled.
+
+- A component is controlled when it's managed by its parent using props.
+- A component is uncontrolled when it's managed by its own local state.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputControlled />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Input from 'wind-ui/Input'
+    import FormHelperText from 'wind-ui/FormHelperText'
+
+    export default function MyReactPage() {
+
+      const [value, setValue] = useState('');
+
+      const handleChange = (event) => {
+        setValue(event.target.value);
+      };
+
+      return (
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Input type="text" placeholder='Controlled' value={value} onChange={handleChange} />
+          <Input type="text" placeholder='Uncontrolled' defaultValue='foo' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Input Addornment
+Use the `InputGroup` and `InputAdornment` components to add an addon to the input.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputAddornments />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Input from 'wind-ui/Input'
+    import InputGroup from 'wind-ui/InputGroup'
+    import InputAdornment from 'wind-ui/InputAdornment'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <InputGroup className='h-12'>
+            <InputAdornment>
+              https://
+            </InputAdornment>
+            <Input type="text" placeholder='Default Textfield' variant='outlined' />
+            <InputAdornment>
+              .com
+            </InputAdornment>
+          </InputGroup>
+          <InputGroup className='h-12'>
+            <InputAdornment>
+              +91
+            </InputAdornment>
+            <Input type="text" placeholder='Phone number' variant='outlined' />
+          </InputGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Leading and Tailing Icons
+Use the `leadingIcon` and `tailingIcon` to add icons to the start and end of the input.
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <InputLeadingTailingIcons />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Input from 'wind-ui/Input'
+    import { Eye, EyeOff, Phone } from 'lucide-react'
+
+    export default function MyReactPage() {
+
+      const [inputType, setInputType] = useState(false);
+      
+      const handleInputTypeChange = () => {
+        setInputType(!inputType);
+      }
+
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Input type="text" leadingIcon={<Phone />} placeholder='Mobile number' variant='outlined' />
+          <Input type={inputType ? "text" : "password"} placeholder='Password' variant='outlined' tailingIcon={inputType ? <Eye onClick={() => handleInputTypeChange()} className='cursor-pointer' /> : <EyeOff onClick={() => handleInputTypeChange()} className='cursor-pointer' />} />
+          <Input type="text" leadingIcon={'$'} tailingIcon={'USD'} placeholder='0.00' variant='outlined' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Textarea
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <TextareaField />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Textarea from 'wind-ui/Textarea'
+
+    export default function MyReactPage() {
+      return (
+        <Textarea placeholder='Textarea' fullwidth variant='filled' />
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Input API
+API reference docs for the React Input componenet.
+
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>type</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Type of the input element. It should be a valid HTML5 input type.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'filled' | 'outlined' | 'standard'`</Table.Td>
+      <Table.Td>`'outlined'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the componenet.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>fullwidth</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the input will take up the full width of its container.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>autoFocus</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the input element is focused during the first mount.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultValue</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The default value. Use when the component is not controlled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>error</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the input will indicate an error.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onChange</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the state is changed. <br />Signature:<br /> `function(event: React.changeEvent) => void`. You can pull out the new value by accessing event.target.value (string).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>placeholder</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The short hint displayed in the input before the user enters a value.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>readOnly</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>It prevents the user from changing the value of the field (not from interacting with the field).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>required</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the `input` element is required.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>value</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The value of the input element, required for a controlled component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>leadingIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Icon to display at begin of an input.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>tailingIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Icon to display at end of an input.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

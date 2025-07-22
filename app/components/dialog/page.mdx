@@ -1,0 +1,689 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicDialog from '../../../src/demo/dialog/BasicDialog.jsx'
+import AlertDialog from '../../../src/demo/dialog/AlertDialog.jsx'
+import FormDialog from '../../../src/demo/dialog/FormDialog.jsx'
+import CustomizeDialog from '../../../src/demo/dialog/CustomizeDialog.jsx'
+import FullScreenDialog from '../../../src/demo/dialog/FullScreenDialog.jsx'
+import MaxWidthDialog from '../../../src/demo/dialog/MaxWidthDialog.jsx'
+import ScrollDialog from '../../../src/demo/dialog/ScrollDialog.jsx'
+
+# Dialog
+
+Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.
+
+A Dialog is a type of model window that appears in front of app content to provie critical information or ask for a decision. Dialogs disable all app functionality when they appear, and rmain on screen until confirmed, dismissed, or a required action has been taken.
+
+Dialogs are purposefully interruptive, so they should be used sparingly.
+
+## Introduction
+Dialogs are implemented using a collection of related components:
+
+- Dialog: The parent component that renders the modal.
+- Dialog Title: a wrapper used for the title of a Dialog.
+- Dialog Actions: an optional container for Dialog's Buttons.
+- Dialog Content: an optional container for displaying the Dialog's content
+
+## Usage
+```jsx
+import Dialog from 'wind-ui/Dialog'
+import DialogTitle from 'wind-ui/DialogTitle'
+import DialogContent from 'wind-ui/DialogContent'
+import DialogActions from 'wind-ui/DialogActions'
+// or
+import { Dialog, DialogTitle, DialogContent, DialogActions } from 'wind-ui'
+```
+```jsx
+<Dialog open={true}>
+  <DialogTitle>Dialog Title</DialogTitle>
+  <DialogContent dividers>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam ipsa minus harum animi voluptates odio? Nulla odio, commodi id eligendi neque maxime illum. Est similique tempore rerum incidunt deserunt assumenda. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi sunt ullam libero illo optio excepturi amet commodi id dolor? Dicta exercitationem suscipit officia nisi! Fugit pariatur temporibus explicabo! Error, reiciendis.</p>
+  </DialogContent>
+  <DialogActions>
+    <Button>Subscribe</Button>
+    <Button>Cancel</Button>
+  </DialogActions>
+</Dialog>
+```
+
+## Basic Dialog
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Avatar from 'wind-ui/Avatar'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogTitle from 'wind-ui/DialogTitle'
+    import List from 'wind-ui/List'
+    import ListItem from 'wind-ui/ListItem'
+    import ListItemAvatar from 'wind-ui/ListItemAvatar'
+    import ListItemButton from 'wind-ui/ListItemButton'
+    import ListItemText from 'wind-ui/ListItemText'
+    import Typography from 'wind-ui/Typography'
+    import { Plus } from 'lucide-react';
+
+    export default function MyReactPage() {
+
+      const emails = ['username@gmail.com', 'user117@gmail.com'];
+  
+      const [open, setOpen] = useState(false)
+      const [selectedValue, setSelectedValue] = useState(emails[1])
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+      
+      const handleItemClick = (email) => {
+        setSelectedValue(email)
+        setOpen(false);
+      }
+
+      return (
+        <div className='flex flex-col items-center justify-center gap-4'>
+          <Typography variant='subtitle1'>Seleted: {selectedValue}</Typography>
+          <Button variant='filled' onClick={handleClick}>Open simple dialog</Button>
+          <Dialog open={open} onClose={handleCLose}>
+            <DialogTitle>Set backup account</DialogTitle>
+              <List>
+                {emails.map((email) => (
+                  <ListItem disablePadding key={email}>
+                    <ListItemButton onClick={() => handleItemClick(email)} className='gap-2'>
+                      <ListItemAvatar>
+                        <Avatar className='bg-primary' />
+                      </ListItemAvatar>
+                      <ListItemText primary={email} />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+                <ListItem disablePadding>
+                  <ListItemButton onClick={handleCLose} className='gap-2'>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <Plus />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary='Add account' />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Alert Dialog
+Alert are urgent interruptions, requiring acknowledgement, that inform the user about a situation.
+
+Most alerts don't need titles. They summarize a decision in a sentence or two by either:
+
+- Asking a question (for example "Delete this conversation?")
+- Making  statement related to the action buttons
+
+Use title bar alerts only for high-risk situations, such as the potential loss of connectivity. Users should be able to understand the choices based on the title and button text alone.
+
+If a title is required:
+
+- Use a clear question or statement with an explanation in the content area, such as "Erase USB storage?".
+- Avoid apologies, ambiguity, or questions, such as "Warning!" or "Are you sure?"
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AlertDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogActions from 'wind-ui/DialogActions'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogTitle from 'wind-ui/DialogTitle'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='filled' onClick={handleClick}>Open alert dialog</Button>
+          <Dialog open={open} onClose={handleCLose}>
+            <DialogTitle>Use Google's location services?</DialogTitle>
+            <DialogContent>
+              Let Google help apps detemine location. This means sening anonymous location data to Google, even no apps are running.
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCLose}>Disagree</Button>
+              <Button onClick={handleCLose}>Agree</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Form dialogs
+Form dialogs allow users to fill out form fields within a dialog. For example, if your site prompts for potential subscribers to fill in their email address, they can fill out the email field and touch 'Subscribe'.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FormDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogActions from 'wind-ui/DialogActions'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogTitle from 'wind-ui/DialogTitle'
+    import Input from 'wind-ui/Input'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='filled' onClick={handleClick}>Open form dialog</Button>
+          <Dialog open={open} onClose={handleCLose}>
+            <DialogTitle>Subscription</DialogTitle>
+            <DialogContent>
+              <p>To subscribe to this website, please enter your email address here. We will send updates occasionally.</p>
+              <Input placeholder='Email address' fullwidth variant='standard' required autoFocus />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCLose}>Cancel</Button>
+              <Button onClick={handleCLose}>Subscribe</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Customization
+Here is an example of customizing the component.
+
+The dialog has a close button added to aid usablility.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CustomizeDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogActions from 'wind-ui/DialogActions'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogTitle from 'wind-ui/DialogTitle'
+    import IconButton from 'wind-ui/IconButton'
+    import Typography from 'wind-ui/Typography'
+    import { XIcon } from 'lucide-react';
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='filled' onClick={handleClick}>Open dialog</Button>
+          <Dialog open={open} onClose={handleCLose}>
+            <DialogTitle>Dialog title</DialogTitle>
+            <IconButton onClick={handleCLose} className='absolute right-4 top-4'>
+              <XIcon />
+            </IconButton>
+            <DialogContent dividers>
+              <Typography gutterBottom>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi reiciendis nihil pariatur explicabo doloribus tempore, rem quaerat, assumenda minima est exercitationem delectus dicta suscipit, quidem fugiat consectetur quod officia eos.</Typography>
+              <Typography gutterBottom>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi reiciendis nihil pariatur explicabo doloribus tempore, rem quaerat, assumenda minima est exercitationem delectus dicta suscipit, quidem fugiat consectetur quod officia eos.</Typography>
+              <Typography gutterBottom>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi reiciendis nihil pariatur explicabo doloribus tempore, rem quaerat, assumenda minima est exercitationem delectus dicta suscipit, quidem fugiat consectetur quod officia eos.</Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCLose}>Save changes</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Full-screen dialogs
+Here is an example of customizing the component.
+
+The dialog has a close button added to aid usablility.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <FullScreenDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogActions from 'wind-ui/DialogActions'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogTitle from 'wind-ui/DialogTitle'
+    import IconButton from 'wind-ui/IconButton'
+    import Typography from 'wind-ui/Typography'
+    import { XIcon } from 'lucide-react';
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+  
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='filled' onClick={handleClick}>Open full screen dialog</Button>
+          <Dialog fullscreen open={open} onClose={handleCLose}>
+            <DialogTitle>Dialog title</DialogTitle>
+            <IconButton onClick={handleCLose} className='absolute right-4 top-4'>
+              <XIcon />
+            </IconButton>
+            <DialogContent dividers>
+              <Typography gutterBottom>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi reiciendis nihil pariatur explicabo doloribus tempore, rem quaerat, assumenda minima est exercitationem delectus dicta suscipit, quidem fugiat consectetur quod officia eos.</Typography>
+              <Typography gutterBottom>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi reiciendis nihil pariatur explicabo doloribus tempore, rem quaerat, assumenda minima est exercitationem delectus dicta suscipit, quidem fugiat consectetur quod officia eos.</Typography>
+              <Typography gutterBottom>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi reiciendis nihil pariatur explicabo doloribus tempore, rem quaerat, assumenda minima est exercitationem delectus dicta suscipit, quidem fugiat consectetur quod officia eos.</Typography>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCLose}>Cancel</Button>
+              <Button onClick={handleCLose}>Save changes</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Optional sizes
+You can set a dialog maximum width by using the `maxWidth` enumerable in combintion with the `fullwidth` boolean. When the `fullwidth` prop is true, the dialog will adapt based on the maxWidth value.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <MaxWidthDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogActions from 'wind-ui/DialogActions'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogTitle from 'wind-ui/DialogTitle'
+    import FormControl from 'wind-ui/FormControl'
+    import MenuItem from 'wind-ui/MenuItem'
+    import Select from 'wind-ui/Select'
+    import Switch from 'wind-ui/Switch'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+      const [maxWidth, setMaxWidth] = useState('sm')
+      const [fullWidth, setFullWidth] = useState(false)
+        
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+
+      const handlMaxWidthChange = (value) => {
+        setMaxWidth(value)
+      }
+
+      const handlFullWidthChange = (event) => {
+        setFullWidth(event.target.checked)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button variant='filled' onClick={handleClick}>Open dialog</Button>
+          <Dialog open={open} fullwidth={fullWidth} maxwidth={maxWidth} onClose={handleCLose}>
+            <DialogTitle>Optional sizes</DialogTitle>
+            <DialogContent>
+              <p>You can set my maximum width and whether to adapt or not.</p>
+              <div className='flex flex-col items-center justify-center gap-4'>
+                <FormControl>
+                  <Select value={maxWidth} autoFocus onValueChange={handlMaxWidthChange}>
+                    <MenuItem value='false'>false</MenuItem>
+                    <MenuItem value='xs'>xs</MenuItem>
+                    <MenuItem value='sm'>sm</MenuItem>
+                    <MenuItem value='md'>md</MenuItem>
+                    <MenuItem value='lg'>lg</MenuItem>
+                    <MenuItem value='xl'>xl</MenuItem>
+                  </Select>
+                </FormControl>
+                <FormControl>
+                  <Switch variant='standard' checked={fullWidth} onChange={handlFullWidthChange} />
+                  <Typography>Full width</Typography>
+                </FormControl>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCLose}>Close</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Scrolling log content
+When dialogs belong too long for the user's viewport or device, they scroll.
+
+- `scroll=paper` the content of the dialog scrolls within the paper element.
+- `scroll=body` the content of the dialog scrolls within the body element
+
+Try the demo below to see what we mean:
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ScrollDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogActions from 'wind-ui/DialogActions'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogTitle from 'wind-ui/DialogTitle'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+      const [scroll, setScroll] = useState('inside');
+        
+      const handleClick = (scrollType) => {
+        setOpen(true);
+        setScroll(scrollType)
+      }
+
+      const handleCLose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Button variant='filled' onClick={() => handleClick('inside')}>Scroll inside</Button>
+          <Button variant='filled' onClick={() => handleClick('outside')}>Scroll outside</Button>
+          <Dialog open={open} scroll={scroll} onClose={handleCLose}>
+            <DialogTitle>Subscribe</DialogTitle>
+            <DialogContent dividers={scroll === 'inside'}>
+              {[...new Array(50)].map(() => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, tempora cupiditate numquam non velit ipsam laboriosam aut harum doloribus aperiam nesciunt distinctio in corrupti sit vitae itaque omnis assumenda porro.',).join('\n')}
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleCLose}>Close</Button>
+              <Button onClick={handleCLose}>Subscribe</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Dialog API
+API reference docs for the React Dialog component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Dialog children, usually the included sub-components.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableEscapeKeyDown</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, hitting escape will not fire the `onClose` callback.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>fullscreen</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the dialog is full-screen.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>fullwidth</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If true, the dialog stretches to `maxWidth`. Notice that the dialog width grow is limited by the default margin.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>maxWidth</Table.Td>
+      <Table.Td>`'xl' | 'lg' | 'md' | 'sm' | 'xs' | 'false'`</Table.Td>
+      <Table.Td>`'sm'`</Table.Td>
+      <Table.Td>Determine the max-width of the dialog. The dialog width grows with the size of the screen. Set to `false` to disable `maxWidth`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onClose</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be closed. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onBackdropClick</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>A function is triggred if provided when backdrop is been clicked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>BackdropProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Props applied to the `Backdrop` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>hideBackdrop</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the backdrop is not rendered.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableScrollLock</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>Disable the scroll lock behavior.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>scroll</Table.Td>
+      <Table.Td>`'inside' | 'outside'`</Table.Td>
+      <Table.Td>`'inside'`</Table.Td>
+      <Table.Td>Determine the container for scrolling the dialog.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## DialogActions API
+API reference docs for the React DialogActions component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableSpacing</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the actions do not have additional margin.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## DialogContent API
+API reference docs for the React DialogContent component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>dividers</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>Display the top and bottom dividers.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## DialogTitle API
+API reference docs for the React DialogTitle component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

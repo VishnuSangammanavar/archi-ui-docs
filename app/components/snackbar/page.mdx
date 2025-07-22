@@ -1,0 +1,343 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicSnackbar from '../../../src/demo/snackbar/BasicSnackbar.jsx'
+import AutohideSnackbar from '../../../src/demo/snackbar/AutohideSnackbar.jsx'
+import ActionSnackbar from '../../../src/demo/snackbar/ActionSnackbar.jsx'
+import AlertSnackbar from '../../../src/demo/snackbar/AlertSnackbar.jsx'
+import PlaceSnackbar from '../../../src/demo/snackbar/PlaceSnackbar.jsx'
+
+# Snackbar
+
+Snackbar (also known as toasts) are used for brief notifications of processes that have been or will be performed.
+
+The Snackbar component appears themporarily and floats above the UI to provide users with(non-critical) updates on an app's processes. The demo below inspired by Google keep, shows a basic Snackbar with a text element and two actions:
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicSnackbar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Snackbar from 'wind-ui/Snackbar'
+    import Button from 'wind-ui/Button'
+    import IconButton from 'wind-ui/IconButton'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleClose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <React.Fragment>
+          <Button variant='filled' onClick={handleClick}>open snackbar</Button>
+          <Snackbar
+            open={open}
+            message='Note archived'
+            onClose={handleClose}
+            action={
+              <React.Fragment>
+                <Button color='secondary' size='sm' onClick={handleClose}>undo</Button>
+                <IconButton size='sm' onClick={handleClose}>X</IconButton>
+              </React.Fragment>
+            }
+            autoHideDuration={6000}
+          />
+        </React.Fragment>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Snackbar from 'wind-ui/Snackbar'
+// or
+import { Snackbar } from 'wind-ui'
+```
+```jsx
+<Snackbar
+  message='Basic Snackbar'
+  open={true}
+/>
+```
+
+## Automatic dismiss
+Use the `autoHideDuration` prop to  automatically trigger the Snackbar's `onClose` function after a set period of time (in milliseconds).
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AutohideSnackbar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Snackbar from 'wind-ui/Snackbar'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false)
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleClose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <React.Fragment>
+          <Button variant='filled' onClick={handleClick}>open snackbar</Button>
+          <Snackbar
+            open={open}
+            message='This snackbar will be dismissed in 5 seconds'
+            onClose={handleClose}
+            autoHideDuration={5000}
+          />
+        </React.Fragment>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Customization
+
+### Use with Alerts
+Use the Alert inside a Snackbar for messages that communicate a certain severity.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AlertSnackbar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Snackbar from 'wind-ui/Snackbar'
+    import Alert from 'wind-ui/Alert'
+    import AlertTitle from 'wind-ui/AlertTitle'
+    import AlertDescription from 'wind-ui/AlertDescription'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false)
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleClose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <React.Fragment>
+          <Button variant='filled' onClick={handleClick}>open snackbar</Button>
+          <Snackbar
+            open={open}
+            autoHideDuration={6000}
+          >
+            <Alert severity='success' variant='filled' onClose={handleClose}>
+              <AlertTitle>Success</AlertTitle>
+              <AlertDescription>This is success alert inside a snackbar!</AlertDescription>
+            </Alert>
+          </Snackbar>
+        </React.Fragment>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Snackbar with Action
+To add the actions to the snackbar use `action` prop. If want to add multiple actions, use `React.Fragment`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ActionSnackbar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Snackbar from 'wind-ui/Snackbar'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false)
+
+      const handleClick = () => {
+        setOpen(true);
+      }
+
+      const handleClose = () => {
+        setOpen(false);
+      }
+
+      return (
+        <React.Fragment>
+          <Button variant='filled' color='secondary' onClick={handleClick}>Upload data</Button>
+          <Snackbar
+            message="Uploaded successfully!"
+            open={open}
+            action={
+              <React.Fragment>
+                <Button color='secondary' size='sm' onClick={handleClose}>Undo</Button>
+                <Button color='primary' size='sm' onClick={handleClose}>Cancle</Button>
+              </React.Fragment>
+            }
+          />
+        </React.Fragment>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Positions
+Use the `anchorOrigin` prop to control the snackbar's position on the screen.
+
+When displaying multiple consecutive snackbars using a single parent-rendered `<Snackbar />`, add the `key` prop to ensure independent treatment of each message. For instance, use `<Snackbar key={message} />`. Otherwise, messages might update in place, and features like `autoHideDuration` could be affected.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PlaceSnackbar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Snackbar from 'wind-ui/Snackbar'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      
+      const [state, setState] = useState({
+        open: false,
+        vertical: 'bottom',
+        horizontal: 'left',
+        message: '',
+      });
+
+      const { vertical, horizontal, open, message } = state;
+
+      const handleClick = (newState) => {
+        setState({...newState, open: true});
+      }
+
+      const handleClose = () => {
+        setState({...state, open: false});
+      }
+
+      return (
+        <React.Fragment>
+          <div className='flex flex-col items-center justify-center gap-2'>
+            <div className='flex flex-wrap items-center justify-center gap-2'>
+              <Button variant='filled' color='primary' onClick={() => handleClick({vertical: 'bottom', horizontal: 'left', message: 'Bottom left'})}>Bottom left</Button>
+              <Button variant='filled' color='secondary' onClick={() => handleClick({vertical: 'bottom', horizontal: 'center', message: 'Bottom center'})}>Bottom Center</Button>
+              <Button variant='filled' color='info' onClick={() => handleClick({vertical: 'bottom', horizontal: 'right', message: 'Bottom right'})}>Bottom right</Button>
+            </div>
+            <div className='flex flex-wrap items-center justify-center gap-2'>
+              <Button variant='filled' color='warning' onClick={() => handleClick({vertical: 'top', horizontal: 'left', message: 'Top left'})}>Top left</Button>
+              <Button variant='filled' color='success' onClick={() => handleClick({vertical: 'top', horizontal: 'center', message: 'Top center'})}>Top Center</Button>
+              <Button variant='filled' color='error' onClick={() => handleClick({vertical: 'top', horizontal: 'right', message: 'Top right'})}>Top right</Button>
+            </div>
+          </div>
+          <Snackbar
+            key={message}
+            open={open}
+            message={message}
+            onClose={handleClose}
+            anchorOrigin={{ vertical, horizontal }}
+            action={
+              <span onClick={handleClose}>X</span>
+            }
+            autoHideDuration={6000}
+            style={{ zIndex: 1000 }}
+          />
+        </React.Fragment>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Snackbar API
+API reference docs for the React Snackbar component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If true, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>message</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The message to display.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onClose</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component requests to be closed. Typically `onClose` is used to set state in the parent component, which is used to control the `Snackbar` `open` prop. <br /> Signature: `function() => void`</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>autoHideDuration</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`null`</Table.Td>
+      <Table.Td>The number of milliseconds to wait before automatically calling the `onClose` function. `onClose` should then set the state of the `open` prop to hide the snackbar. This behavior is disabled by default with the null value.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>action</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The action to display. It renders after the message, at the end of the snackbar.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>anchorOrigin</Table.Td>
+      <Table.Td>`{ horizontal: 'center'|'left'|'right', vertical: 'bottom'|'top' }`</Table.Td>
+      <Table.Td>`{ vertical:'bottom', horizontal:'left' }`</Table.Td>
+      <Table.Td>The anchor of the Snackbar. On smaller screens, the component grows to occupy all the available width, the horizontal alignment is ignored.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>key</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>When displaying multiple consecutive snackbars using a single parent-rendered `<Snackbar />`, add the `key` prop to ensure independent treatment of each message. For instance, <br /> use `<Snackbar key={message} />`. Otherwise, messages might update in place, and features like `autoHideDuration` could be affected.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

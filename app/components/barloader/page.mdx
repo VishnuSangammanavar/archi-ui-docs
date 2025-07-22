@@ -1,0 +1,128 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicBarLoader from '../../../src/demo/barloader/BasicBarLoader.jsx'
+import BarLoaderSize from '../../../src/demo/barloader/BarLoaderSize.jsx'
+import BarLoaderColor from '../../../src/demo/barloader/BarLoaderColor.jsx'
+
+# BarLoader
+
+BarLoader can be used as Progress indicators, express an unspecified wait time.
+
+Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates.
+
+## Basic BarLoader
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicBarLoader />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import BarLoader from 'wind-ui/BarLoader'
+
+    export default function MyReactPage() {
+      return (
+        <BarLoader />
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import BarLoader from 'wind-ui/BarLoader'
+// or
+import { BarLoader } from 'wind-ui'
+```
+```jsx
+<BarLoader />
+```
+
+## Size
+Use `size` prop to change the size of the component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BarLoaderSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import BarLoader from 'wind-ui/BarLoader'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-4'>
+          <BarLoader size='lg' color='primary' />
+          <BarLoader size='md' color='primary' />
+          <BarLoader size='sm' color='primary' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors to component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BarLoaderColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import BarLoader from 'wind-ui/BarLoader'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-4'>
+          <BarLoader color='default' />
+          <BarLoader color='primary' />
+          <BarLoader color='secondary' />
+          <BarLoader color='info' />
+          <BarLoader color='warning' />
+          <BarLoader color='success' />
+          <BarLoader color='error' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## BarLoader API
+API reference docs for the React BarLoader component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'lg' | 'md' | 'sm'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

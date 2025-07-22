@@ -1,0 +1,558 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicAvatar from '../../../src/demo/avatar/BasicAvatar.jsx'
+import ImageAvatar from '../../../src/demo/avatar/ImageAvatar.jsx'
+import LetterAvatar from '../../../src/demo/avatar/LetterAvatar.jsx'
+import AvatarVariant from '../../../src/demo/avatar/AvatarVariant.jsx'
+import AvatarSize from '../../../src/demo/avatar/AvatarSize.jsx'
+import IconAvatar from '../../../src/demo/avatar/IconAvatar.jsx'
+import AvatarFallback from '../../../src/demo/avatar/AvatarFallback.jsx'
+import GroupedAvatar from '../../../src/demo/avatar/GroupedAvatar.jsx'
+import TotalAvatar from '../../../src/demo/avatar/TotalAvatar.jsx'
+import AvatarRenderSurplus from '../../../src/demo/avatar/AvatarRenderSurplus.jsx'
+import AvatarSpacing from '../../../src/demo/avatar/AvatarSpacing.jsx'
+import GroupedAvatarControll from '../../../src/demo/avatar/GroupedAvatarControll.jsx'
+import AvatarBadge from '../../../src/demo/avatar/AvatarBadge.jsx'
+
+# Avatar
+
+## Basic Avatar
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicAvatar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <Avatar />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Avatar from 'wind-ui/Avatar'
+// or
+import { Avatar } from 'wind-ui'
+```
+```jsx
+<Avatar />
+```
+
+## Image Avatars
+Image avatars can be created by passing standard `img` prop `src` to the component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ImageAvatar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+          <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+          <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Letter Avatars
+Avatars containing simple characters can be created by passing a string as children
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LetterAvatar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Avatar>H</Avatar>
+          <Avatar className='bg-primary'>N</Avatar>
+          <Avatar className='bg-secondary'>P</Avatar>
+          <Avatar className='bg-success'>R</Avatar>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Variant
+If you need square, rounded or circular avatars, use the `variant` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Avatar variant='square' className='bg-secondary'>
+            S
+          </Avatar>
+          <Avatar variant='rounded' className='bg-info'>
+            R
+          </Avatar>
+          <Avatar variant='circular' className='bg-warning'>
+            C
+          </Avatar>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+Use `size` prop to change the size of the Avatar.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Avatar size='lg' />
+          <Avatar size='md' />
+          <Avatar size='sm' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Icon avatars
+Icon avatars can be created by passing an icon as `children`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconAvatar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import { ClipboardList, Heart, Tag } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Avatar variant='square' className='bg-info'>
+            <Heart />
+          </Avatar>
+          <Avatar variant='rounded' className='bg-primary'>
+            <Tag />
+          </Avatar>
+          <Avatar variant='circular' className='bg-secondary'>
+            <ClipboardList />
+          </Avatar>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Avatar Fallback
+If there is an error loading the avatar image, the component falls back to an alternative in the following order:
+
+- The provided children
+- the first letter of the alt text
+- a generic avatar icon - `<User />`
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarFallback />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          // children is used here for fallback
+          <Avatar alt='Eren Yeager' src='/broken-image.jpg' className='bg-error'>B</Avatar>
+          // alt is used here for fallback
+          <Avatar alt='Mikasa Ackerman' src='/broken-image.jpg' className='bg-success' />
+          // a generic avatar icon is used here for fallback
+          <Avatar src='broken-image.jpg' className='bg-secondary' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Avatar Group
+`AvatarGroup` renders its children as a stack. USe the `max` prop to limit the number of avatars.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <GroupedAvatar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import AvatarGroup from 'wind-ui/AvatarGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <AvatarGroup max={4}>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+          </AvatarGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Avatar Group control
+You can controll the avatars shape, size, and outline from `AvatarGroup` component itself using `variant`, `size`, and `outlined` prop of `AvatarGroup`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <GroupedAvatarControll />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import AvatarGroup from 'wind-ui/AvatarGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <AvatarGroup variant='circular' size='lg' outlined={true}>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+          </AvatarGroup>
+          <AvatarGroup variant='circular' size='md' outlined={true}>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+          </AvatarGroup>
+          <AvatarGroup variant='circular' size='sm' outlined={true}>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+          </AvatarGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Total Avatars
+If you need to control the total number of avatars not shown, you can use the `total` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <TotalAvatar />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import AvatarGroup from 'wind-ui/AvatarGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <AvatarGroup total={24}>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+          </AvatarGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Custom surplus
+Set the `renderSurplus` prop as a callback to customize the surplus avatar. The callback will receive the surplus number as an argument based on the children and the `max` prop, and should return a `React.ReactNode`.
+
+The `renderSurplus` prop is useful when you need to render the surplus based on the data sent from the server.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarRenderSurplus />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import AvatarGroup from 'wind-ui/AvatarGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center">
+          <AvatarGroup total={5500} renderSurplus={(surplus) => <span>+{surplus.toString()[0]}K</span>}>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+          </AvatarGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Spacing
+You can change the spacing between avatars using `spacing` prop. You can use one of the presets ('lg', 'md', 'sm').
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarSpacing />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import AvatarGroup from 'wind-ui/AvatarGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <AvatarGroup spacing='lg'>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+          </AvatarGroup>
+          <AvatarGroup spacing='md'>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+          </AvatarGroup>
+          <AvatarGroup spacing='sm'>
+            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
+            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
+            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+          </AvatarGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Avatar with badge
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <AvatarBadge />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import Badge from 'wind-ui/Badge'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <div className="relative inline-flex items-center">
+            <Avatar src='./images/' className='bg-warning' />
+            <Badge variant='dot' color='success' className='absolute bottom-0 right-0 ring-1 ring-background' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar src='./images/' className='bg-success' />
+            <Badge badgeContent={<Avatar className='w-4 h-4 bg-secondary'>v</Avatar>} className='absolute bottom-0 right-0 ring-1 ring-background p-0' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Avatar API
+API reference docs for the React Avatar component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Used to render icon or text elements inside the Avatar if `src` is not set. This can be an element, or just a string.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>alt</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Used to provide an alt attribute for the rendered `img` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'circular' | 'square' | 'rounded'`</Table.Td>
+      <Table.Td>`'circular'`</Table.Td>
+      <Table.Td>The shape of the avatar.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'lg' | 'md' | 'sm'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the avatar.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>outlined</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>false</Table.Td>
+      <Table.Td>If true, the outline will be applied.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>src</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The `src` attribute for the `img` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>imgProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Attributes applied to the `img` element if the component is used to display an image. it can be used to listen for loading error event.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## AvatarGroup API
+API reference docs for the React AvatarGroup component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The avatars to stack.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>max</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`5`</Table.Td>
+      <Table.Td>Max avatars to show before +x.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>total</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`children.length`</Table.Td>
+      <Table.Td>The total number of avatars. Used for calculating the number of extra avatars.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>renderSurplus</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>custom renderer of extraAvatars<br /> Signature: `function(surplus: number) => React.ReactNode`<br /> surplus: number of extra avatars<br /> Returns: custom element to display.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>spacing</Table.Td>
+      <Table.Td>`'lg' | 'md' | 'sm'`</Table.Td>
+      <Table.Td>`md`</Table.Td>
+      <Table.Td>Spacing between avatars.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'circular' | 'square' | 'rounded'`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The shape of the all avatars.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'lg' | 'md' | 'sm'`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The size of the all the avatars.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>outlined</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>true</Table.Td>
+      <Table.Td>If true, the outline will be applied to all the avatars.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

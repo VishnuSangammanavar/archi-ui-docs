@@ -1,0 +1,306 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicSwitch from '../../../src/demo/switch/BasicSwitch.jsx'
+import DefaultCheckedSwitch from '../../../src/demo/switch/DefaultCheckedSwitch.jsx'
+import SwitchVariant from '../../../src/demo/switch/SwitchVariant.jsx'
+import SwitchSize from '../../../src/demo/switch/SwitchSize.jsx'
+import SwitchColor from '../../../src/demo/switch/SwitchColor.jsx'
+import ControlledSwitch from '../../../src/demo/switch/ControlledSwitch.jsx'
+import IconSwitch from '../../../src/demo/switch/IconSwitch.jsx'
+
+# Switch
+
+Switchs toggle the state of a single setting on or off
+
+## Basic Switch
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicSwitch />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Switch />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Switch from 'wind-ui/Switch'
+// or
+import { Switch } from 'wind-ui'
+```
+```jsx
+<Switch />
+```
+
+## Default Checked
+use the `defaultChecked` prop to Switch checked by default.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DefaultCheckedSwitch />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Switch />
+          <Switch defaultChecked />
+          <Switch disabled />
+          <Switch disabled defaultChecked />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Variants
+The `Switch` comes with two variants: rounded(default), standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SwitchVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Switch variant='rounded' defaultChecked />
+          <Switch variant='standard' defaultChecked />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+Use `size` prop to change the size of the switch.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SwitchSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-2">
+            <Switch defaultChecked size='md' variant='rounded' />
+            <Switch defaultChecked size='sm' variant='rounded' />
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            <Switch defaultChecked size='md' variant='standard' />
+            <Switch defaultChecked size='sm' variant='standard' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SwitchColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Switch defaultChecked color='primary' variant='rounded'  />
+            <Switch defaultChecked color='secondary' variant='rounded' />
+            <Switch defaultChecked color='info' variant='rounded' />
+            <Switch defaultChecked color='warning' variant='rounded' />
+            <Switch defaultChecked color='success' variant='rounded' />
+            <Switch defaultChecked color='error' variant='rounded' />
+            <Switch defaultChecked color='default' variant='rounded' />
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Switch defaultChecked color='primary' variant='standard' />
+            <Switch defaultChecked color='secondary' variant='standard' />
+            <Switch defaultChecked color='info' variant='standard' />
+            <Switch defaultChecked color='warning' variant='standard' />
+            <Switch defaultChecked color='success' variant='standard' />
+            <Switch defaultChecked color='error' variant='standard' />
+            <Switch defaultChecked color='default' variant='standard' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Controlled
+You can control the switch with the `checked` and `onChange` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ControlledSwitch />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+
+      const [checked, setChecked] = useState(true)
+
+      const handleChange = (event) => {
+        setChecked(event.target.checked)
+      }
+
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Switch checked={checked} onChange={handleChange} variant='standard' />
+          <p>Switch is checked: {String(checked)}</p>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Icon
+You can also add icon to switch using `icon` prop, and you can also modifie the icon for checked using `checkedIcon`.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconSwitch />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Switch color='info' variant='standard' icon='l' checkedIcon='d' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Switch API
+API reference docs for the React Switch component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>checked</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is checked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultChecked</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The default checked state. Use when the component is not Controlled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'rounded' | 'standard'`</Table.Td>
+      <Table.Td>`'rounded'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>icon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display when the component is unchecked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>checkedIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display when the component is checked.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onChange</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the state is changed. `function(event: React.changeEvent) => void`. You can pull out the new checked state by accessing `event.target.checked` (boolean).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>required</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the `input` element is required.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>value</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The value of the component. The DOM API casts this to a string. the browser uses "on" as the default value.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

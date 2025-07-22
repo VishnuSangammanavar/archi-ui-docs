@@ -1,0 +1,293 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicIconButton from '../../../src/demo/iconButton/BasicIconButton.jsx'
+import IconButtonSize from '../../../src/demo/iconButton/IconButtonSize.jsx'
+import RoundedIconButton from '../../../src/demo/iconButton/RoundedIconButton.jsx'
+import IconButtonColor from '../../../src/demo/iconButton/IconButtonColor.jsx'
+import HyperlinkIconButton from '../../../src/demo/iconButton/HyperlinkIconButton.jsx'
+import BadgeIconButton from '../../../src/demo/iconButton/BadgeIconButton.jsx'
+
+# IconButton
+
+Icon buttons are commonly found in app bars and toolbars
+
+Icons are also appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item.
+
+## Basic button
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicIconButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import IconButton from 'wind-ui/IconButton'
+    import { AlarmClock, ShoppingCart, Trash } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <IconButton>
+            <Trash />
+          </IconButton>
+          <IconButton disabled>
+            <Trash />
+          </IconButton>
+          <IconButton color='secondary'>
+            <AlarmClock />
+          </IconButton>
+          <IconButton color='primary'>
+            <ShoppingCart />
+          </IconButton>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import IconButton from 'wind-ui/IconButton'
+import { Heart } from 'lucide-react'
+// or
+import { IconButton } from 'wind-ui'
+import { Heart } from 'lucide-react'
+```
+```jsx
+<IconButton color='error'>
+  <Heart />
+</IconButton>
+```
+
+## Size
+For larger or smaller icon buttons, use the size prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconButtonSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import IconButton from 'wind-ui/IconButton'
+    import { Instagram } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <IconButton color='secondary' size='lg'>
+            <Instagram />
+          </IconButton>
+          <IconButton color='secondary' size='md'>
+            <Instagram />
+          </IconButton>
+          <IconButton color='secondary' size='sm'>
+            <Instagram />
+          </IconButton>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Rounded IconButton
+For different border rdius for Icon-Buttons use `rounded` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <RoundedIconButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import IconButton from 'wind-ui/IconButton'
+    import { ShoppingCart } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <IconButton color='primary' rounded='none'>
+            <ShoppingCart />
+          </IconButton>
+          <IconButton color='primary' rounded='sm'>
+            <ShoppingCart />
+          </IconButton>
+          <IconButton color='primary' rounded='md'>
+            <ShoppingCart />
+          </IconButton>
+          <IconButton color='primary' rounded='lg'>
+            <ShoppingCart />
+          </IconButton>
+          <IconButton color='primary' rounded='full'>
+            <ShoppingCart />
+          </IconButton>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconButtonColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import IconButton from 'wind-ui/IconButton'
+    import { Facebook, Github, Heart, Instagram, Linkedin, Plus, Twitter } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-wrap items-center justify-center gap-2'>
+          <IconButton color='default'>
+            <Plus />
+          </IconButton>
+          <IconButton color='primary'>
+            <Facebook />
+          </IconButton>
+          <IconButton color='secondary'>
+            <Instagram />
+          </IconButton>
+          <IconButton color='info'>
+            <Linkedin />
+          </IconButton>
+          <IconButton color='warning'>
+            <Github />
+          </IconButton>
+          <IconButton color='success'>
+            <Twitter />
+          </IconButton>
+          <IconButton color='error'>
+            <Heart />
+          </IconButton>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Hyperlink IconButton
+To use the `IconButton` component as hyperlink, just pass `href` prop or change the root element to `<a>` tag using `component` prop.
+
+If `href` prop is passed, an `<a>` element will be used as the root node.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <HyperlinkIconButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import IconButton from 'wind-ui/IconButton'
+    import { Facebook } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <IconButton component='a' href='#' color='primary'><Facebook /></IconButton>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Badge
+You can use the Badge component to add a badge to an IconButton.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeIconButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+    import IconButton from 'wind-ui/IconButton'
+    import { Mail } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-4">
+          <IconButton color='primary'>
+            <Mail className='text-secondary' />
+            <Badge badgeContent='10' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </IconButton>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## IconButton API
+API reference docs for the React IconButton component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>rounded</Table.Td>
+      <Table.Td>`'none' | 'full' | 'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'full'`</Table.Td>
+      <Table.Td>The border-radius of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'default'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>href</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The URL to link to when the IconButton is clicked. If defined, an `<a>` element will be used as the root node.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>component</Table.Td>
+      <Table.Td>`elementType`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The component used for the root node. Either a string to use a HTML element or a component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

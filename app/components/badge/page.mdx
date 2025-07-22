@@ -1,0 +1,417 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicBadge from '../../../src/demo/badge/BasicBadge.jsx'
+import BadgeVariant from '../../../src/demo/badge/BadgeVariant.jsx'
+import BadgeColor from '../../../src/demo/badge/BadgeColor.jsx'
+import BadgeSize from '../../../src/demo/badge/BadgeSize.jsx'
+import Visibility from '../../../src/demo/badge/Visibility.jsx'
+import BadgeShowzero from '../../../src/demo/badge/BadgeShowzero.jsx'
+import BadgeMax from '../../../src/demo/badge/BadgeMax.jsx'
+import BadgeAlignment from '../../../src/demo/badge/BadgeAlignment.jsx'
+
+# Badge
+
+Badge generates a small badge, which can be used to show notification with count or just a dot.
+
+## Basic Badge
+Example of a badge containing text.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicBadge />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Badge badgeContent='new' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Badge from 'wind-ui/Badge'
+// or
+import { Badge } from 'wind-ui'
+```
+```jsx
+<Badge badgeContent='new' />
+```
+
+## Variants
+The `Badge` comes with a two variants: standard(default) and dot.
+
+You can use `standard` variant for displaying count or some content like text, icons, an SVG icon.
+
+The `dot` prop changes a badge into a small dot. This can be used as a notification that something has changed without using a count.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+    import { Heart, Mail } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-4">
+          <div className="relative inline-flex items-center">
+            <Mail className='text-secondary' />
+            <Badge badgeContent='10' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Heart className='text-secondary' />
+            <Badge variant='dot' color='error' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Heart className='text-secondary' />
+            <Badge badgeContent='100' color='error' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to apply different colors to component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Avatar from 'wind-ui/Avatar'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <div className="relative inline-flex items-center">
+            <Avatar />
+            <Badge badgeContent={50} color='primary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar />
+            <Badge badgeContent={50} color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar />
+            <Badge badgeContent={50} color='info' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar />
+            <Badge badgeContent={50} color='warning' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar />
+            <Badge badgeContent={50} color='success' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar />
+            <Badge badgeContent={50} color='error' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+Use `size` prop to change the size of the badge.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-4">
+          <div className="relative inline-flex items-center">
+            <Button variant='filled' color='secondary' size='sm'>Small</Button>
+            <Badge badgeContent={"10"} color={'primary'} size='sm' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Button variant='filled' color='secondary' size='md'>Medium</Button>
+            <Badge badgeContent={"10"} color={'primary'} size='md' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Button variant='filled' color='secondary' size='lg'>Large</Button>
+            <Badge badgeContent={"10"} color={'primary'} size='lg' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Badge Visibility
+The visibility of badges can be controlled using the `invisible` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <Visibility />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Badge from 'wind-ui/Badge'
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+    import Switch from 'wind-ui/Switch'
+    import { Plus, Minus, Mail } from 'lucide-react'
+
+    export default function MyReactPage() {
+
+      const [count, setCount] = useState(10)
+      const [visibleBadge, setVisibleBadge] = useState(false);
+
+      const handleBadgeVisible = () => {
+        setVisibleBadge(!visibleBadge);
+      }
+      
+      return (
+        <div className="flex flex-col items-center justify-center gap-6">
+          <div className='flex gap-4'>
+            <div className="relative inline-flex items-center">
+              <Mail className='text-secondary' />
+              <Badge badgeContent={count} color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+            </div>
+            <ButtonGroup>
+              <Button onClick={() => setCount(Math.max(count - 1, 0))}><Minus /></Button>
+              <Button onClick={() => setCount(count + 1)}><Plus /></Button>
+            </ButtonGroup>
+          </div>
+          <div className='flex gap-4'>
+            <div className="relative inline-flex items-center">
+              <Mail className='text-secondary' />
+              <Badge variant='dot' color='secondary' invisible={visibleBadge} className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+            </div>
+            <div className='flex items-center justify-center gap-2'>
+              <Switch checked={!visibleBadge} onChange={handleBadgeVisible} variant='standard' />
+              <p>Show Badge</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## showZero Prop
+The badge hides automatically when `badgeContent` is zero. You can override this with the `showZero` prop.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeShowzero />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+    import { Mail } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-4">
+          <div className="relative inline-flex items-center">
+            <Mail className='text-primary' />
+            <Badge badgeContent={0} color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Mail className='text-primary' />
+            <Badge badgeContent={0} showZero color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Maximum Value
+You can use the `max` prop to cap the value of the badge content.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeMax />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+    import { Mail } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-6">
+          <div className="relative inline-flex items-center">
+            <Mail className='text-primary' />
+            <Badge badgeContent={99} color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Mail className='text-primary' />
+            <Badge badgeContent={100} color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Mail className='text-primary' />
+            <Badge badgeContent={1000} max={999} color='secondary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Badge Alignment
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BadgeAlignment />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Badge from 'wind-ui/Badge'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col gap-6">
+          <div className='flex items-center justify-center gap-6'>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='secondary'>Bottom right</Button>
+              <Badge badgeContent={80} color='warning' className='absolute bottom-0 transform translate-y-1/2 right-0 translate-x-1/2' />
+            </div>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='success'>Top left</Button>
+              <Badge badgeContent={50} color='error' className='absolute top-0 transform -translate-y-1/2 left-0 -translate-x-1/2' />
+            </div>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='warning'>Top right</Button>
+              <Badge badgeContent={60} color='primary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+            </div>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='primary'>Bottom left</Button>
+              <Badge badgeContent={10} color='secondary' className='absolute bottom-0 transform translate-y-1/2 left-0 -translate-x-1/2' />
+            </div>
+          </div>
+          <div className='flex items-center justify-center gap-4'>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='secondary'>Bottom right</Button>
+              <Badge variant='dot' color='warning' className='absolute bottom-0 transform translate-y-1/2 right-0 translate-x-1/2' />
+            </div>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='success'>Top left</Button>
+              <Badge variant='dot' color='error' className='absolute top-0 transform -translate-y-1/2 left-0 -translate-x-1/2' />
+            </div>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='warning'>Top right</Button>
+              <Badge variant='dot' color='primary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
+            </div>
+            <div className="relative inline-flex items-center">
+              <Button variant='filled' color='primary'>Bottom left</Button>
+              <Badge variant='dot' color='secondary' className='absolute bottom-0 transform translate-y-1/2 left-0 -translate-x-1/2' />
+            </div>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Badge API
+API reference docs for the React Badge component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>badgeContent</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content rendered within the badge.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'standard' | 'dot'`</Table.Td>
+      <Table.Td>`'standard'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'sm'`</Table.Td>
+      <Table.Td>The size of the badge.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>rounded</Table.Td>
+      <Table.Td>`'none' | 'full' | 'md'`</Table.Td>
+      <Table.Td>`'full'`</Table.Td>
+      <Table.Td>The border-radius of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>invisible</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the badge is invisible.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>showZero</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>Controls wheather the badge is hidden when badgeContent is zero.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>max</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`99`</Table.Td>
+      <Table.Td>Max count to show.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

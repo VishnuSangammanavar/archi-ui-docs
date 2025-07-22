@@ -1,0 +1,260 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicCircularProgress from '../../../src/demo/circularProgress/BasicCircularProgress.jsx'
+import CircularProgressColor from '../../../src/demo/circularProgress/CircularProgressColor.jsx'
+import CircularProgressIndeterminate from '../../../src/demo/circularProgress/CircularProgressIndeterminate.jsx'
+import CircularProgressDeterminate from '../../../src/demo/circularProgress/CircularProgressDeterminate.jsx'
+import CircularProgressLabel from '../../../src/demo/circularProgress/CircularProgressLabel.jsx'
+import CircularProgressSize from '../../../src/demo/circularProgress/CircularProgressSize.jsx'
+
+# CircularProgress
+
+Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.
+
+Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates
+
+- Determinate indicators display how long an operation will take.
+- Indeterminate indicators visualize an unspecified wait time.
+
+## Basic CircularProgress
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicCircularProgress />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <CircularProgress />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import CircularProgress from 'wind-ui/CircularProgress'
+// or
+import { CircularProgress } from 'wind-ui'
+```
+```jsx
+<CircularProgress />
+```
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CircularProgressColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <CircularProgress color='default' />
+          <CircularProgress color='primary' />
+          <CircularProgress color='secondary' />
+          <CircularProgress color='info' />
+          <CircularProgress color='warning' />
+          <CircularProgress color='success' />
+          <CircularProgress color='error' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Variant
+The `CircularProgress` comes with two variants: indeterminate(default), determinate.
+
+### Indeterminate
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CircularProgressIndeterminate />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <CircularProgress variant='indeterminate' color='primary' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Determinate
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CircularProgressDeterminate />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useEffect, useState } from 'react'
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+
+      const [progress, setProgress] = useState(0);
+
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
+        }, 800)
+      
+        return () => {
+          clearInterval(timer)
+        }
+      }, []);
+
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <CircularProgress variant='determinate' color='primary' value={25} />
+          <CircularProgress variant='determinate' color='primary' value={50} />
+          <CircularProgress variant='determinate' color='primary' value={75} />
+          <CircularProgress variant='determinate' color='primary' value={100} />
+          <CircularProgress variant='determinate' color='primary' value={progress} />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Determinate with Label
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <div className='flex items-center justify-center'>
+      <CircularProgressLabel />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useEffect, useState } from 'react'
+    import CircularProgress from 'wind-ui/CircularProgress'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+
+      const [progress, setProgress] = useState(0);
+
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setProgress((prevProgress) => (prevProgress >= 100 ? 0 : prevProgress + 10));
+        }, 800)
+      
+        return () => {
+          clearInterval(timer)
+        }
+      }, []);
+
+      return (
+        <div className='relative inline-flex items-center justify-center'>
+          <CircularProgress variant='determinate' value={progress} color='primary' />
+          <div className='absolute top-0 left-0 bottom-0 right-0 flex items-center justify-center'>
+            <Typography variant='body2'>{`${Math.round(progress)}%`}</Typography>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+Use `size` prop to change the size of the component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CircularProgressSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import CircularProgress from 'wind-ui/CircularProgress'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <CircularProgress size='lg' color='primary' />
+          <CircularProgress size='md' color='primary' />
+          <CircularProgress size='sm' color='primary' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## CircularProgress API
+API reference docs for the React CircularProgress component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'determinate' | 'indeterminate'`</Table.Td>
+      <Table.Td>`'indeterminate'`</Table.Td>
+      <Table.Td>The variant to use. Use indeterminate when there is no progress value.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'lg' | 'md' | 'sm'`</Table.Td>
+      <Table.Td>`'lg'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'default' | 'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>thickness</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`'3.6'`</Table.Td>
+      <Table.Td>The thickness of the circle.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>value</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`0`</Table.Td>
+      <Table.Td>The value of the progress indicator for the determinate and buffer variants. Value between 0 and 100.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

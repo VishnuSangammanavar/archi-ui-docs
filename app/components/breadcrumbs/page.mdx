@@ -1,0 +1,273 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicBreadcrumbs from '../../../src/demo/breadcrumbs/BasicBreadcrumbs.jsx'
+import CustomSeparator from '../../../src/demo/breadcrumbs/CustomSeparator.jsx'
+import IconBreadcrumbs from '../../../src/demo/breadcrumbs/IconBreadcrumbs.jsx'
+import CollapsedBreadcrumbs from '../../../src/demo/breadcrumbs/CollapsedBreadcrumbs.jsx'
+import MenuBreadcrumbs from '../../../src/demo/breadcrumbs/MenuBreadcrumbs.jsx'
+
+# Breadcrumbs
+
+A breadcrumbs is a list of links that help visualize a page's location within a site's hierarchical structure. It allows navigation up to any of the ancestors.
+
+## Basic Breadcrumbs
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicBreadcrumbs />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Breadcrumbs from 'wind-ui/Breadcrumbs'
+    import Link from 'wind-ui/Link'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <Breadcrumbs>
+            <Link href='/' underline='hover'>Home</Link>
+            <Link href='/about' underline='hover'>About</Link>
+            <Link href='/services' underline='hover'>Services</Link>
+            <Typography>Blog</Typography>
+          </Breadcrumbs>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Breadcrumbs from 'wind-ui/Breadcrumbs'
+import Link from 'wind-ui/Link'
+import Typography from 'wind-ui/Typography'
+// or
+import { Breadcrumbs, Link, Typography } from 'wind-ui'
+```
+```jsx
+<Breadcrumbs>
+  <Link href='/' underline='hover'>Home</Link>
+  <Link href='/about' underline='hover'>About</Link>
+  <Link href='/services' underline='hover'>Services</Link>
+  <Typography>Blog</Typography>
+</Breadcrumbs>
+```
+
+## Custom Separator
+In The following examples, we are using string separator and an SVG icon.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CustomSeparator />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Breadcrumbs from 'wind-ui/Breadcrumbs'
+    import Link from 'wind-ui/Link'
+    import Typography from 'wind-ui/Typography'
+    import { ChevronRight } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <Breadcrumbs separator='-'>
+            <Link href='/' underline='hover'>Home</Link>
+            <Link href='/about' underline='hover'>About</Link>
+            <Link href='/services' underline='hover'>Services</Link>
+            <Typography>Blog</Typography>
+          </Breadcrumbs>
+          <Breadcrumbs separator={<ChevronRight />}>
+            <Link href='/' underline='hover'>Home</Link>
+            <Link href='/about' underline='hover'>About</Link>
+            <Link href='/services' underline='hover'>Services</Link>
+            <Typography>Blog</Typography>
+          </Breadcrumbs>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Breadcrumbs with icons
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <IconBreadcrumbs />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Breadcrumbs from 'wind-ui/Breadcrumbs'
+    import Link from 'wind-ui/Link'
+    import Typography from 'wind-ui/Typography'
+    import { Home, ServerIcon, TreePalm, User } from 'lucide-react'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Breadcrumbs>
+            <Link href='/' underline='hover' className='flex gap-2'>
+              <Home />
+              Home
+            </Link>
+            <Link href='/about' underline='hover' className='flex gap-2'>
+              <User />
+              About
+            </Link>
+            <Link href='/services' underline='hover' className='flex gap-2'>
+              <ServerIcon />
+              Services
+            </Link>
+            <Typography className='flex gap-2'>
+              <TreePalm />
+              Blog
+            </Typography>
+          </Breadcrumbs>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Collapsed Breadcrumbs
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <CollapsedBreadcrumbs />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Breadcrumbs from 'wind-ui/Breadcrumbs'
+    import Link from 'wind-ui/Link'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Breadcrumbs itemsAfterCollapse={2} itemsBeforeCollapse={2} maxItems={4}>
+            <Link href='/' underline='hover'>Home</Link>
+            <Link href='/about' underline='hover'>About</Link>
+            <Link href='/services' underline='hover'>Services</Link>
+            <Link href='/blog' underline='hover'>Blog</Link>
+            <Link href='/catalog' underline='hover'>Catalog</Link>
+            <Link href='/new-collection' underline='hover'>New Collection</Link>
+            <Typography>Belts</Typography>
+          </Breadcrumbs>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Condensed with menu
+As an alternative, consider adding a Menu component to display the condensed links in a dropdown list.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <MenuBreadcrumbs />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Breadcrumbs from 'wind-ui/Breadcrumbs'
+    import IconButton from 'wind-ui/IconButton'
+    import Menu from 'wind-ui/Menu'
+    import MenuItem from 'wind-ui/MenuItem'
+    import Link from 'wind-ui/Link'
+    import { Ellipsis } from 'lucide-react';
+
+    export default function MyReactPage() {
+
+      const [anchorEl, setAnchorEl] = useState(null);
+      const open = Boolean(anchorEl);
+
+      const handleClick = (event) => {
+        if(event) {
+          setAnchorEl(event.currentTarget);
+        }
+      }
+
+      const handleClose = () => {
+        setAnchorEl(null);
+      }
+
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Menu open={open} onClose={handleClose} anchorEl={anchorEl}>
+            <MenuItem divider onClick={handleClose}>Breadcrumbs 2</MenuItem>
+            <MenuItem divider onClick={handleClose}>Breadcrumbs 3</MenuItem>
+            <MenuItem divider onClick={handleClose}>Breadcrumbs 4</MenuItem>
+          </Menu>
+          <Breadcrumbs>
+            <Link href='#'>Breadcrumb 1</Link>
+            <IconButton onClick={handleClick}>
+              <Ellipsis size={16} />
+            </IconButton>
+            <Link href='#'>Breadcrumb 5</Link>
+            <Link href='#'>Breadcrumb 6</Link>
+          </Breadcrumbs>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Breadcrumbs API
+API reference docs for the React Breadcrumbs component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>itemsAfterCollapse</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>`1`</Table.Td>
+      <Table.Td>If max items is exceeded, the number of items to show after the ellipsis.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>itemsBeforeCollapse</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>`1`</Table.Td>
+      <Table.Td>If max items is exceeded, the number of items to show before the ellipsis.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>maxItems</Table.Td>
+      <Table.Td>`integer`</Table.Td>
+      <Table.Td>`8`</Table.Td>
+      <Table.Td>Specifies the maximum number of breadcrumbs to display. When there are more than the maximum number, only the first `itemsBeforeCollapse` and last `itemsAfterCollapse` will be shown, with an ellipsis in between</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>separator</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`'/'`</Table.Td>
+      <Table.Td>Custome separator node.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

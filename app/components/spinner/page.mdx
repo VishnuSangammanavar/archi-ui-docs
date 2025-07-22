@@ -1,0 +1,104 @@
+import { Tabs, Table } from 'nextra/components'
+import { Spinner } from 'elementx'
+
+# Spinner
+
+Text Fields let user enter and edit text.
+
+## Basic Spinner
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <div className="flex items-center justify-center gap-2">
+      <Spinner />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Spinner from 'wind-ui/Spinner'
+
+    export default function MyReactPage() {
+      return (
+        <Spinner />
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Spinner from 'wind-ui/Spinner'
+// or
+import { Spinner } from 'wind-ui'
+```
+```jsx
+<Spinner />
+```
+
+## Size
+The `Spinner` comes with three variants: outlined(default), filled, standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <div className="flex items-center justify-center gap-2">
+      <Spinner color='primary' size='lg' />
+      <Spinner color='primary' size='md' />
+      <Spinner color='primary' size='sm' />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Spinner from 'wind-ui/Spinner'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Spinner color='primary' size='lg' />
+          <Spinner color='primary' size='md' />
+          <Spinner color='primary' size='sm' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+The `Spinner` comes with three variants: outlined(default), filled, standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <div className="flex items-center justify-center gap-2">
+      <Spinner color='default' />
+      <Spinner color='primary' />
+      <Spinner color='secondary' />
+      <Spinner color='info' />
+      <Spinner color='warning' />
+      <Spinner color='success' />
+      <Spinner color='error' />
+    </div>
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx
+    import React from 'react';
+    import Spinner from 'wind-ui/Spinner'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex items-center justify-center gap-2">
+          <Spinner color='default' />
+          <Spinner color='primary' />
+          <Spinner color='secondary' />
+          <Spinner color='info' />
+          <Spinner color='warning' />
+          <Spinner color='success' />
+          <Spinner color='error' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>

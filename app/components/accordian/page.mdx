@@ -1,0 +1,406 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicAccordion from '../../../src/demo/accordion/BasicAccordion.jsx'
+import ExpandIconAccordion from '../../../src/demo/accordion/ExpandIconAccordion.jsx'
+import DefaultExpandedAccordion from '../../../src/demo/accordion/DefaultExpandedAccordion.jsx'
+import DisabledAccordion from '../../../src/demo/accordion/DisabledAccordion.jsx'
+import ControlledAccordion from '../../../src/demo/accordion/ControlledAccordion.jsx'
+
+# Accordion
+
+The Accordion component lets users show and hide sections of related content on a page.
+
+- Accordion: The wrapper for grouping related components.
+- Accordion Summary: The wrapper for the Accordion header, which expands or collapses the content when clicked.
+- Accordion Details: The wrapper for the Accordion content.
+- Accordion Actions: an optional wrapper that groups a set of buttons.
+
+## Basic Accordion
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicAccordion />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Accordion from 'elementx/Accordion'
+    import AccordionDetails from 'elementx/AccordionDetails'
+    import AccordionSummary from 'elementx/AccordionSummary'
+    import AccordionActions from 'elementx/AccordionActions'
+    import Typography from 'elementx/Typography'
+    import Button from 'elementx/Button'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Accordion>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion defaultExpanded>
+            <AccordionSummary>
+              <Typography component='span'>Accordion with actions</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+            <AccordionActions>
+              <Button>Cancel</Button>
+              <Button>Agree</Button>
+            </AccordionActions>
+          </Accordion>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Accordion from 'elementx/Accordion'
+import AccordionSummary from 'elementx/AccordionSummary'
+import AccordionDetails from 'elementx/AccordionDetails'
+// or
+import { Accordion, AccordionSummary, AccordionDetails } from 'elementx'
+```
+```jsx
+<Accordion>
+  <AccordionSummary>Accordion 1</AccordionSummary>
+  <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+</Accordion>
+<Accordion>
+  <AccordionSummary>Accordion 2</AccordionSummary>
+  <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+</Accordion>
+```
+
+## Expand icon
+Use the `expandIcon` prop on the Accordion Summary component to change the expand indicator icon. The component handles the turning upside-down transition automatically.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ExpandIconAccordion />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Accordion from 'elementx/Accordion'
+    import AccordionSummary from 'elementx/AccordionSummary'
+    import AccordionDetails from 'elementx/AccordionDetails'
+    import Typography from 'elementx/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Accordion>
+            <AccordionSummary expandedIcon={'+'}>
+              <Typography component='span'>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary expandedIcon={'-'}>
+              <Typography component='span'>Accordion 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Expanded by default
+Use the `defaultExpanded` prop on the Accordion component to have it opened by default.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DefaultExpandedAccordion />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Accordion from 'elementx/Accordion'
+    import AccordionSummary from 'elementx/AccordionSummary'
+    import AccordionDetails from 'elementx/AccordionDetails'
+    import Typography from 'elementx/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Accordion defaultExpanded>
+            <AccordionSummary>
+              <Typography component='span'>Expanded by default</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Disabled item
+Use the `disabled` prop on the Accordion component to disable interaction and focus.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <DisabledAccordion />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Accordion from 'elementx/Accordion'
+    import AccordionSummary from 'elementx/AccordionSummary'
+    import AccordionDetails from 'elementx/AccordionDetails'
+    import Typography from 'elementx/Typography'
+
+    export default function MyReactPage() {
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Accordion>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion disabled>
+            <AccordionSummary>
+              <Typography component='span'>Disabled Accordion</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Controlled Accordion
+The Accordion component can be controlled or uncontrolled.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ControlledAccordion />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Accordion from 'elementx/Accordion'
+    import AccordionSummary from 'elementx/AccordionSummary'
+    import AccordionDetails from 'elementx/AccordionDetails'
+    import Typography from 'elementx/Typography'
+
+    export default function MyReactPage() {
+
+      const [expanded, setExpanded] = useState(false);
+
+      const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+      }
+
+      return (
+        <div className="flex flex-col items-center justify-center gap-2">
+          <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 1</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion  expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+            <AccordionSummary>
+              <Typography component='span'>Accordion 2</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+          <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+            <AccordionSummary>
+              <Typography component='span'>Accordion with actions</Typography>
+            </AccordionSummary>
+            <AccordionDetails>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor animi harum error amet porro fugiat obcaecati molestias similique veniam aliquam commodi, quae et atque voluptas exercitationem repellat soluta? Repudiandae, repellendus?</AccordionDetails>
+          </Accordion>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Accordion API
+API reference docs for the React Accordion component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultExpanded</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If true, expands the accordion by default.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If true, if component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>expanded</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`-`</Table.Td>
+      <Table.Td>If true, expands the accordion, otherwise collapse it. Setting this prop enables control over the accordion.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>square</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, rounded corners are disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onValueChange</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the expand/collapse state is changed. <br /> Signature: `function(expanded: boolean) => void` <br /> expanded: the `expanded` state of the accordion.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## AccordionDetails API
+API reference docs for the React AccordionDetails component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## AccordionSummary API
+API reference docs for the React AccordionSummary component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>expandedIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display as the expand indicator.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## AccordionActions API
+API reference docs for the React AccordionActions component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disableSpacing</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If true, the actions do not have additional margin.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

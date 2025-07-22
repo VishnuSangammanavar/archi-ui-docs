@@ -1,0 +1,572 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicSpeedDial from '../../../src/demo/SpeedDial/BasicSpeedDial.jsx'
+import SpeedDialPlayground from '../../../src/demo/SpeedDial/SpeedDialPlayground.jsx'
+import SpeedDialControlled from '../../../src/demo/SpeedDial/SpeedDialControlled.jsx'
+import SpeedDialTooltip from '../../../src/demo/SpeedDial/SpeedDialTooltip.jsx'
+
+# SpeedDial
+
+When pressed, a floating action button can display three to six related actions in the form of a Speed Dial.
+
+If more than six actions are needed, something other than a FAB should be use to present them.
+
+## Basic SpeedDial
+The floating action button can display related actions.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicSpeedDial />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import SpeedDial from 'wind-ui/SpeedDial'
+    import SpeedDialAction from 'wind-ui/SpeedDialAction'
+    import SpeedDialIcon from 'wind-ui/SpeedDialIcon'
+    import IconButton from 'wind-ui/IconButton'
+
+    export default function MyReactPage() {
+
+      const [openSpeedDial, setOpenSpeedDial] = useState(false);
+
+      const actions = [
+        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
+        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
+        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
+        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+      ];
+
+      return (
+        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '300px' }}>
+          <SpeedDial
+            className='absolute'
+            icon={<SpeedDialIcon icon={'+'} openIcon={'X'} open={openSpeedDial} />}
+            open={openSpeedDial}
+            onClose={() => setOpenSpeedDial(false)}
+            onOpen={() => setOpenSpeedDial(true)}
+          >
+            {actions.map((action) => (
+              <SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+              />
+            ))}
+          </SpeedDial>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import SpeedDial from 'wind-ui/SpeedDial'
+import SpeedDialAction from 'wind-ui/SpeedDialAction'
+import SpeedDialActions from 'wind-ui/SpeedDialActions'
+import SpeedDialIcon from 'wind-ui/SpeedDialIcon'
+import IconButton from 'wind-ui/IconButton'
+// or
+import { SpeedDial, SpeedDialAction, SpeedDialAction, SpeedDialIcon, IconButton } from 'wind-ui'
+```
+```jsx
+<SpeedDial
+  icon={<SpeedDialIcon icon={'+'} openIcon={'X'} open={openSpeedDial} />}
+  open={true}
+>
+  <SpeedDialActions direction='up'>
+    <SpeedDialAction
+      icon={<IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>}
+      tooltipOpen
+      arrow
+      placement='left'
+      tooltipTitle="send"
+      open={openSpeedDial}
+    />
+    <SpeedDialAction
+      icon={<IconButton color='error' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>}
+      tooltipOpen
+      arrow
+      placement='left'
+      tooltipTitle="delete"
+      open={openSpeedDial}
+    />
+    <SpeedDialAction
+      icon={<IconButton color='info' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>}
+      tooltipOpen
+      arrow
+      placement='left'
+      tooltipTitle="share"
+      open={openSpeedDial}
+    />
+    <SpeedDialAction
+      icon={<IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>}
+      tooltipOpen
+      arrow
+      placement='left'
+      tooltipTitle="whatsapp"
+      open={openSpeedDial}
+    />
+  </SpeedDialActions>
+</SpeedDial>
+```
+
+## Playground
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SpeedDialPlayground />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import SpeedDial from 'wind-ui/SpeedDial'
+    import SpeedDialAction from 'wind-ui/SpeedDialAction'
+    import SpeedDialIcon from 'wind-ui/SpeedDialIcon'
+    import IconButton from 'wind-ui/IconButton'
+    import Switch from 'wind-ui/Switch'
+
+    export default function MyReactPage() {
+
+      const [openSpeedDial, setOpenSpeedDial] = useState(true);
+      const [direction, setDirection] = useState('up');
+      const [placement, setPlacement] = useState('bottom-right');
+      const [toolTipPlacement, setToolTipPlacement] = useState('left');
+      const [openToolTip, setOpenToolTip] = useState(true);
+      const [toolTipArrow, setToolTipArrow] = useState(true);
+      const [hidden, setHidden] = useState(false);
+
+      const handleHiddenChange = (event) => {
+        setHidden(event.target.checked);
+      }
+
+      const handlDirectionChange = (event) => {
+        setDirection(event.target.value);
+      }
+
+      const handleTooltipChange = (event) => {
+        setOpenToolTip(event.target.checked);
+      }
+
+      const handleTooltipArrowChange = (event) => {
+        setToolTipArrow(event.target.checked);
+      }
+
+      const handleTooltipPlacementChange = (event) => {
+        setToolTipPlacement(event.target.value);
+      }
+
+      const handlPlacementChange = (event) => {
+        setPlacement(event.target.value);
+      }
+
+      const actions = [
+        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
+        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
+        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
+        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+      ];
+
+      return (
+        <div className="relative">
+          <div className="flex flex-col items-start gap-2">
+            <div className='flex gap-2'>
+              <Switch checked={hidden} onChange={handleHiddenChange} variant='standard' />
+              <p>Hidden</p>
+            </div>
+            <div className='flex gap-2'>
+              <Switch checked={openToolTip} onChange={handleTooltipChange} variant='standard' />
+              <p>Tooltip</p>
+            </div>
+            <div className='flex gap-2'>
+              <Switch checked={toolTipArrow} onChange={handleTooltipArrowChange} variant='standard' />
+              <p>Tooltip arrow</p>
+            </div>
+            <div className='flex flex-col gap-2'>
+              <p>Direction:</p>
+              <div className="flex gap-2">
+                <input type='radio' onChange={handlDirectionChange} value='up' checked={direction == 'up'} name='direction' id='up' />
+                <label htmlFor="up">Up</label>
+                <input type='radio' onChange={handlDirectionChange} value='right' checked={direction == 'right'} name='direction' id='right' />
+                <label htmlFor="right">Right</label>
+                <input type='radio' onChange={handlDirectionChange} value='down' checked={direction == 'down'} name='direction' id='down' />
+                <label htmlFor="down">Down</label>
+                <input type='radio' onChange={handlDirectionChange} value='left' checked={direction == 'left'} name='direction' id='left' />
+                <label htmlFor="left">Left</label>
+              </div>
+              <p>Placement:</p>
+              <div className="flex gap-2">
+                <input type='radio' onChange={handlPlacementChange} value='top-left' checked={placement == 'top-left'} name='placement' id='top-left' />
+                <label htmlFor="top-left">top-left</label>
+                <input type='radio' onChange={handlPlacementChange} value='top-right' checked={placement == 'top-right'} name='placement' id='top-right' />
+                <label htmlFor="top-right">top-right</label>
+                <input type='radio' onChange={handlPlacementChange} value='bottom-left' checked={placement == 'bottom-left'} name='placement' id='bottom-left' />
+                <label htmlFor="bottom-left">bottom-left</label>
+                <input type='radio' onChange={handlPlacementChange} value='bottom-right' checked={placement == 'bottom-right'} name='placement' id='bottom-right' />
+                <label htmlFor="bottom-right">bottom-right</label>
+              </div>
+              <p>Tooltip Placement:</p>
+              <div className="flex gap-2">
+                <input type='radio' onChange={handleTooltipPlacementChange} value='top' checked={toolTipPlacement == 'top'} name='toolTipPlacement' id='tooltip-top' />
+                <label htmlFor="tooltip-top">top</label>
+                <input type='radio' onChange={handleTooltipPlacementChange} value='right' checked={toolTipPlacement == 'right'} name='toolTipPlacement' id='tooltip-right' />
+                <label htmlFor="tooltip-right">right</label>
+                <input type='radio' onChange={handleTooltipPlacementChange} value='bottom' checked={toolTipPlacement == 'bottom'} name='toolTipPlacement' id='tooltip-bottom' />
+                <label htmlFor="tooltip-bottom">bottom</label>
+                <input type='radio' onChange={handleTooltipPlacementChange} value='left' checked={toolTipPlacement == 'left'} name='toolTipPlacement' id='tooltip-left' />
+                <label htmlFor="tooltip-left">left</label>
+              </div>
+            </div>
+          </div>
+          <div className="relative w-full bg-accent" style={{ height: '360px' }}>
+            <SpeedDial
+              className='absolute'
+              hidden={hidden}
+              icon={<SpeedDialIcon icon={'+'} openIcon={'X'} open={openSpeedDial} />}
+              open={openSpeedDial}
+              onClose={() => setOpenSpeedDial(false)}
+              onOpen={() => setOpenSpeedDial(true)}
+              direction={direction}
+              placement={placement}
+            >
+              {actions.map((action) => (
+                <SpeedDialAction
+                  key={action.name}
+                  icon={action.icon}
+                  tooltipTitle={action.name}
+                  tooltipOpen={openToolTip}
+                  tooltipPlacement={toolTipPlacement}
+                  arrow={toolTipArrow}
+                />
+              ))}
+            </SpeedDial>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Controlled speed Dial
+The open state of the component can be controlled with the `open` / `onOpen` / `onClose` props.
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SpeedDialControlled />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import SpeedDial from 'wind-ui/SpeedDial'
+    import SpeedDialAction from 'wind-ui/SpeedDialAction'
+    import IconButton from 'wind-ui/IconButton'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleOpen = () => {
+        setOpen(true);
+      }
+
+      const handleClose = () => {
+        setOpen(false);
+      }
+      
+      const actions = [
+        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
+        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
+        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
+        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+      ];
+
+      return (
+        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '300px' }}>
+          <SpeedDial
+            className='absolute'
+            open={open}
+            onOpen={handleOpen}
+            onClose={handleClose}
+          >
+            {actions.map((action) => (
+              <SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                onClick={handleClose}
+              />
+            ))}
+          </SpeedDial>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Persistent action tooltips
+The SpeedDialActions tooltips can be displayed persistently so that users don't have to long press to see the tooltip on touch devices.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SpeedDialTooltip />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import SpeedDial from 'wind-ui/SpeedDial'
+    import SpeedDialAction from 'wind-ui/SpeedDialAction'
+    import IconButton from 'wind-ui/IconButton'
+
+    export default function MyReactPage() {
+
+      const [open, setOpen] = useState(true);
+
+      const handleOpen = () => {
+        setOpen(true);
+      }
+
+      const handleClose = () => {
+        setOpen(false);
+      }
+      
+      const actions = [
+        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
+        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
+        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
+        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+      ];
+
+      return (
+        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '300px' }}>
+          <SpeedDial
+            className='absolute'
+            open={open}
+            onOpen={handleOpen}
+            onClose={handleClose}
+          >
+            {actions.map((action) => (
+              <SpeedDialAction
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                tooltipPlacement='left'
+                tooltipOpen
+                arrow
+                onClick={handleClose}
+              />
+            ))}
+          </SpeedDial>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## SpeedDial API
+API reference docs for the React SpeedDial component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>SpeedDialActions to display when the SpeedDial is open.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>direction</Table.Td>
+      <Table.Td>`'up' | 'down' | 'left' | 'right'`</Table.Td>
+      <Table.Td>`'up'`</Table.Td>
+      <Table.Td>The direction the actions open relative to the floating action button.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>placement</Table.Td>
+      <Table.Td>`'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'`</Table.Td>
+      <Table.Td>`'bottom-right'`</Table.Td>
+      <Table.Td>The placement of an SpeedDial, the position of the component is fixed(default).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>FabProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Props applied to the Fab element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>hidden</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the SpeedDial is hidden.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>icon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display in the SpeedDial Fab. Component provides a default Icon with animation.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onClose</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be closed. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onOpen</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be opened. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## SpeedDialAction API
+API reference docs for the React SpeedDialAction component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>icon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display in the SpeedDialAction.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>tooltipOpen</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>Make the tooltip always visible when the SpeedDial is open.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>tooltipPlacement</Table.Td>
+      <Table.Td>`'bottom-end' | 'bottom-start' | 'bottom' | 'left-end' | 'left-start' | 'left' | 'right-end' | 'right-start' | 'right' | 'top-end' | 'top-start' | 'top'`</Table.Td>
+      <Table.Td>`'left'`</Table.Td>
+      <Table.Td>The placement of an SpeedDial, the position of the component is fixed(default).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>tooltipTitle</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Label to display in the tooltip.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>arrow</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, tooltip arrow is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>tooltipClasses</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>`Classes` applied to the `Tooltip` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>tooltipArrowClasses</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>`Classes` applied to the `tooltip arrow` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>icon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display in the SpeedDial Fab. Component provides a default Icon with animation.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>If `true`, the component is shown.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onClose</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be closed. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onOpen</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be opened. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
+
+## SpeedDialIcon API
+API reference docs for the React SpeedDialIcon component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>icon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>openIcon</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The icon to display in the SpeedDial Floating Action Button when the SpeedDial is open.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

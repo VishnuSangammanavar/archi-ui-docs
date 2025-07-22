@@ -1,6 +1,7 @@
+/* @import "elementx/dist/index.css"; */
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -10,9 +11,350 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+} */
+
+:root {
+  --background: 0 0% 100%;                         /* card */
+  --foreground: 0 0% 0%;                           /* input, icon, badge, switch, dialog, modal, drawer, Popover, chip, breadcrumbs, ListItemIcon, menu, select, card, BottomBavigation */
+  
+  --skeleton: 0, 0%, 0%, 0.11;                     /* Skeleton-bg                                  done */
+  --ghost: 0 0% 80%;                               /* fab, Avatar                              done */
+
+  --natural: 0 0% 20%;                             /* snackbar */
+  --tooltip: 0 0% 38%;                             /* tooltip-bg                                   done */
+
+  --selected: 210, 79%, 46%, 0.078;                /* ListItem, MenuItem, ListItemButton  done */
+  --selectedHover: 210, 79%, 46%, 0.122;           /* MenuItem                             done */
+
+  --chipDelete: 0, 0%, 0%, 0.259;                  /* Chip */
+  --chipDeleteHover: 0, 0%, 0%, 0.4;               /* Chip */
+  
+  --divider: 0, 0%, 0%, 0.122;                     /* divider, MenuItem, ListItem, ListItemButton */
+
+  --disabled: 0, 0%, 0%, 0.122;                    /* button, fab, input placeholder, divider, ListItem-border, MenuItem, accordion, listItem, pagination */
+  --disabled-foreground: 0, 0%, 0%, 0.259;         /* button, fab, icon, accordion, pagination */
+  
+  --default: 0 0% 88%;                             /* button, icon, alert, badge, switch, loading */
+  --default-foreground: 0, 0%, 0%, 0.871;          /* button, fab, alert */
+
+  --icon-foreground: 0, 0%, 0%, 0.541;             /* icon -- replaced with default-foreground, ListItemIcon */
+
+  --input: 0, 0%, 0%, 0.059;                       /* input, select */
+  --input-hover: 0, 0%, 0%, 0.09;                  /* input, Select */
+  --input-border: 0 0% 0%;                         /* input, Select */
+
+  --border: 0 0% 74%;                              /* input, Select */
+
+  --primary: 210 79% 46%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 291 64% 42%;
+  --secondary-foreground: 0 0% 100%;
+
+  --info: 201 98% 41%;
+  --info-foreground: 0 0% 100%;
+
+  --warning: 27 98% 47%;
+  --warning-foreground: 0 0% 100%;
+
+  --success: 123 46% 34%;
+  --success-foreground: 0 0% 100%;
+
+  --error: 0 64% 51%;
+  --error-foreground: 0 0% 100%;
+
+  --ring: 215 20% 65%;
+
+  /* --radius: 0.5rem; */
+
+  --accent: 0, 0%, 0%, 0.039;                      /* icon, ListItemButton, menuItem, pagination-inactive, skeleton */
+
+  --muted: 0, 0%, 0%, 0.078;                       /* chip, pagination-active */
+  --mutedHover: 0, 0%, 0%, 0.122;                  /* chip-hover, pagination-activeHover */
+  --muted-foreground: 0 0% 100%;                   /* alert(filled, avatar, checkbox, bottomNavigation-bg */
+
+  --popover: 0 0% 100%;                            /* Menu, Select */
+
+  --surface: 0, 0%, 100%;                          /* Dialog-bg, Drawer-bg, popover-bg, Model-bg */
+  /* --accent-foreground: 222, 46%, 11%; */
+
+  --preview: 0 0% 100%;                          /* Dialog-bg, Drawer-bg, popover-bg, Model-bg */
 }
 
-@media (prefers-color-scheme: dark) {
+.dark {
+  --background: 0 0% 12%;
+  --foreground: 0 0% 100%;
+  
+  --skeleton: 0, 0%, 100%, 0.129;
+  --ghost: 0 0% 60%;
+
+  --natural: 0 0% 100%;
+  --tooltip: 0 0% 38%;
+
+  --selected: 207, 90%, 77%, 0.161;
+  --selectedHover: 207, 90%, 77%, 0.239;
+
+  --chipDelete: 0, 0%, 100%, 0.259;
+  --chipDeleteHover: 0, 0%, 100%, 0.4;
+
+  --divider: 0, 0%, 100%, 0.122;
+
+  --disabled: 0, 0%, 100%, 0.122;
+  --disabled-foreground: 0, 0%, 100%, 0.302;
+
+  --default: 0 0% 26%;
+  --default-foreground: 0, 0%, 0%, 0.871;
+
+  --icon-foreground: 0 0% 100%;
+
+  --input: 0, 0%, 100%, 0.09;
+  --input-hover: 0, 0%, 100%, 0.129;
+  --input-border: 0 0% 100%;
+
+  --border: 0 0% 38%;
+
+  --primary: 207 90% 77%;
+  --primary-foreground: 0, 0%, 0%, 0.871;
+
+  --secondary: 291 47% 71%;
+  --secondary-foreground: 0, 0%, 0%, 0.871;
+
+  --info: 199 92% 56%;
+  --info-foreground: 0, 0%, 0%, 0.871;
+
+  --warning: 36 100% 57%;
+  --warning-foreground: 0, 0%, 0%, 0.871;
+
+  --success: 123 38% 57%;
+  --success-foreground: 0, 0%, 0%, 0.871;
+
+  --error: 4 90% 58%;
+  --error-foreground: 0, 0%, 0%, 0.871;
+
+  --ring: 217 33% 17%;
+
+  /* --radius: 0.5rem; */
+  
+  --accent: 0, 0%, 100%, 0.078;
+
+  --muted: 0, 0%, 100%, 0.161;
+  --mutedHover: 0, 0%, 100%, 0.239;
+  --muted-foreground: 0 0% 12%;
+
+  --popover: 210 5% 20%;
+
+  --surface: 200 7% 17%;
+    /* --accent-foreground: 215, 20%, 65%; */
+
+  --preview: 231, 13%, 10%;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-divider: hsl(var(--divider));
+  --color-natural: hsl(var(--natural));
+  --color-ghost: hsl(var(--ghost));
+  --color-selected: hsl(var(--selected));
+  --color-selectedHover: hsl(var(--selectedHover));
+  --color-skeleton: hsl(var(--skeleton));
+  --color-tooltip: hsl(var(--tooltip));
+  --color-ring: hsl(var(--ring));
+  --color-chipDelete: hsl(var(--chipDelete));
+  --color-chipDeleteHover: hsl(var(--chipDeleteHover));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-info: hsl(var(--info));
+  --color-info-foreground: hsl(var(--info-foreground));
+
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+
+  --color-error: hsl(var(--error));
+  --color-error-foreground: hsl(var(--error-foreground));
+
+  --color-input: hsl(var(--input));
+  --color-input-hover: hsl(var(--input-hover));
+  --color-input-border: hsl(var(--input-border));
+
+  --color-disabled: hsl(var(--disabled));
+  --color-disabled-foreground: hsl(var(--disabled-foreground));
+
+  --color-default: hsl(var(--default));
+  --color-default-foreground: hsl(var(--default-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-muted-hover: hsl(var(--muted-hover));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-surface: hsl(var(--surface));
+  --color-surface-foreground: hsl(var(--surface-foreground));
+
+  --color-icon-foreground: hsl(var(--icon-foreground));
+
+  --color-preview: hsl(var(--preview));
+
+  /* --radius-lg: hsl(var(--radius)); */
+  /* --radius-md: calc(var(--radius - 2px)); */
+  /* --radius-sm: calc(var(--radius - 4px)); */
+
+  --font-sans: hsl(var(--font-geist-sans));
+  --font-mono: hsl(var(--font-geist-mono));
+}
+
+@keyframes waves {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@utility wave {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    animation: waves 2s linear 0.5s infinite;
+    background: linear-gradient(90deg, transparent, rgba(225, 225, 255, 0.4), transparent);
+    pointer-events: none;
+  }
+}
+
+@keyframes indeterminate-1 {
+  0% {
+    left: -35%;
+    right: 100%;
+  }
+  60% {
+    left: 100%;
+    right: -90%;
+  }
+  100% {
+    left: 100%;
+    right: -90%;
+  }
+}
+
+@keyframes indeterminate-2 {
+  0% {
+    left: -200%;
+    right: 100%;
+  }
+  60% {
+    left: 107%;
+    right: -8%;
+  }
+  100% {
+    left: 1007%;
+    right: -8%;
+  }
+}
+
+.animate-indeterminate {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-indeterminate-bar-1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.5s ease-in-out;
+  animation: indeterminate-1 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.animate-indeterminate-bar-2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.5s ease-in-out;
+  animation: indeterminate-2 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.15s infinite;
+}
+
+@keyframes query {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-query {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-query-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 2s ease-in-out;
+  animation: query 2s infinite linear;
+}
+
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 200;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 100, 200;
+		stroke-dashoffset: -15;
+	}
+	100% {
+		stroke-dasharray: 100, 200;
+		stroke-dashoffset: -125;
+	}
+}
+
+.animate-dash {
+	animation: dash 1.8s ease-in-out infinite;
+}
+
+@keyframes bar {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    transform: scaleY(0.70);
+    opacity: 50%;
+  }
+}
+
+.animate-bar {
+  animation: bar 1s infinite;
+}
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -23,4 +365,29 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
+
+/* pages/ */
+
+/* _app.js */
+/* import "@/styles/globals.css";
+
+export default function App({ Component, pageProps }) {
+  return <Component {...pageProps} />;
+} */
+
+
+/* _document.js */
+/* import { Html, Head, Main, NextScript } from "next/document";
+
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head />
+      <body className="antialiased">
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+} */

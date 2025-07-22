@@ -1,0 +1,508 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicSelect from '../../../src/demo/select/BasicSelect.jsx'
+import SelectVariant from '../../../src/demo/select/SelectVariant.jsx'
+import SelectHelperText from '../../../src/demo/select/SelectHelperText.jsx'
+import SelectSize from '../../../src/demo/select/SelectSize.jsx'
+import SelectProp from '../../../src/demo/select/SelectProp.jsx'
+import SelectDialog from '../../../src/demo/select/SelectDialog.jsx'
+
+# Select
+
+Select components are used for collecting user provided information from a list of options.
+
+## Basic Select
+Menus are positioned under their emitting elements, unless they are closed to the bottom of the viewport.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicSelect />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Select from 'wind-ui/Select'
+    import MenuItem from 'wind-ui/MenuItem'
+
+    export default function MyReactPage() {
+
+      const [age, setAge] = useState('');
+
+      const handleChange = (value) => {
+        setAge(value)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Select value={age} onValueChange={handleChange}>
+            <MenuItem divider value={10}>Ten</MenuItem>
+            <MenuItem divider value={20}>Twenty</MenuItem>
+            <MenuItem divider value={30}>Thirty</MenuItem>
+            <MenuItem divider value={40}>Fourty</MenuItem>
+          </Select>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Select from 'wind-ui/Select'
+import MenuItem from 'wind-ui/MenuItem'
+// or
+import { Select, MenuItem } from 'wind-ui'
+```
+```jsx
+<Select>
+  <MenuItem value='Item 1'>Item 1</MenuItem>
+  <MenuItem value='Item 2'>Item 2</MenuItem>
+  <MenuItem value='Item 3'>Item 3</MenuItem>
+  <MenuItem value='Item 4'>Item 4</MenuItem>
+</Select>
+```
+
+## Variant
+The `Select` comes with three variants: outlined(default), filled, standard.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SelectVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Select from 'wind-ui/Select'
+    import MenuItem from 'wind-ui/MenuItem'
+
+    export default function MyReactPage() {
+
+      const [age, setAge] = useState('');
+        
+      const handleChange = (value) => {
+        setAge(value)
+      }
+
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Select value={age} onValueChange={handleChange} variant='filled'>
+            <MenuItem divider value=''>
+              <em>None</em>
+            </MenuItem>
+            <MenuItem divider value='10'>Ten</MenuItem>
+            <MenuItem divider value='20'>Twenty</MenuItem>
+            <MenuItem divider value='30'>Thirty</MenuItem>
+            <MenuItem divider value='40'>Fourty</MenuItem>
+          </Select>
+          <Select value={age} onValueChange={handleChange} variant='outlined'>
+            <MenuItem divider value=''>
+              <em>None</em>
+            </MenuItem>
+            <MenuItem divider value='10'>Ten</MenuItem>
+            <MenuItem divider value='20'>Twenty</MenuItem>
+            <MenuItem divider value='30'>Thirty</MenuItem>
+            <MenuItem divider value='40'>Fourty</MenuItem>
+          </Select>
+          <Select value={age} onValueChange={handleChange} variant='standard'>
+            <MenuItem divider value=''>
+              <em>None</em>
+            </MenuItem>
+            <MenuItem divider value='10'>Ten</MenuItem>
+            <MenuItem divider value='20'>Twenty</MenuItem>
+            <MenuItem divider value='30'>Thirty</MenuItem>
+            <MenuItem divider value='40'>Fourty</MenuItem>
+          </Select>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Helper text
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SelectHelperText />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Select from 'wind-ui/Select'
+    import MenuItem from 'wind-ui/MenuItem'
+    import FormControl from 'wind-ui/FormControl'
+    import FormHelperText from 'wind-ui/FormHelperText'
+
+    export default function MyReactPage() {
+
+      const [age, setAge] = useState('');
+        
+      const handleChange = (value) => {
+        setAge(value)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <FormControl>
+            <Select value={age} onValueChange={handleChange}>
+              <MenuItem divider value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem divider value='10'>Ten</MenuItem>
+              <MenuItem divider value='20'>Twenty</MenuItem>
+              <MenuItem divider value='30'>Thirty</MenuItem>
+              <MenuItem divider value='40'>Fourty</MenuItem>
+            </Select>
+            <FormHelperText>Helper text</FormHelperText>
+          </FormControl>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SelectSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Select from 'wind-ui/Select'
+    import MenuItem from 'wind-ui/MenuItem'
+
+    export default function MyReactPage() {
+
+      const [age, setAge] = useState('');
+  
+      const handleChange = (value) => {
+        setAge(value)
+      }
+
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <Select value={age} onValueChange={handleChange} size='lg'>
+            <MenuItem divider value=''>
+              <em>None</em>
+            </MenuItem>
+            <MenuItem divider value={10}>Ten</MenuItem>
+            <MenuItem divider value={20}>Twenty</MenuItem>
+            <MenuItem divider value={30}>Thirty</MenuItem>
+            <MenuItem divider value={40}>Fourty</MenuItem>
+          </Select>
+          <Select value={age} onValueChange={handleChange} size='md'>
+            <MenuItem divider value=''>
+              <em>None</em>
+            </MenuItem>
+            <MenuItem divider value={10}>Ten</MenuItem>
+            <MenuItem divider value={20}>Twenty</MenuItem>
+            <MenuItem divider value={30}>Thirty</MenuItem>
+            <MenuItem divider value={40}>Fourty</MenuItem>
+          </Select>
+          <Select value={age} onValueChange={handleChange} size='sm'>
+            <MenuItem divider value=''>
+              <em>None</em>
+            </MenuItem>
+            <MenuItem divider value={10}>Ten</MenuItem>
+            <MenuItem divider value={20}>Twenty</MenuItem>
+            <MenuItem divider value={30}>Thirty</MenuItem>
+            <MenuItem divider value={40}>Fourty</MenuItem>
+          </Select>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Other props
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SelectProp />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Select from 'wind-ui/Select'
+    import MenuItem from 'wind-ui/MenuItem'
+    import FormControl from 'wind-ui/FormControl'
+    import FormHelperText from 'wind-ui/FormHelperText'
+
+    export default function MyReactPage() {
+
+      const [age, setAge] = useState('');
+    
+      const handleChange = (value) => {
+        setAge(value)
+      }
+
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <FormControl disabled>
+            <Select value={age} onValueChange={handleChange}>
+              <MenuItem divider value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem divider value={10}>Ten</MenuItem>
+              <MenuItem divider value={20}>Twenty</MenuItem>
+              <MenuItem divider value={30}>Thirty</MenuItem>
+              <MenuItem divider value={40}>Fourty</MenuItem>
+            </Select>
+            <FormHelperText>Disabled</FormHelperText>
+          </FormControl>
+          <FormControl error>
+            <Select value={age} onValueChange={handleChange}>
+              <MenuItem divider value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem divider value={10}>Ten</MenuItem>
+              <MenuItem divider value={20}>Twenty</MenuItem>
+              <MenuItem divider value={30}>Thirty</MenuItem>
+              <MenuItem divider value={40}>Fourty</MenuItem>
+            </Select>
+            <FormHelperText>Error</FormHelperText>
+          </FormControl>
+          <FormControl>
+            <Select value={age} onValueChange={handleChange}>
+              <MenuItem divider value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem divider value={10}>Ten</MenuItem>
+              <MenuItem divider value={20}>Twenty</MenuItem>
+              <MenuItem divider value={30}>Thirty</MenuItem>
+              <MenuItem divider value={40}>Fourty</MenuItem>
+            </Select>
+            <FormHelperText>Read only</FormHelperText>
+          </FormControl>
+          <FormControl required>
+            <Select value={age} onValueChange={handleChange}>
+              <MenuItem divider value=''>
+                <em>None</em>
+              </MenuItem>
+              <MenuItem divider value={10}>Ten</MenuItem>
+              <MenuItem divider value={20}>Twenty</MenuItem>
+              <MenuItem divider value={30}>Thirty</MenuItem>
+              <MenuItem divider value={40}>Fourty</MenuItem>
+            </Select>
+            <FormHelperText>Required</FormHelperText>
+          </FormControl>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## With a dialog
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SelectDialog />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React, { useState } from 'react';
+    import Select from 'wind-ui/Select'
+    import MenuItem from 'wind-ui/MenuItem'
+    import Dialog from 'wind-ui/Dialog'
+    import DialogContent from 'wind-ui/DialogContent'
+    import DialogActions from 'wind-ui/DialogActions'
+    import Button from 'wind-ui/Button'
+
+    export default function MyReactPage() {
+
+      const [age, setAge] = useState('');
+      const [open, setOpen] = useState(false)
+        
+      const handleChange = (value) => {
+        setAge(value)
+      }
+
+      const handleClick = () => {
+        setOpen(true)
+      }
+
+      const handleClose = () => {
+        setOpen(false)
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button onClick={handleClick}>Open select dialog</Button>
+          <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
+            <DialogContent>
+              <div className='flex flex-wrap items-center justify-center gap-2'>
+                <Select value={age} onValueChange={handleChange}>
+                  <MenuItem divider value=''>
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem divider value={10}>Ten</MenuItem>
+                  <MenuItem divider value={20}>Twenty</MenuItem>
+                  <MenuItem divider value={30}>Thirty</MenuItem>
+                  <MenuItem divider value={40}>Fourty</MenuItem>
+                </Select>
+                <Select value={age} onValueChange={handleChange}>
+                  <MenuItem divider value=''>
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem divider value={10}>Ten</MenuItem>
+                  <MenuItem divider value={20}>Twenty</MenuItem>
+                  <MenuItem divider value={30}>Thirty</MenuItem>
+                  <MenuItem divider value={40}>Fourty</MenuItem>
+                </Select>
+              </div>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Ok</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Select API
+API reference docs for the React Select component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The option elements to populate the select with. Can be some `MenuItem` when `native` is false and `option` when `native` is true. The `MenuItem` elements must be direct descendants when `native` is false.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'filled' | 'outlined' | 'standard'`</Table.Td>
+      <Table.Td>`'outlined'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`primary`</Table.Td>
+      <Table.Td>The color of the componenet.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>fullwidth</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If true, the select will take up the full width of its container.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>error</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the input will indicate an error, The prop defaults to the value(false) inherited from the parent FormControl component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultOpen</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is initially open, Use when the component open state is not controlled (i.e. the `open` is not defined). You can only use it when the `native` prop is false (default)</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>defaultValue</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The default value, Use when the component is not controlled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>displayEmpty</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, a value is displayed even if no items are selected. In order to display a meaningful value.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>IconComponent</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>`<ChevronDown />`</Table.Td>
+      <Table.Td>The icon that displays the arrow.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>MenuProps</Table.Td>
+      <Table.Td>`object`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Props applied to `Menu` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>native</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component uses a native `select` element.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>multiple</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, `value` must be an array and the menu will support multiple selections.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>open</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is shown, You can only use it when the native prop is false(default).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onClose</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be closed. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onOpen</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the component is requests to be opened. <br /> Signature: `function() => void`.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>renderValue</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Rebder the selected value. You can only use it when native prop is false(default).<br /> Signature: `function(value: any) => ReactNode`<br /> - value: the `value` provided to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>onValueChange</Table.Td>
+      <Table.Td>`func`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Callback fired when the menu item is selected.<br /> Signature: `function(value: any) => void`<br /> - value: You can pull out the new value by accessing `value`(any).</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>value</Table.Td>
+      <Table.Td>`any`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The value of the `select` component, required for controlled component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>scrollLock</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`true`</Table.Td>
+      <Table.Td>The value of the `select` component, required for controlled component.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

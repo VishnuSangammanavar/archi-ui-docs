@@ -1,0 +1,388 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicButtonGroup from '../../../src/demo/buttonGroup/BasicButtonGroup.jsx'
+import ButtonGroupVariant from '../../../src/demo/buttonGroup/ButtonGroupVariant.jsx'
+import ButtonGroupSize from '../../../src/demo/buttonGroup/ButtonGroupSize.jsx'
+import ColorButtonGroup from '../../../src/demo/buttonGroup/ColorButtonGroup.jsx'
+import SplitButton from '../../../src/demo/buttonGroup/SplitButton.jsx'
+import LoadingButtonGroup from '../../../src/demo/buttonGroup/LoadingButtonGroup.jsx'
+import ButtonGroupOrientation from '../../../src/demo/buttonGroup/ButtonGroupOrientation.jsx'
+
+# Button Group
+
+The ButtonGroup component can be used to group related buttons.
+
+## Basic button group
+The buttons can be grouped by wrapping them with the `ButtonGroup` component. They need to be immediate children.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicButtonGroup />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex items-center justify-center'>
+          <ButtonGroup variant="filled">
+            <Button>One</Button>
+            <Button>Two</Button>
+            <Button>Three</Button>
+          </ButtonGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import Button from 'wind-ui/Button'
+import ButtonGroup from 'wind-ui/ButtonGroup'
+// or
+import { Button, ButtonGroup } from 'wind-ui'
+```
+```jsx
+<ButtonGroup>
+  <Button>One</Button>
+  <Button>Two</Button>
+  <Button>Three</Button>
+</ButtonGroup>
+```
+
+## Variant
+All the standard button variants are supported
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ButtonGroupVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <ButtonGroup variant="filled">
+            <Button>One</Button>
+            <Button>Two</Button>
+            <Button>Three</Button>
+          </ButtonGroup>
+          <ButtonGroup variant="outlined">
+            <Button>One</Button>
+            <Button>Two</Button>
+            <Button>Three</Button>
+          </ButtonGroup>
+          <ButtonGroup variant="ghost">
+            <Button>One</Button>
+            <Button>Two</Button>
+            <Button>Three</Button>
+          </ButtonGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Sizes
+The `size` props can be used to control the appearance of the button group.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ButtonGroupSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+
+    export default function MyReactPage() {
+
+      const buttons = [
+        <Button key="one">One</Button>,
+        <Button key="two">Two</Button>,
+        <Button key="three">Three</Button>,
+      ];
+
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <ButtonGroup size="sm">
+            {buttons}
+          </ButtonGroup>
+          <ButtonGroup size='md'>
+            {buttons}
+          </ButtonGroup>
+          <ButtonGroup size="lg">
+            {buttons}
+          </ButtonGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Color
+Use `color` prop to control the appearance of the button group.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ColorButtonGroup />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+
+    export default function MyReactPage() {
+
+      const buttons = [
+        <Button key="one">One</Button>,
+        <Button key="two">Two</Button>,
+        <Button key="three">Three</Button>,
+      ];
+
+      return (
+        <div className='flex flex-col items-center justify-center gap-2'>
+          <ButtonGroup color='primary'>
+            {buttons}
+          </ButtonGroup>
+          <ButtonGroup color='secondary'>
+            {buttons}
+          </ButtonGroup>
+          <ButtonGroup color='success'>
+            {buttons}
+          </ButtonGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Split Button
+`ButtonGroup` can also be used to create a split button. The dropdown can change the button action (as in this example) or be used to immediately trigger a related action.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SplitButton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+    import Menu from 'wind-ui/Menu'
+    import MenuItem from 'wind-ui/MenuItem'
+    import { ChevronDown } from 'lucide-react';
+
+    export default function MyReactPage() {
+
+      const [anchorEl, setAnchorEl] = useState(null);
+      const [selectedIndex, setSelectedIndex] = React.useState(1);
+      const open = Boolean(anchorEl);
+
+      const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge'];
+
+      const handleMenuItemClick = (index) => {
+        setSelectedIndex(index);
+        setAnchorEl(null);
+      };
+
+      const handleButtonClick = (e) => {
+        setAnchorEl(e.currentTarget);
+      }
+
+      const handleClose = () => {
+        setAnchorEl(null);
+      }
+
+      return (
+        <div className='flex items-center justify-center'>
+          <ButtonGroup variant="filled">
+            <Button>{options[selectedIndex]}</Button>
+            <Button onClick={handleButtonClick}>
+              <ChevronDown />
+            </Button>
+          </ButtonGroup>
+          <Menu
+            open={open}
+            onClose={handleClose}
+            anchorEl={anchorEl}
+            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+          >
+            {options.map((option, index) => (
+              <MenuItem
+                key={option}
+                disabled={index === 2}
+                selected={index === selectedIndex}
+                onClick={() => handleMenuItemClick(index)}
+              >
+                {option}
+              </MenuItem>
+            ))}
+          </Menu>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Loading
+Use the `loading` prop from `Button` to set buttons in a loading state and disable interactions.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LoadingButtonGroup />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+    import { SaveIcon } from 'lucide-react'
+
+    export default function MyReactPage() {
+
+      return (
+        <div className='flex items-center justify-center'>
+          <ButtonGroup variant="outlined" aria-label="Loading button group">
+            <Button>Submit</Button>
+            <Button>Fetch data</Button>
+            <Button loading loadingPosition="start" startIcon={<SaveIcon />}>
+              Save
+            </Button>
+          </ButtonGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Button Group Orientation
+The button group can be displayed vertically using the `orientation` prop
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <ButtonGroupOrientation />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react'
+    import Button from 'wind-ui/Button'
+    import ButtonGroup from 'wind-ui/ButtonGroup'
+
+    export default function MyReactPage() {
+
+      const buttons = [
+        <Button key="one">One</Button>,
+        <Button key="two">Two</Button>,
+        <Button key="three">Three</Button>,
+      ];
+
+      return (
+        <div className='flex items-center justify-center gap-2'>
+          <ButtonGroup
+            orientation="vertical"
+            variant="filled"
+          >
+            {buttons}
+          </ButtonGroup>
+          <ButtonGroup
+            orientation="vertical"
+            variant="outlined"
+          >
+            {buttons}
+          </ButtonGroup>
+          <ButtonGroup
+            orientation="vertical"
+            variant="ghost"
+          >
+            {buttons}
+          </ButtonGroup>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## ButtonGroup API
+API reference docs for the React ButtonGroup component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>children</Table.Td>
+      <Table.Td>`node`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The content of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'filled' | 'outlined' | 'ghost' | 'link'`</Table.Td>
+      <Table.Td>`'outlined'`</Table.Td>
+      <Table.Td>The variant to use.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'sm' | 'md' | 'lg'`</Table.Td>
+      <Table.Td>`'md'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>disabled</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the component is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>fullwidth</Table.Td>
+      <Table.Td>`bool`</Table.Td>
+      <Table.Td>`false`</Table.Td>
+      <Table.Td>If `true`, the button will take up the full width of its container.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>orientation</Table.Td>
+      <Table.Td>`'horizontal' | 'vertical'`</Table.Td>
+      <Table.Td>`'horizontal'`</Table.Td>
+      <Table.Td>The component orientation (layout flow direction).</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

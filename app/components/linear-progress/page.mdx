@@ -1,0 +1,320 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicLinearProgress from '../../../src/demo/linearProgress/BasicLinearProgress.jsx'
+import LinearProgressColor from '../../../src/demo/linearProgress/LinearProgressColor.jsx'
+import LinearProgressIndeterminate from '../../../src/demo/linearProgress/LinearProgressIndeterminate.jsx'
+import LinearProgressDeterminate from '../../../src/demo/linearProgress/LinearProgressDeterminate.jsx'
+import LinearProgressBuffer from '../../../src/demo/linearProgress/LinearProgressBuffer.jsx'
+import LinearProgressQuery from '../../../src/demo/linearProgress/LinearProgressQuery.jsx'
+import LinearProgressSize from '../../../src/demo/linearProgress/LinearProgressSize.jsx'
+
+# LinearProgress
+
+Progress indicators commonly known as spinners, express an unspecified wait time or display the length of a process.
+
+Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates
+
+- Determinate indicators display how long an operation will take.
+- Indeterminate indicators visualize an unspecified wait time.
+
+## Basic LinearProgress
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicLinearProgress />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import LinearProgress from 'wind-ui/LinearProgress'
+
+    export default function MyReactPage() {
+      return (
+        <LinearProgress />
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+```jsx
+import LinearProgress from 'wind-ui/LinearProgress'
+// or
+import { LinearProgress } from 'wind-ui'
+```
+```jsx
+<LinearProgress />
+```
+
+## Color
+Use `color` prop to apply different colors for component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LinearProgressColor />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import LinearProgress from 'wind-ui/LinearProgress'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col gap-2'>
+          <LinearProgress color='primary' />
+          <LinearProgress color='secondary' />
+          <LinearProgress color='info' />
+          <LinearProgress color='warning' />
+          <LinearProgress color='success' />
+          <LinearProgress color='error' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Variant
+The `LinearProgress` comes with four variants: indeterminate(default), determinate, buffer, query.
+
+### Indeterminate
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LinearProgressIndeterminate />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import LinearProgress from 'wind-ui/LinearProgress'
+
+    export default function MyReactPage() {
+      return (
+        <LinearProgress variant='indeterminate' />
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Determinate
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LinearProgressDeterminate />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useEffect, useState } from 'react'
+    import LinearProgress from 'wind-ui/LinearProgress'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+
+      const [progress, setProgress] = useState(0);
+
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setProgress((oldProgress) => {
+            if (oldProgress === 100) {
+              return 0;
+            }
+            const diff = Math.random() * 10;
+            return Math.min(oldProgress + diff, 100)
+          })
+        }, 500);
+      
+        return () => {
+          clearInterval(timer)
+        }
+      }, [])
+
+      return (
+        <div className='flex flex-col gap-2'>
+          <div className='flex items-center justify-center gap-2'>
+            <LinearProgress variant='determinate' value={progress} />
+            <Typography>{`${Math.round(progress)}%`}</Typography>
+          </div>
+          <div className='flex items-center justify-center gap-2'>
+            <LinearProgress color='secondary' variant='determinate' value={50} />
+            <Typography>50%</Typography>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Buffer
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LinearProgressBuffer />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useEffect, useState } from 'react'
+    import LinearProgress from 'wind-ui/LinearProgress'
+    import Typography from 'wind-ui/Typography'
+
+    export default function MyReactPage() {
+
+      const [progress, setProgress] = useState(0);
+      const [buffer, setBuffer] = useState(10);
+
+      const progressRef = React.useRef(() => {});
+
+      useEffect(() => {
+        progressRef.current = () => {
+          if (progress === 100) {
+            setProgress(0);
+            setBuffer(10);
+          }
+          else {
+            setProgress(progress + 1);
+            if (buffer < 100 && progress % 5 === 0) {
+              const newBuffer = buffer + 1 + Math.random() * 10;
+              setBuffer(newBuffer > 100 ? 100 : newBuffer);
+            }
+          }
+        }
+      });
+
+      useEffect(() => {
+        const timer = setInterval(() => {
+          progressRef.current();
+        }, 200);
+      
+        return () => {
+          clearInterval(timer)
+        }
+      }, [])
+
+      return (
+        <div className='flex flex-col gap-2'>
+          <div className='flex items-center justify-center gap-2'>
+            <LinearProgress variant='buffer' value={progress} bufferValue={buffer} />
+            <Typography>{`${Math.round(progress)}%`}</Typography>
+          </div>
+          <div className='flex items-center justify-center gap-2'>
+            <LinearProgress color='secondary' variant='buffer' value={50} bufferValue={60} />
+            <Typography>50%</Typography>
+          </div>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+### Query
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LinearProgressQuery />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import LinearProgress from 'wind-ui/LinearProgress'
+
+    export default function MyReactPage() {
+      return (
+        return (
+          <LinearProgress variant='query' />
+        );
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Size
+Use `size` prop to change the size of the component.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <LinearProgressSize />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import LinearProgress from 'wind-ui/LinearProgress'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col gap-2'>
+          <LinearProgress variant='buffer' size='sm' value={50} bufferValue={55} color='success' />
+          <LinearProgress variant='buffer' size='md' value={50} bufferValue={55} color='success' />
+          <LinearProgress variant='buffer' size='lg' value={50} bufferValue={55} color='success' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## LinearProgress API
+API reference docs for the React LinearProgress component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'determinate' | 'indeterminate' | 'buffer' | 'query'`</Table.Td>
+      <Table.Td>`'indeterminate'`</Table.Td>
+      <Table.Td>The variant to use. Use indeterminate or query when there is no progress value.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>size</Table.Td>
+      <Table.Td>`'lg' | 'md' | 'sm'`</Table.Td>
+      <Table.Td>`'sm'`</Table.Td>
+      <Table.Td>The size of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>color</Table.Td>
+      <Table.Td>`'primary' | 'secondary' | 'info' | 'warning' | 'success' | 'error'`</Table.Td>
+      <Table.Td>`'primary'`</Table.Td>
+      <Table.Td>The color of the component.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>value</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`100`</Table.Td>
+      <Table.Td>The value of the progress indicator for the determinate and buffer variants. Value between 0 and 100.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>minValue</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`0`</Table.Td>
+      <Table.Td>The minValue for the progress indicator for the determinate and buffer variants.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>maxValue</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>`100`</Table.Td>
+      <Table.Td>The maxValue for the progress indicator for the determinate and buffer variants.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>bufferValue</Table.Td>
+      <Table.Td>`number`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>The value for the buffer variant. Value between 0 and 100.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>

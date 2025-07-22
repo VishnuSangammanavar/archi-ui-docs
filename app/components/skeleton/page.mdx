@@ -1,0 +1,139 @@
+import { Tabs, Table } from 'nextra/components'
+import BasicSkeleton from '../../../src/demo/skeleton/BasicSkeleton.jsx'
+import SkeletonVariant from '../../../src/demo/skeleton/SkeletonVariant.jsx'
+import SkeletonAnimation from '../../../src/demo/skeleton/SkeletonAnimation.jsx'
+
+# Skeleton
+
+Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
+
+The data for your components might not be immediately available. You can improve the perceived responsiveness of the page by using skeletons. It feels like things are happening immediately, then the information is incrementally displayed on the screen.
+
+## Basic Skeleton
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <BasicSkeleton />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Skeleton from 'wind-ui/Skeleton'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-start justify-center gap-2'>
+          <Skeleton variant='circular' />
+          <Skeleton variant='text' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Usage
+The component is designed to be used directly in your components. For instance:
+
+```jsx
+import Skeleton from 'wind-ui/Skeleton'
+// or
+import { Skeleton } from 'wind-ui'
+```
+```jsx
+{item ? (
+  <img alt={item.title} src={item.src} className='w-54 h-64' />
+  ) : (
+    <Skeleton variant='rectangular' className='w-54 h-64' />
+  )
+}
+```
+
+## Variants
+The component suppots 4 shape variants:
+
+-- `text`(default): represents a single line of text (you can adjust the height and width via className).
+
+-- `circular`, `rectangular`, `rounded`: come with different boder radius to let you take control of the size.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SkeletonVariant />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Skeleton from 'wind-ui/Skeleton'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-start justify-center gap-2'>
+          <Skeleton variant='text' />
+          <Skeleton variant='circular' />
+          <Skeleton variant='rounded' className='w-full h-16' />
+          <Skeleton variant='rectangular' className='w-full h-16' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Animation
+By default, the skeleton pulsates, but you can change the animation to a wave or disable it by pass value as none.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <SkeletonAnimation />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Skeleton from 'wind-ui/Skeleton'
+
+    export default function MyReactPage() {
+      return (
+        <div className='flex flex-col items-start justify-center gap-2'>
+          <Skeleton animation='pulse' variant='rectangular' className='h-16' />
+          <Skeleton animation='wave' variant='rectangular' className='h-16' />
+          <Skeleton animation='none' variant='rectangular' className='h-16' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Skeleton API
+API reference docs for the React Skeleton component.
+
+### Props
+<Table>
+  <thead>
+    <Table.Tr>
+      <Table.Th>Name</Table.Th>
+      <Table.Th>Type</Table.Th>
+      <Table.Th>Default</Table.Th>
+      <Table.Th>Description</Table.Th>
+    </Table.Tr>
+  </thead>
+  <tbody>
+    <Table.Tr>
+      <Table.Td>className</Table.Td>
+      <Table.Td>`string`</Table.Td>
+      <Table.Td>-</Table.Td>
+      <Table.Td>Override or extend the styles applied to the component</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>animation</Table.Td>
+      <Table.Td>`'pulse' | 'wave' | 'none'`</Table.Td>
+      <Table.Td>`'pulse'`</Table.Td>
+      <Table.Td>The animation. If `false` the animation effect is disabled.</Table.Td>
+    </Table.Tr>
+    <Table.Tr>
+      <Table.Td>variant</Table.Td>
+      <Table.Td>`'circular' | 'rectangular' | 'rounded' | 'text'`</Table.Td>
+      <Table.Td>`'text'`</Table.Td>
+      <Table.Td>The type of content that will be rendered.</Table.Td>
+    </Table.Tr>
+  </tbody>
+</Table>
