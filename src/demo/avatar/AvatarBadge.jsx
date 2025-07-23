@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Badge } from 'elementx'
+import { Avatar, Badge } from 'archi-ui'
 
 const AvatarBadge = () => {
   return (

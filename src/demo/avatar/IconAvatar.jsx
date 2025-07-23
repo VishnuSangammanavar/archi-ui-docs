@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar } from 'elementx'
+import { Avatar } from 'archi-ui'
 import { ClipboardList, Heart, Tag } from 'lucide-react'
 
 const IconAvatar = () => {
