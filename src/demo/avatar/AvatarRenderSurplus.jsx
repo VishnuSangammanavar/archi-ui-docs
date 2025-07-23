@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { Avatar, AvatarGroup } from 'elementx'
+import { Avatar, AvatarGroup } from 'archi-ui'
 
 const AvatarRenderSurplus = () => {
   return (
