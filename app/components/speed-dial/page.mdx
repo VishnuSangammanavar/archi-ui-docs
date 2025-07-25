@@ -19,28 +19,30 @@ The floating action button can display related actions.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
     import SpeedDial from 'archi-ui/SpeedDial'
     import SpeedDialAction from 'archi-ui/SpeedDialAction'
     import SpeedDialIcon from 'archi-ui/SpeedDialIcon'
     import IconButton from 'archi-ui/IconButton'
+    import { Save, Files, Printer, Share2 } from 'lucide-react';
 
     export default function MyReactPage() {
 
       const [openSpeedDial, setOpenSpeedDial] = useState(false);
 
       const actions = [
-        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
-        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
-        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
-        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+        {icon: <IconButton><Share2 /></IconButton>, name: 'Share'},
+        {icon: <IconButton><Printer /></IconButton>, name: 'Print'},
+        {icon: <IconButton><Save /></IconButton>, name: 'Save'},
+        {icon: <IconButton><Files /></IconButton>, name: 'Copy'},
       ];
 
       return (
-        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '300px' }}>
+        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '340px' }}>
           <SpeedDial
             className='absolute'
-            icon={<SpeedDialIcon icon={'+'} openIcon={'X'} open={openSpeedDial} />}
             open={openSpeedDial}
             onClose={() => setOpenSpeedDial(false)}
             onOpen={() => setOpenSpeedDial(true)}
@@ -119,12 +121,15 @@ import { SpeedDial, SpeedDialAction, SpeedDialAction, SpeedDialIcon, IconButton 
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import IconButton from 'archi-ui/IconButton'
     import SpeedDial from 'archi-ui/SpeedDial'
     import SpeedDialAction from 'archi-ui/SpeedDialAction'
     import SpeedDialIcon from 'archi-ui/SpeedDialIcon'
-    import IconButton from 'archi-ui/IconButton'
     import Switch from 'archi-ui/Switch'
+    import { Files, Pencil, Plus, Printer, Save, Share2 } from 'lucide-react';
 
     export default function MyReactPage() {
 
@@ -161,10 +166,10 @@ import { SpeedDial, SpeedDialAction, SpeedDialAction, SpeedDialIcon, IconButton 
       }
 
       const actions = [
-        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
-        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
-        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
-        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+        {icon: <IconButton><Share2 /></IconButton>, name: 'Share'},
+        {icon: <IconButton><Printer /></IconButton>, name: 'Print'},
+        {icon: <IconButton><Save /></IconButton>, name: 'Save'},
+        {icon: <IconButton><Files /></IconButton>, name: 'Copy'},
       ];
 
       return (
@@ -222,7 +227,7 @@ import { SpeedDial, SpeedDialAction, SpeedDialAction, SpeedDialIcon, IconButton 
             <SpeedDial
               className='absolute'
               hidden={hidden}
-              icon={<SpeedDialIcon icon={'+'} openIcon={'X'} open={openSpeedDial} />}
+              icon={<SpeedDialIcon icon={<Plus />} openIcon={<Pencil />} open={openSpeedDial} />}
               open={openSpeedDial}
               onClose={() => setOpenSpeedDial(false)}
               onOpen={() => setOpenSpeedDial(true)}
@@ -256,10 +261,13 @@ The open state of the component can be controlled with the `open` / `onOpen` / `
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import IconButton from 'archi-ui/IconButton'
     import SpeedDial from 'archi-ui/SpeedDial'
     import SpeedDialAction from 'archi-ui/SpeedDialAction'
-    import IconButton from 'archi-ui/IconButton'
+    import { Files, Printer, Save, Share2 } from 'lucide-react';
 
     export default function MyReactPage() {
 
@@ -274,14 +282,14 @@ The open state of the component can be controlled with the `open` / `onOpen` / `
       }
       
       const actions = [
-        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
-        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
-        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
-        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+        {icon: <IconButton><Share2 /></IconButton>, name: 'Share'},
+        {icon: <IconButton><Printer /></IconButton>, name: 'Print'},
+        {icon: <IconButton><Save /></IconButton>, name: 'Save'},
+        {icon: <IconButton><Files /></IconButton>, name: 'Copy'},
       ];
 
       return (
-        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '300px' }}>
+        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '360px' }}>
           <SpeedDial
             className='absolute'
             open={open}
@@ -313,10 +321,13 @@ The SpeedDialActions tooltips can be displayed persistently so that users don't 
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import IconButton from 'archi-ui/IconButton'
     import SpeedDial from 'archi-ui/SpeedDial'
     import SpeedDialAction from 'archi-ui/SpeedDialAction'
-    import IconButton from 'archi-ui/IconButton'
+    import { Files, Printer, Save, Share2 } from 'lucide-react';
 
     export default function MyReactPage() {
 
@@ -331,14 +342,14 @@ The SpeedDialActions tooltips can be displayed persistently so that users don't 
       }
       
       const actions = [
-        {icon: <IconButton color='warning' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Send'},
-        {icon: <IconButton color='info' className='hover:bg-gray-200' size='sm'><span>D</span></IconButton>, name: 'Delete'},
-        {icon: <IconButton color='error' className='hover:bg-gray-200' size='sm'><span>S</span></IconButton>, name: 'Share'},
-        {icon: <IconButton color='success' className='hover:bg-gray-200' size='sm'><span>W</span></IconButton>, name: 'Whatsapp'},
+        {icon: <IconButton><Share2 /></IconButton>, name: 'Share'},
+        {icon: <IconButton><Printer /></IconButton>, name: 'Print'},
+        {icon: <IconButton><Save /></IconButton>, name: 'Save'},
+        {icon: <IconButton><Files /></IconButton>, name: 'Copy'},
       ];
 
       return (
-        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '300px' }}>
+        <div className="relative flex-grow-1 w-full bg-accent" style={{ height: '360px' }}>
           <SpeedDial
             className='absolute'
             open={open}

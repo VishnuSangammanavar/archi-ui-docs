@@ -161,7 +161,7 @@ The `Pagination` comes with three variants: outlined(default), filled, standard.
 
     export default function MyReactPage() {
       return (
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex flex-col items-center justify-center gap-4">
           <Pagination
             totalPages={8}
             size='sm'
@@ -195,6 +195,7 @@ You can optionally enable first-page and last-page buttons using `showFirstButto
     ```jsx showLineNumbers
     import React from 'react';
     import Pagination from 'archi-ui/Pagination'
+    import { ChevronFirst, ChevronLast } from 'lucide-react'
 
     export default function MyReactPage() {
       return (
@@ -205,8 +206,8 @@ You can optionally enable first-page and last-page buttons using `showFirstButto
             color='primary'
             showFirstButton
             showLastButton
-            firstButtonIcon='<-'
-            lastButtonIcon='->'
+            firstButtonIcon={<ChevronFirst size={16} />}
+            lastButtonIcon={<ChevronLast size={16} />}
           />
         </div>
       );
@@ -226,6 +227,7 @@ It's possible to customize the control icons using `previousIcon`, `nextIcon` pr
     ```jsx showLineNumbers
     import React from 'react';
     import Pagination from 'archi-ui/Pagination'
+    import { ChevronLeftCircle, ChevronRightCircle } from 'lucide-react'
 
     export default function MyReactPage() {
       return (
@@ -241,8 +243,8 @@ It's possible to customize the control icons using `previousIcon`, `nextIcon` pr
             totalPages={8}
             variant='ghost'
             color='primary'
-            previousIcon='<'
-            nextIcon='>'
+            previousIcon={<ChevronLeftCircle size={16} />}
+            nextIcon={<ChevronRightCircle size={16} />}
           />
         </div>
       );
@@ -316,15 +318,17 @@ If the `page` is set using useState, to update to next page or previous page on 
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState }  from 'react'
     import Pagination from 'archi-ui/Pagination'
 
     export default function MyReactPage() {
 
-      const [page, setPage] = useState(3);
+      const [page, setCurrentPage] = useState(3);
 
       const handlePageChange = (page) => {
-        setPage(page)
+        setCurrentPage(page)
       }
 
       return (

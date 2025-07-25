@@ -17,10 +17,13 @@ The Snackbar component appears themporarily and floats above the UI to provide u
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Snackbar from 'archi-ui/Snackbar'
+    "use client"
+
+    import React, { useState } from 'react'
     import Button from 'archi-ui/Button'
     import IconButton from 'archi-ui/IconButton'
+    import Snackbar from 'archi-ui/Snackbar'
+    import { XIcon } from 'lucide-react';
 
     export default function MyReactPage() {
 
@@ -35,7 +38,7 @@ The Snackbar component appears themporarily and floats above the UI to provide u
       }
 
       return (
-        <React.Fragment>
+        <div className='flex items-center justify-center'>
           <Button variant='filled' onClick={handleClick}>open snackbar</Button>
           <Snackbar
             open={open}
@@ -44,12 +47,14 @@ The Snackbar component appears themporarily and floats above the UI to provide u
             action={
               <React.Fragment>
                 <Button color='secondary' size='sm' onClick={handleClose}>undo</Button>
-                <IconButton size='sm' onClick={handleClose}>X</IconButton>
+                <IconButton onClick={handleClose} className='text-muted-foreground'>
+                  <XIcon />
+                </IconButton>
               </React.Fragment>
             }
             autoHideDuration={6000}
           />
-        </React.Fragment>
+        </div>
       );
     }
     ```
@@ -78,7 +83,9 @@ Use the `autoHideDuration` prop to  automatically trigger the Snackbar's `onClos
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
     import Snackbar from 'archi-ui/Snackbar'
     import Button from 'archi-ui/Button'
 
@@ -95,7 +102,7 @@ Use the `autoHideDuration` prop to  automatically trigger the Snackbar's `onClos
       }
 
       return (
-        <React.Fragment>
+        <div className='flex items-center justify-center'>
           <Button variant='filled' onClick={handleClick}>open snackbar</Button>
           <Snackbar
             open={open}
@@ -103,7 +110,7 @@ Use the `autoHideDuration` prop to  automatically trigger the Snackbar's `onClos
             onClose={handleClose}
             autoHideDuration={5000}
           />
-        </React.Fragment>
+        </div>
       );
     }
     ```
@@ -121,12 +128,14 @@ Use the Alert inside a Snackbar for messages that communicate a certain severity
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Snackbar from 'archi-ui/Snackbar'
+    "use client"
+
+    import React, { useState } from 'react'
     import Alert from 'archi-ui/Alert'
-    import AlertTitle from 'archi-ui/AlertTitle'
     import AlertDescription from 'archi-ui/AlertDescription'
+    import AlertTitle from 'archi-ui/AlertTitle'
     import Button from 'archi-ui/Button'
+    import Snackbar from 'archi-ui/Snackbar'
 
     export default function MyReactPage() {
 
@@ -141,7 +150,7 @@ Use the Alert inside a Snackbar for messages that communicate a certain severity
       }
 
       return (
-        <React.Fragment>
+        <div className='flex items-center justify-center'>
           <Button variant='filled' onClick={handleClick}>open snackbar</Button>
           <Snackbar
             open={open}
@@ -152,7 +161,7 @@ Use the Alert inside a Snackbar for messages that communicate a certain severity
               <AlertDescription>This is success alert inside a snackbar!</AlertDescription>
             </Alert>
           </Snackbar>
-        </React.Fragment>
+        </div>
       );
     }
     ```
@@ -168,9 +177,11 @@ To add the actions to the snackbar use `action` prop. If want to add multiple ac
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Snackbar from 'archi-ui/Snackbar'
+    "use client"
+
+    import React, { useState } from 'react'
     import Button from 'archi-ui/Button'
+    import Snackbar from 'archi-ui/Snackbar'
 
     export default function MyReactPage() {
 
@@ -185,7 +196,7 @@ To add the actions to the snackbar use `action` prop. If want to add multiple ac
       }
 
       return (
-        <React.Fragment>
+        <div className='flex items-center justify-center'>
           <Button variant='filled' color='secondary' onClick={handleClick}>Upload data</Button>
           <Snackbar
             message="Uploaded successfully!"
@@ -197,7 +208,7 @@ To add the actions to the snackbar use `action` prop. If want to add multiple ac
               </React.Fragment>
             }
           />
-        </React.Fragment>
+        </div>
       );
     }
     ```
@@ -215,9 +226,13 @@ When displaying multiple consecutive snackbars using a single parent-rendered `<
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Snackbar from 'archi-ui/Snackbar'
+    "use client"
+
+    import React, { useState } from 'react'
     import Button from 'archi-ui/Button'
+    import IconButton from 'archi-ui/IconButton'
+    import Snackbar from 'archi-ui/Snackbar'
+    import { XIcon } from 'lucide-react';
 
     export default function MyReactPage() {
       
@@ -259,7 +274,9 @@ When displaying multiple consecutive snackbars using a single parent-rendered `<
             onClose={handleClose}
             anchorOrigin={{ vertical, horizontal }}
             action={
-              <span onClick={handleClose}>X</span>
+              <IconButton onClick={handleClose} className='text-muted-foreground'>
+                <XIcon />
+              </IconButton>
             }
             autoHideDuration={6000}
             style={{ zIndex: 1000 }}
