@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Avatar, ListItemAvatar, ListItemIcon, Menu, MenuItem, Typography } from 'archi-ui';
+import { Avatar, IconButton, ListItemAvatar, ListItemIcon, Menu, MenuItem, Typography } from 'archi-ui';
 import { LogOut, Plus, Settings } from 'lucide-react';
 
 const AccountMenu = () => {
@@ -22,7 +22,12 @@ const AccountMenu = () => {
       <Typography className='text-muted-foreground'>Home</Typography>
       <Typography className='text-muted-foreground'>About</Typography>
       <Typography className='text-muted-foreground'>Task</Typography>
-      <Avatar onClick={handleClick} size='sm' className='mr-2 cursor-pointer'>V</Avatar>
+      <IconButton
+        onClick={handleClick}
+        className='mr-2'
+      >
+        <Avatar>M</Avatar>
+      </IconButton>
       <Menu open={open} onClose={handleClose} anchorEl={anchorEl} 
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}

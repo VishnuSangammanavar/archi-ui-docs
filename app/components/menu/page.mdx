@@ -3,12 +3,15 @@ import BasicMenu from '../../../src/demo/menu/BasicMenu.jsx'
 import IconMenu from '../../../src/demo/menu/IconMenu.jsx'
 import DenseMenu from '../../../src/demo/menu/DenseMenu.jsx'
 import SelectedMenu from '../../../src/demo/menu/SelectedMenu.jsx'
+import PositionedMenu from '../../../src/demo/menu/PositionedMenu.jsx'
 import AccountMenu from '../../../src/demo/menu/AccountMenu.jsx'
 import MaxHeightMenu from '../../../src/demo/menu/MaxHeightMenu.jsx'
 
 # Menu
 
 A menu displays a list of choices on a temporary surface. It appears when the user interacts with a button, or other control.
+
+## Introduction
 
 Menus are implemented using a collection of related components:
 
@@ -27,10 +30,12 @@ You should configure the component so that selecting an option immediately confi
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'archi-ui/Button'
     import Menu from 'archi-ui/Menu'
     import MenuItem from 'archi-ui/MenuItem'
-    import Button from 'archi-ui/Button'
 
     export default function MyReactPage() {
 
@@ -46,7 +51,7 @@ You should configure the component so that selecting an option immediately confi
       }
 
       return (
-        <React.Fragment>
+        <div className='flex items-center justify-center'>
           <Button variant='outlined' onClick={handleClick}>
             Open Menu
           </Button>
@@ -56,7 +61,7 @@ You should configure the component so that selecting an option immediately confi
             <MenuItem onClick={handleClose}>Settings</MenuItem>
             <MenuItem onClick={handleClose}>Logout</MenuItem>
           </Menu>
-        </React.Fragment>
+        </div>
       );
     }
     ```
@@ -80,8 +85,6 @@ import { Menu, MenuItem } from 'archi-ui'
 ```
 
 ## Icon menu
-The `Menu` comes with three variants: outlined(default), filled, standard.
-
 <Tabs items={['Preview', 'code']}>
   <Tabs.Tab value='Preview'>
     <IconMenu />
@@ -89,36 +92,37 @@ The `Menu` comes with three variants: outlined(default), filled, standard.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import MenuList from 'archi-ui/MenuList'
-    import MenuItem from 'archi-ui/MenuItem'
-    import ListItemText from 'archi-ui/ListItemText'
     import ListItemIcon from 'archi-ui/ListItemIcon'
+    import ListItemText from 'archi-ui/ListItemText'
+    import MenuItem from 'archi-ui/MenuItem'
+    import MenuList from 'archi-ui/MenuList'
     import Typography from 'archi-ui/Typography'
+    import { Clipboard, Copy, Scissors } from 'lucide-react'
 
     export default function MyReactPage() {
       return (
         <div className='flex items-center justify-center'>
-          <MenuList>
-            <MenuItem divider>
+          <MenuList style={{ width: '300px' }}>
+            <MenuItem>
               <ListItemIcon>
-                'x'
+                <Scissors />
               </ListItemIcon>
               <ListItemText primary='Cut' />
-              <Typography variant='caption'>Clt + X</Typography>
+              <Typography variant='caption'>Clt X</Typography>
             </MenuItem>
-            <MenuItem divider>
+            <MenuItem>
               <ListItemIcon>
-                'c'
+                <Copy />
               </ListItemIcon>
               <ListItemText primary='Copy' />
-              <Typography variant='caption'>Clt+C</Typography>
+              <Typography variant='caption'>Clt C</Typography>
             </MenuItem>
-            <MenuItem divider>
+            <MenuItem>
               <ListItemIcon>
-                'v'
+                <Clipboard />
               </ListItemIcon>
               <ListItemText primary='Paste' />
-              <Typography variant='caption'>Clt+V</Typography>
+              <Typography variant='caption'>Clt V</Typography>
             </MenuItem>
           </MenuList>
         </div>
@@ -138,11 +142,12 @@ For the menu taht has long list and long text, you can use the `dense` prop in `
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import MenuList from 'archi-ui/MenuList'
-    import MenuItem from 'archi-ui/MenuItem'
-    import ListItemText from 'archi-ui/ListItemText'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
     import Divider from 'archi-ui/Divider'
+    import ListItemIcon from 'archi-ui/ListItemIcon'
+    import ListItemText from 'archi-ui/ListItemText'
+    import MenuItem from 'archi-ui/MenuItem'
+    import MenuList from 'archi-ui/MenuList'
+    import { ArrowDownUp, Brush, MonitorCog, Plus, RotateCw, SquareTerminal } from 'lucide-react'
 
     export default function MyReactPage() {
       return (
@@ -152,30 +157,47 @@ For the menu taht has long list and long text, you can use the `dense` prop in `
               <ListItemText inset primary='View' />
             </MenuItem>
             <MenuItem dense>
-              <ListItemText inset primary='Short by' />
+              <ListItemIcon className='text-primary'>
+                <ArrowDownUp size={16} />
+              </ListItemIcon>
+              <ListItemText primary='Short by' />
             </MenuItem>
             <MenuItem dense>
-              <ListItemText inset primary='Refresh' />
+              <ListItemIcon>
+                <RotateCw size={16} />
+              </ListItemIcon>
+              <ListItemText primary='Refresh' />
             </MenuItem>
             <Divider />
             <MenuItem dense>
-              <ListItemIcon>Add</ListItemIcon>
+              <ListItemIcon className='text-primary'>
+                <Plus size={16} />
+              </ListItemIcon>
               <ListItemText primary='New' />
             </MenuItem>
             <Divider />
             <MenuItem dense>
+              <ListItemIcon className='text-primary'>
+                <MonitorCog size={16} />
+              </ListItemIcon>
               <ListItemText primary='Display setting' />
             </MenuItem>
             <MenuItem dense>
+              <ListItemIcon>
+                <Brush size={16} />
+              </ListItemIcon>
               <ListItemText primary='Personalize' />
             </MenuItem>
             <Divider />
             <MenuItem dense>
+              <ListItemIcon>
+                <SquareTerminal size={16} />
+              </ListItemIcon>
               <ListItemText primary='Open in terminal' />
             </MenuItem>
             <Divider />
             <MenuItem dense>
-              <ListItemText primary='Show more options' />
+              <ListItemText primary='Show more options...' />
             </MenuItem>
           </MenuList>
         </div>
@@ -194,10 +216,12 @@ If used for item selection, when opened, simple menus places the initial focus o
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'archi-ui/Button'
     import Menu from 'archi-ui/Menu'
     import MenuItem from 'archi-ui/MenuItem'
-    import Button from 'archi-ui/Button'
     import Typography from 'archi-ui/Typography'
 
     export default function MyReactPage() {
@@ -252,8 +276,69 @@ If used for item selection, when opened, simple menus places the initial focus o
   </Tabs.Tab>
 </Tabs>
 
+## positioned menu
+You can display the menu on top of the anchor.
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PositionedMenu />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'archi-ui/Button'
+    import Menu from 'archi-ui/Menu'
+    import MenuItem from 'archi-ui/MenuItem'
+
+    export default function MyReactPage() {
+
+      const [anchorEl, setAnchorEl] = useState(null);
+      const open = Boolean(anchorEl);
+
+      const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+      };
+      
+      const handleClose = () => {
+        setAnchorEl(null);
+      };
+
+      return (
+        <div className='flex items-center justify-center'>
+          <Button
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+          >
+            Dashboard
+          </Button>
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'left',
+            }}
+          >
+            <MenuItem onClick={handleClose}>Profile</MenuItem>
+            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem onClick={handleClose}>Logout</MenuItem>
+          </Menu>
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
 ## Account menu
-If used for item selection, when opened, simple menus places the initial focus on the selected menu item. The currently selected menu item is set using the selected prop from MenuItem.
+`Menu` content can be mixed with other components like `Avatar`.
 
 <Tabs items={['Preview', 'code']}>
   <Tabs.Tab value='Preview'>
@@ -261,12 +346,17 @@ If used for item selection, when opened, simple menus places the initial focus o
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import Avatar from 'archi-ui/Avatar'
+    import IconButton from 'archi-ui/IconButton'
+    import ListItemAvatar from 'archi-ui/ListItemAvatar'
+    import ListItemIcon from 'archi-ui/ListItemIcon'
     import Menu from 'archi-ui/Menu'
     import MenuItem from 'archi-ui/MenuItem'
-    import Avatar from 'archi-ui/Avatar'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
     import Typography from 'archi-ui/Typography'
+    import { LogOut, Plus, Settings } from 'lucide-react';
 
     export default function MyReactPage() {
 
@@ -283,32 +373,45 @@ If used for item selection, when opened, simple menus places the initial focus o
 
       return (
         <div className='flex h-12 items-center justify-end gap-4 bg-primary'>
-          <Typography>Home</Typography>
-          <Typography>About</Typography>
-          <Typography>Task</Typography>
-          <Avatar onClick={handleClick} size='sm' className='mr-2 cursor-pointer'>V</Avatar>
-          <Menu open={open} onClose={handleClose} anchorEl={anchorEl}>
+          <Typography className='text-muted-foreground'>Home</Typography>
+          <Typography className='text-muted-foreground'>About</Typography>
+          <Typography className='text-muted-foreground'>Task</Typography>
+          <IconButton
+            onClick={handleClick}
+            className='mr-2'
+          >
+            <Avatar>M</Avatar>
+          </IconButton>
+          <Menu open={open} onClose={handleClose} anchorEl={anchorEl} 
+            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+            anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+          >
             <MenuItem onClick={handleClose}>
-              <Avatar size='sm' /> Profile
+              <ListItemAvatar>
+                <Avatar size='sm' />
+              </ListItemAvatar> Profile
             </MenuItem>
-            <MenuItem onClick={handleClose}>
-              <Avatar size='sm' /> My account
+            <MenuItem onClick={handleClose} divider>
+              <ListItemAvatar>
+                <Avatar size='sm' />
+              </ListItemAvatar>
+              My account
             </MenuItem>
             <MenuItem onClick={handleClose}>
               <ListItemIcon>
-                Add
+                <Plus />
               </ListItemIcon>
               Add another account
             </MenuItem>
-            <MenuItem onClick={handleClose}>
+            <MenuItem onClick={handleClose} divider>
               <ListItemIcon>
-                S
+                <Settings />
               </ListItemIcon>
               Settings
             </MenuItem>
             <MenuItem onClick={handleClose}>
               <ListItemIcon>
-                L
+                <LogOut />
               </ListItemIcon>
               Logout
             </MenuItem>
@@ -321,7 +424,7 @@ If used for item selection, when opened, simple menus places the initial focus o
 </Tabs>
 
 ## Max height menu
-If used for item selection, when opened, simple menus places the initial focus on the selected menu item. The currently selected menu item is set using the selected prop from MenuItem.
+If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.
 
 <Tabs items={['Preview', 'code']}>
   <Tabs.Tab value='Preview'>
@@ -329,12 +432,32 @@ If used for item selection, when opened, simple menus places the initial focus o
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
     import Menu from 'archi-ui/Menu'
     import MenuItem from 'archi-ui/MenuItem'
-    import Button from 'archi-ui/Button'
+    import IconButton from 'archi-ui/IconButton'
+    import { MoreVertical } from 'lucide-react';
 
     export default function MyReactPage() {
+
+      const options = [
+        'None',
+        'Atria',
+        'Callisto',
+        'Dione',
+        'Ganymede',
+        'Hangouts Call',
+        'Luna',
+        'Oberon',
+        'Phobos',
+        'Pyxis',
+        'Sedna',
+        'Titania',
+        'Triton',
+        'Umbriel',
+      ];
 
       const [anchorEl, setAnchorEl] = useState(null)
       const open = Boolean(anchorEl);
@@ -348,17 +471,26 @@ If used for item selection, when opened, simple menus places the initial focus o
       }
 
       return (
-        <React.Fragment>
-          <Button variant='outlined' onClick={handleClick}>
-            Open Menu
-          </Button>
-          <Menu open={open} onClose={handleClose} anchorEl={anchorEl}>
-            <MenuItem divider onClick={handleClose}>Item 1</MenuItem>
-            <MenuItem divider onClick={handleClose}>Item 2</MenuItem>
-            <MenuItem divider onClick={handleClose}>Item 3</MenuItem>
-            <MenuItem divider onClick={handleClose}>Item 4</MenuItem>
+        <div className='flex items-center justify-center'>
+          <IconButton
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
+          >
+            <MoreVertical />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            style={{ height: '200px', width: '20ch' }}
+          >
+            {options.map((option) => (
+              <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+                {option}
+              </MenuItem>
+            ))}
           </Menu>
-        </React.Fragment>
+        </div>
       );
     }
     ```

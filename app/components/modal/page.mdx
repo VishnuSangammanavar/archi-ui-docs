@@ -20,12 +20,25 @@ The component renders its children node in front of backdrop component. The mode
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState } from 'react'
+    import Button from 'archi-ui/Button'
     import Modal from 'archi-ui/Modal'
     import Typography from 'archi-ui/Typography'
-    import Button from 'archi-ui/Button'
 
     export default function MyReactPage() {
+
+      const [open, setOpen] = useState(false);
+
+      const handleClick = () => {
+        setOpen(true)
+      }
+
+      const handleClose = () => {
+        setOpen(false)
+      }
+
       return (
         <div className='flex items-center justify-center'>
           <Button variant='filled' onClick={handleClick}>Open Modal</Button>
@@ -63,12 +76,14 @@ Modals can be nested, for example a Select within a dialog, but stacking of more
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Modal from 'archi-ui/Modal'
+    "use client"
+
+    import React, { useState } from 'react'
     import Button from 'archi-ui/Button'
+    import Modal from 'archi-ui/Modal'
     import Typography from 'archi-ui/Typography'
 
-    const ChildModal = () => {
+    export default function MyReactPage() {
 
       const [open, setOpen] = useState(false);
 
@@ -89,30 +104,6 @@ Modals can be nested, for example a Select within a dialog, but stacking of more
             <Button onClick={handleClose}>Close child modal</Button>
           </Modal>
         </React.Fragment>
-      )
-    }
-
-    export default function MyReactPage() {
-
-      const [open, setOpen] = useState(false);
-
-      const handleClick = () => {
-        setOpen(true)
-      }
-
-      const handleClose = () => {
-        setOpen(false)
-      }
-
-      return (
-        <div className='flex items-center justify-center'>
-          <Button onClick={handleClick}>Open modal</Button>
-          <Modal open={open} onClose={handleClose}>
-            <Typography variant='h3'>Text in a modal</Typography>
-            <p>Ullam minus atque cum maiores recusandae reiciendis in sed rem voluptatem veniam harum repellendus.</p>
-            <ChildModal />
-          </Modal>
-        </div>
       )
     }
     ```

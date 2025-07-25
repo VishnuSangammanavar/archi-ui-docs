@@ -36,7 +36,10 @@ const ControlList = () => {
             >
               <ListItemButton onClick={() => handleToggle(value)} dense>
                 <ListItemIcon>
-                  <Checkbox checked={checked.includes(value)} />
+                  <Checkbox
+                    checked={checked.includes(value)}
+                    tabIndex={-1}
+                  />
                 </ListItemIcon>
                 <ListItemText primary={`List item ${value + 1}`} />
                 <IconButton>
