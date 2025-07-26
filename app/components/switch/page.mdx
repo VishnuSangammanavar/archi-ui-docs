@@ -171,7 +171,9 @@ You can control the switch with the `checked` and `onChange` prop.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
+    "use client"
+
+    import React, { useState }  from 'react'
     import Switch from 'archi-ui/Switch'
 
     export default function MyReactPage() {
@@ -204,11 +206,12 @@ You can also add icon to switch using `icon` prop, and you can also modifie the 
     ```jsx showLineNumbers
     import React from 'react';
     import Switch from 'archi-ui/Switch'
+    import { Moon, SunMedium } from 'lucide-react'
 
     export default function MyReactPage() {
       return (
-        <div className="flex items-center justify-center gap-2">
-          <Switch color='info' variant='standard' icon='l' checkedIcon='d' />
+        <div className="flex items-center justify-center">
+          <Switch color='info' variant='standard' icon={<Moon className='text-black' />} checkedIcon={<SunMedium className='text-black' />} />
         </div>
       );
     }

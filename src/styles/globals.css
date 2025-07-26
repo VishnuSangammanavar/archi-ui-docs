@@ -226,7 +226,7 @@
   }
 }
 
-@utility wave {
+.wave {
   position: relative;
 
   &::before {

@@ -19,9 +19,11 @@ Menus are positioned under their emitting elements, unless they are closed to th
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Select from 'archi-ui/Select'
+    "use client"
+
+    import React, { useState } from 'react'
     import MenuItem from 'archi-ui/MenuItem'
+    import Select from 'archi-ui/Select'
 
     export default function MyReactPage() {
 
@@ -71,14 +73,16 @@ The `Select` comes with three variants: outlined(default), filled, standard.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Select from 'archi-ui/Select'
+    "use client"
+
+    import React, { useState } from 'react'
     import MenuItem from 'archi-ui/MenuItem'
+    import Select from 'archi-ui/Select'
 
     export default function MyReactPage() {
 
       const [age, setAge] = useState('');
-        
+
       const handleChange = (value) => {
         setAge(value)
       }
@@ -126,16 +130,18 @@ The `Select` comes with three variants: outlined(default), filled, standard.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Select from 'archi-ui/Select'
-    import MenuItem from 'archi-ui/MenuItem'
+    "use client"
+
+    import React, { useState } from 'react'
     import FormControl from 'archi-ui/FormControl'
     import FormHelperText from 'archi-ui/FormHelperText'
+    import MenuItem from 'archi-ui/MenuItem'
+    import Select from 'archi-ui/Select'
 
     export default function MyReactPage() {
 
       const [age, setAge] = useState('');
-        
+
       const handleChange = (value) => {
         setAge(value)
       }
@@ -168,14 +174,16 @@ The `Select` comes with three variants: outlined(default), filled, standard.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Select from 'archi-ui/Select'
+    "use client"
+
+    import React, { useState } from 'react'
     import MenuItem from 'archi-ui/MenuItem'
+    import Select from 'archi-ui/Select'
 
     export default function MyReactPage() {
 
       const [age, setAge] = useState('');
-  
+
       const handleChange = (value) => {
         setAge(value)
       }
@@ -223,16 +231,18 @@ The `Select` comes with three variants: outlined(default), filled, standard.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Select from 'archi-ui/Select'
-    import MenuItem from 'archi-ui/MenuItem'
+    "use client"
+
+    import React, { useState } from 'react'
     import FormControl from 'archi-ui/FormControl'
     import FormHelperText from 'archi-ui/FormHelperText'
+    import MenuItem from 'archi-ui/MenuItem'
+    import Select from 'archi-ui/Select'
 
     export default function MyReactPage() {
 
       const [age, setAge] = useState('');
-    
+
       const handleChange = (value) => {
         setAge(value)
       }
@@ -301,13 +311,16 @@ The `Select` comes with three variants: outlined(default), filled, standard.
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
-    import React, { useState } from 'react';
-    import Select from 'archi-ui/Select'
-    import MenuItem from 'archi-ui/MenuItem'
-    import Dialog from 'archi-ui/Dialog'
-    import DialogContent from 'archi-ui/DialogContent'
-    import DialogActions from 'archi-ui/DialogActions'
+    "use client"
+
+    import React, { useState } from 'react'
     import Button from 'archi-ui/Button'
+    import Dialog from 'archi-ui/Dialog'
+    import DialogActions from 'archi-ui/DialogActions'
+    import DialogContent from 'archi-ui/DialogContent'
+    import DialogTitle from 'archi-ui/DialogTitle'
+    import MenuItem from 'archi-ui/MenuItem'
+    import Select from 'archi-ui/Select'
 
     export default function MyReactPage() {
 
@@ -329,7 +342,8 @@ The `Select` comes with three variants: outlined(default), filled, standard.
       return (
         <div className='flex items-center justify-center'>
           <Button onClick={handleClick}>Open select dialog</Button>
-          <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Fill the form</DialogTitle>
             <DialogContent>
               <div className='flex flex-wrap items-center justify-center gap-2'>
                 <Select value={age} onValueChange={handleChange}>
