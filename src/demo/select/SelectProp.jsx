@@ -12,7 +12,7 @@ const SelectProp = () => {
   }
   
   return (
-    <div className='flex items-center justify-center gap-2'>
+    <div className='flex flex-wrap items-center justify-center gap-2'>
       <FormControl disabled>
         <Select value={age} onValueChange={handleChange}>
           <MenuItem divider value=''>

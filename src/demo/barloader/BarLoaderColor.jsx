@@ -3,7 +3,7 @@ import { BarLoader } from 'archi-ui'
 
 const BarLoaderColor = () => {
   return (
-    <div className='flex items-center justify-center gap-4'>
+    <div className='flex flex-wrap items-center justify-center gap-4'>
       <BarLoader color='default' />
       <BarLoader color='primary' />
       <BarLoader color='secondary' />

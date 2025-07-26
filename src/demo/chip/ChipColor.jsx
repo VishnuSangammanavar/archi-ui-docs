@@ -4,7 +4,7 @@ import { Chip } from 'archi-ui'
 const ChipColor = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-2">
         <Chip variant='filled' color='default' clickable>Default</Chip>
         <Chip variant='filled' color='primary' clickable>Primary</Chip>
         <Chip variant='filled' color='secondary' clickable>Secondary</Chip>
@@ -13,8 +13,8 @@ const ChipColor = () => {
         <Chip variant='filled' color='success' clickable>Success</Chip>
         <Chip variant='filled' color='error' clickable>Error</Chip>
       </div>
-      <div className="flex items-center justify-center gap-2">
-      <Chip variant='outlined' color='default' clickable>Default</Chip>
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <Chip variant='outlined' color='default' clickable>Default</Chip>
         <Chip variant='outlined' color='primary' clickable>Primary</Chip>
         <Chip variant='outlined' color='secondary' clickable>Secondary</Chip>
         <Chip variant='outlined' color='info' clickable>Info</Chip>

@@ -9,7 +9,7 @@ const DifferentList = () => {
         <div>
           <Typography variant='h6'>Text only</Typography>
           <div>
-            <List className='bg-accent' style={{ width: '350px' }}>
+            <List className='bg-accent' style={{ width: '300px' }}>
               <ListItem>
                 <ListItemText primary='Single-line item' secondary='Secondary text' />
               </ListItem>
@@ -25,7 +25,7 @@ const DifferentList = () => {
         <div>
           <Typography variant='h6'>Icon with text</Typography>
           <div>
-            <List className='bg-accent' style={{ width: '350px' }}>
+            <List className='bg-accent' style={{ width: '300px' }}>
               <ListItem>
                 <ListItemIcon>
                   <Folder />
@@ -52,7 +52,7 @@ const DifferentList = () => {
         <div>
           <Typography variant='h6'>Avatar with text</Typography>
           <div>
-            <List className='bg-accent' style={{ width: '350px' }}>
+            <List className='bg-accent' style={{ width: '300px' }}>
               <ListItem>
                 <ListItemAvatar>
                   <Avatar />
@@ -77,7 +77,7 @@ const DifferentList = () => {
         <div>
           <Typography variant='h6'>Avatar with text and icon</Typography>
           <div>
-            <List className='bg-accent' style={{ width: '350px' }}>
+            <List className='bg-accent' style={{ width: '300px' }}>
               <ListItem secondaryAction={
                 <IconButton>
                     <Trash />

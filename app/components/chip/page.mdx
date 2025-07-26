@@ -121,7 +121,7 @@ You can use the following actions.
 
     export default function MyReactPage() {
       return (
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <Chip variant='filled' clickable onDelete={() => {}} onClick={() => {}}>Clickable and Deletable</Chip>
           <Chip variant='outlined' clickable onDelete={() => {}} onClick={() => {}}>Clickable and Deletable</Chip>
         </div>
@@ -172,7 +172,7 @@ Use the `deleteIcon` prop to override an default delete icon. Your `deleteIcon` 
 
     export default function MyReactPage() {
       return (
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <Chip variant='filled' onDelete={() => {}} deleteIcon={<DeleteIcon />}>Custome Delete Icon</Chip>
           <Chip variant='outlined' onDelete={() => {}} deleteIcon={<Trash2 />}>Custome Delete Icon</Chip>
         </div>
@@ -248,7 +248,7 @@ Use `color` prop to apply different colors for component.
     export default function MyReactPage() {
       return (
         <div className="flex flex-col items-center justify-center gap-2">
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <Chip variant='filled' color='default' clickable>Default</Chip>
             <Chip variant='filled' color='primary' clickable>Primary</Chip>
             <Chip variant='filled' color='secondary' clickable>Secondary</Chip>
@@ -257,8 +257,8 @@ Use `color` prop to apply different colors for component.
             <Chip variant='filled' color='success' clickable>Success</Chip>
             <Chip variant='filled' color='error' clickable>Error</Chip>
           </div>
-          <div className="flex items-center justify-center gap-2">
-          <Chip variant='outlined' color='default' clickable>Default</Chip>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <Chip variant='outlined' color='default' clickable>Default</Chip>
             <Chip variant='outlined' color='primary' clickable>Primary</Chip>
             <Chip variant='outlined' color='secondary' clickable>Secondary</Chip>
             <Chip variant='outlined' color='info' clickable>Info</Chip>

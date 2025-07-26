@@ -4,7 +4,7 @@ import { Badge, Button } from 'archi-ui'
 const BadgeAlignment = () => {
   return (
     <div className="flex flex-col gap-6">
-      <div className='flex items-center justify-center gap-6'>
+      <div className='flex flex-wrap items-center justify-center gap-6'>
         <div className="relative inline-flex items-center">
           <Button variant='filled' color='secondary'>Bottom right</Button>
           <Badge badgeContent={80} color='warning' className='absolute bottom-0 transform translate-y-1/2 right-0 translate-x-1/2' />
@@ -22,7 +22,7 @@ const BadgeAlignment = () => {
           <Badge badgeContent={10} color='secondary' className='absolute bottom-0 transform translate-y-1/2 left-0 -translate-x-1/2' />
         </div>
       </div>
-      <div className='flex items-center justify-center gap-4'>
+      <div className='flex flex-wrap items-center justify-center gap-4'>
         <div className="relative inline-flex items-center">
           <Button variant='filled' color='secondary'>Bottom right</Button>
           <Badge variant='dot' color='warning' className='absolute bottom-0 transform translate-y-1/2 right-0 translate-x-1/2' />

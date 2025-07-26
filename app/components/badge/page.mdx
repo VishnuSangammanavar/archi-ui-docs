@@ -99,7 +99,7 @@ Use `color` prop to apply different colors to component.
 
     export default function MyReactPage() {
       return (
-        <div className="flex items-center justify-center gap-2">
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <div className="relative inline-flex items-center">
             <Avatar />
             <Badge badgeContent={50} color='primary' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
@@ -146,7 +146,7 @@ Use `size` prop to change the size of the badge.
 
     export default function MyReactPage() {
       return (
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-4">
           <div className="relative inline-flex items-center">
             <Button variant='filled' color='secondary' size='sm'>Small</Button>
             <Badge badgeContent={"10"} color={'primary'} size='sm' className='absolute top-0 transform -translate-y-1/2 right-0 translate-x-1/2' />
@@ -302,7 +302,7 @@ You can use the `max` prop to cap the value of the badge content.
     export default function MyReactPage() {
       return (
         <div className="flex flex-col gap-6">
-          <div className='flex items-center justify-center gap-6'>
+          <div className='flex flex-wrap items-center justify-center gap-6'>
             <div className="relative inline-flex items-center">
               <Button variant='filled' color='secondary'>Bottom right</Button>
               <Badge badgeContent={80} color='warning' className='absolute bottom-0 transform translate-y-1/2 right-0 translate-x-1/2' />
@@ -320,7 +320,7 @@ You can use the `max` prop to cap the value of the badge content.
               <Badge badgeContent={10} color='secondary' className='absolute bottom-0 transform translate-y-1/2 left-0 -translate-x-1/2' />
             </div>
           </div>
-          <div className='flex items-center justify-center gap-4'>
+          <div className='flex flex-wrap items-center justify-center gap-4'>
             <div className="relative inline-flex items-center">
               <Button variant='filled' color='secondary'>Bottom right</Button>
               <Badge variant='dot' color='warning' className='absolute bottom-0 transform translate-y-1/2 right-0 translate-x-1/2' />

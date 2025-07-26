@@ -16,7 +16,7 @@ const FabSize = () => {
           <Plus />
         </Fab>
       </div>
-      <div className="flex items-center justify-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-2">
         <Fab color='primary' variant='extended' size='sm'>
           <ChevronRight />
           Navigate

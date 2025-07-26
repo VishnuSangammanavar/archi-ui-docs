@@ -329,7 +329,7 @@ For different size of Input like small, medium, large use `size` prop.
 
     export default function MyReactPage() {
       return (
-        <div className="flex items-center gap-2 w-full">
+        <div className="flex flex-col items-center gap-2 w-full">
           <Input type="text" placeholder='Medium' variant='filled' size='md' fullwidth />
           <Input type="text" placeholder='Small' variant='filled' size='sm' fullwidth />
         </div>
@@ -354,12 +354,12 @@ The `color` prop changes the highlight color of the text field when focused.
     export default function MyReactPage() {
       return (
         <div className='flex flex-wrap items-center justify-center gap-2'>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <Input type="text" placeholder='Outlined primary' variant='outlined' color='primary' />
             <Input type="text" placeholder='Filled secondary' variant='filled' color='secondary' />
             <Input type="text" placeholder='Standard info' variant='standard' color='info' />
           </div>
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <Input type="text" placeholder='Outlined warning' variant='outlined' color='warning' />
             <Input type="text" placeholder='Filled success' variant='filled' color='success' />
             <Input type="text" placeholder='Standard error' variant='standard' color='error' />
