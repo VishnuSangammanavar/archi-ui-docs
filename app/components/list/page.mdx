@@ -271,7 +271,7 @@ import { List, ListItem } from 'archi-ui'
     <SelectedListItem />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {24, 33, 45, 41}
     "use client"
 
     import React, { useState } from 'react'
@@ -344,7 +344,7 @@ When displaying three lines or more, the avatar is not aligned at the top. You s
     <AlignListItems />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /alignItems/
     import React from 'react'
     import Avatar from 'archi-ui/Avatar'
     import Divider from 'archi-ui/Divider'
@@ -646,7 +646,7 @@ Upon scrolling, subheaders remain pinned to the top of the screen until pushed o
     <StickyHeader />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {18}
     import React from 'react';
     import List from 'archi-ui/List'
     import ListItem from 'archi-ui/ListItem'
@@ -689,7 +689,7 @@ When rendering a list within a component that defines its own gutters, `ListItem
     <GutterlessList />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {15}
     import React from 'react'
     import IconButton from 'archi-ui/IconButton'
     import List from 'archi-ui/List'

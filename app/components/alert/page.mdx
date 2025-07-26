@@ -60,7 +60,7 @@ The `severity` prop accepts for values representing different states - `success`
     <AlertSeverity />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /severity/
     import React from 'react';
     import Alert from 'archi-ui/Alert'
     import AlertDescription from 'archi-ui/AlertDescription'
@@ -98,7 +98,7 @@ To set different variants use `variant` prop.
     <FilledAlert />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /variant='filled'/
     import React from 'react';
     import Alert from 'archi-ui/Alert'
     import AlertDescription from 'archi-ui/AlertDescription'
@@ -131,7 +131,7 @@ To set different variants use `variant` prop.
     <OutlinedAlert />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /variant='outlined'/
     import React from 'react';
     import Alert from 'archi-ui/Alert'
     import AlertDescription from 'archi-ui/AlertDescription'
@@ -258,7 +258,7 @@ If you provide an `onClose` callback to the Alert without setting the `action` p
     <ActionAlert />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /action/1 /onClose/
     "use client"
 
     import React from 'react';
@@ -290,7 +290,7 @@ Use the `icon` prop to override an Alert's icon. As with the `action` prop, your
     <IconAlert />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {9, 12}
     import React from 'react';
     import Alert from 'archi-ui/Alert'
     import AlertDescription from 'archi-ui/AlertDescription'
@@ -320,7 +320,7 @@ If you need to override all instances of an icon for a given severity, you can u
     <IconMapping />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {10, 11, 12}
     import React from 'react';
     import Alert from 'archi-ui/Alert'
     import { CheckCircle } from 'lucide-react'

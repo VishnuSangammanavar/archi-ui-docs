@@ -103,7 +103,7 @@ Use `shape` prop to give different shape to the pagination item.
     <PaginationShape />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /shape/
     import React from 'react';
     import Pagination from 'archi-ui/Pagination'
 
@@ -192,7 +192,7 @@ You can optionally enable first-page and last-page buttons using `showFirstButto
     <PaginationControls />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /showFirstButton/ /showLastButton/ /firstButtonIcon/ /lastButtonIcon/
     import React from 'react';
     import Pagination from 'archi-ui/Pagination'
     import { ChevronFirst, ChevronLast } from 'lucide-react'
@@ -224,7 +224,7 @@ It's possible to customize the control icons using `previousIcon`, `nextIcon` pr
     <PaginationCustomControls />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /previousIcon/ /nextIcon/
     import React from 'react';
     import Pagination from 'archi-ui/Pagination'
     import { ChevronLeftCircle, ChevronRightCircle } from 'lucide-react'
@@ -261,7 +261,7 @@ You can specify how many digits to display either side of the current page with 
     <PaginationRange />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /siblingCount/ /boundaryCount/
     import React from 'react';
     import Pagination from 'archi-ui/Pagination'
 
@@ -317,7 +317,7 @@ If the `page` is set using useState, to update to next page or previous page on 
     <ControlledPagination />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {10-12, 21}
     "use client"
 
     import React, { useState }  from 'react'

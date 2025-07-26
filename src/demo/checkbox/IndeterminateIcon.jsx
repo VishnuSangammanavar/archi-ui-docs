@@ -32,11 +32,11 @@ const IndeterminateIcon = () => {
       <div className="flex flex-col ml-4 gap-2">
         <FormControl>
           <Checkbox checked={checked[0]} onChange={handleChange2} />
-          <Label htmlFor='parent'>Parent</Label>
+          <Label htmlFor='child1'>Child1</Label>
         </FormControl>
         <FormControl>
           <Checkbox checked={checked[1]} onChange={handleChange3} />
-          <Label htmlFor='parent'>Parent</Label>
+          <Label htmlFor='child2'>Child2</Label>
         </FormControl>
       </div>
     </div>

@@ -140,7 +140,7 @@ For the menu taht has long list and long text, you can use the `dense` prop in `
     <DenseMenu />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /dense/
     import React from 'react';
     import Divider from 'archi-ui/Divider'
     import ListItemIcon from 'archi-ui/ListItemIcon'
@@ -215,7 +215,7 @@ If used for item selection, when opened, simple menus places the initial focus o
     <SelectedMenu />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {46}
     "use client"
 
     import React, { useState } from 'react'
@@ -284,7 +284,7 @@ You can display the menu on top of the anchor.
     <PositionedMenu />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {33-40}
     "use client"
 
     import React, { useState } from 'react'
@@ -345,7 +345,7 @@ You can display the menu on top of the anchor.
     <AccountMenu />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {31-36}
     "use client"
 
     import React, { useState } from 'react'
@@ -431,7 +431,7 @@ If the height of a menu prevents all menu items from being displayed, the menu c
     <MaxHeightMenu />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {51}
     "use client"
 
     import React, { useState } from 'react'

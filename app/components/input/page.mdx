@@ -82,7 +82,7 @@ Standard form attributes are supported, for example required, disabled, type, et
     <FormProps />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /required/ /disabled/ /readOnly/
     import React from 'react';
     import FormControl from 'archi-ui/FormControl'
     import FormHelperText from 'archi-ui/FormHelperText'
@@ -379,7 +379,7 @@ The `error` prop toggles the error state. The `FormHelperText` can then be used 
     <InputValidation />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /error/
     import React from 'react'
     import FormControl from 'archi-ui/FormControl'
     import FormHelperText from 'archi-ui/FormHelperText'
@@ -471,7 +471,7 @@ Pair the `Input` with `FormHelperText` component to add helper text for users to
     <InputFormHelpertext />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {10}
     import React from 'react'
     import Input from 'archi-ui/Input'
     import FormHelperText from 'archi-ui/FormHelperText'
@@ -497,7 +497,7 @@ Use `error` prop if you want helpertext to be displayed in an error state.
     <InputFormHelpertextError />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {10, 14, 18}
     import React from 'react'
     import Input from 'archi-ui/Input'
     import FormHelperText from 'archi-ui/FormHelperText'
@@ -539,7 +539,7 @@ This context is used by following components:
     <InputFormControll />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {11, 19, 27, 39, 47, 55, 68, 76, 84}
     import React from 'react'
     import FormControl from 'archi-ui/FormControl'
     import FormHelperText from 'archi-ui/FormHelperText'
@@ -724,7 +724,7 @@ Use the `leadingIcon` and `tailingIcon` to add icons to the start and end of the
     <InputLeadingTailingIcons />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /leadingIcon/ /tailingIcon/
     "use client"
 
     import React, { useState } from 'react'

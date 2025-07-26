@@ -138,7 +138,7 @@ You can modifie the icon for checked using `checkedIcon` prop.
     <IconCheckbox />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers showLineNumbers
+    ```jsx showLineNumbers /checkedIcon/
     import React from 'react';
     import Checkbox from 'archi-ui/Checkbox'
     import { CheckCheck } from 'lucide-react'
@@ -201,11 +201,11 @@ You can change the indeterminate icon using the `indeterminateIcon` prop.
           <div className="flex flex-col ml-4 gap-2">
             <FormControl>
               <Checkbox checked={checked[0]} onChange={handleChange2} />
-              <Label htmlFor='parent'>Parent</Label>
+              <Label htmlFor='child1'>Child1</Label>
             </FormControl>
             <FormControl>
               <Checkbox checked={checked[1]} onChange={handleChange3} />
-              <Label htmlFor='parent'>Parent</Label>
+              <Label htmlFor='child2'>Child2</Label>
             </FormControl>
           </div>
         </div>

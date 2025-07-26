@@ -72,7 +72,7 @@ The `Select` comes with three variants: outlined(default), filled, standard.
     <SelectVariant />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /variant/
     "use client"
 
     import React, { useState } from 'react'
@@ -129,7 +129,7 @@ The `Select` comes with three variants: outlined(default), filled, standard.
     <SelectHelperText />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {29}
     "use client"
 
     import React, { useState } from 'react'
@@ -230,7 +230,7 @@ The `Select` comes with three variants: outlined(default), filled, standard.
     <SelectProp />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {19, 31, 55} /readOnly/
     "use client"
 
     import React, { useState } from 'react'
@@ -274,7 +274,7 @@ The `Select` comes with three variants: outlined(default), filled, standard.
             <FormHelperText>Error</FormHelperText>
           </FormControl>
           <FormControl>
-            <Select value={age} onValueChange={handleChange}>
+            <Select value={age} readOnly onValueChange={handleChange}>
               <MenuItem divider value=''>
                 <em>None</em>
               </MenuItem>

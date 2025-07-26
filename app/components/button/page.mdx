@@ -56,7 +56,7 @@ The `Button` comes with three variants: ghost(default), filled, outlined, link.
     <ButtonVariant />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /variant/
     import React from 'react';
     import Button from 'archi-ui/Button'
 
@@ -106,7 +106,7 @@ Use `size` prop to change the size of the button.
     <ButtonSize />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /size/1-3
     import React from 'react';
     import Button from 'archi-ui/Button'
 
@@ -262,7 +262,7 @@ For example, if you have a delete button you can label it with a trash/dustbin i
     <IconButton />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers /startIcon/ /endIcon/
     import React from 'react';
     import Button from 'archi-ui/Button'
     import { Save, Trash } from 'lucide-react'
@@ -287,7 +287,7 @@ Use the `loading` prop to set buttons in a loading state and disable interaction
     <LoadingButton />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {24}
     "use client"
 
     import React, { useEffect, useState } from 'react'
@@ -398,7 +398,7 @@ By default, it renders a `<CircularProgress />` component as loading indicator.
     <CustomLoadingIcon />
   </Tabs.Tab>
   <Tabs.Tab value='Code'>
-    ```jsx showLineNumbers
+    ```jsx showLineNumbers {25}
     "use client"
 
     import React, { useEffect, useState } from 'react'

@@ -38,7 +38,7 @@ const SelectProp = () => {
         <FormHelperText>Error</FormHelperText>
       </FormControl>
       <FormControl>
-        <Select value={age} onValueChange={handleChange}>
+        <Select value={age} readOnly onValueChange={handleChange}>
           <MenuItem divider value=''>
             <em>None</em>
           </MenuItem>
