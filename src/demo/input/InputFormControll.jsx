@@ -6,7 +6,7 @@ const InputFormControll = () => {
     <div className="flex flex-wrap items-center justify-center gap-2">
       <div className="flex flex-wrap justify-center gap-2">
         <FormControl variant='standard' required>
-          <Label htmlFor="fname">First name</Label>
+          <Label>First name</Label>
           <Input
             type='text'
             placeholder='Standard Required'
@@ -14,7 +14,7 @@ const InputFormControll = () => {
           />
         </FormControl>
         <FormControl variant='standard' disabled>
-          <Label htmlFor="fname">First name</Label>
+          <Label>First name</Label>
           <Input
             type='text'
             placeholder='Standard disabled'
@@ -22,10 +22,10 @@ const InputFormControll = () => {
           />
         </FormControl>
         <FormControl variant='standard' error>
-          <Label htmlFor="password">Helper Text</Label>
+          <Label>Helper Text</Label>
           <Input
             type='text'
-            placeholder='Password'
+            placeholder='Standard error'
             id="helpertext"
             defaultValue="Default Value"
           />
@@ -34,7 +34,7 @@ const InputFormControll = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-2">
         <FormControl variant='outlined' required>
-          <Label htmlFor="fname">First name</Label>
+          <Label>First name</Label>
           <Input
             type='text'
             placeholder='Outlined Required'
@@ -42,7 +42,7 @@ const InputFormControll = () => {
           />
         </FormControl>
         <FormControl variant='outlined' disabled>
-          <Label htmlFor="fname">First name</Label>
+          <Label>First name</Label>
           <Input
             type='text'
             placeholder='Outlined disabled'
@@ -50,10 +50,10 @@ const InputFormControll = () => {
           />
         </FormControl>
         <FormControl variant='outlined' error>
-          <Label htmlFor="password">Helper Text</Label>
+          <Label>Helper Text</Label>
           <Input
             type='text'
-            placeholder='Password'
+            placeholder='Standard error'
             id="helpertext"
             defaultValue="Default Value"
             variant='outlined'
@@ -63,7 +63,7 @@ const InputFormControll = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-2">
         <FormControl variant='filled' required>
-          <Label htmlFor="fname">First name</Label>
+          <Label>First name</Label>
           <Input
             type='text'
             placeholder='Filled Required'
@@ -71,7 +71,7 @@ const InputFormControll = () => {
           />
         </FormControl>
         <FormControl variant='filled' disabled>
-          <Label htmlFor="fname">First name</Label>
+          <Label>First name</Label>
           <Input
             type='text'
             placeholder='Filled disabled'
@@ -79,10 +79,10 @@ const InputFormControll = () => {
           />
         </FormControl>
         <FormControl variant='filled' error>
-          <Label htmlFor="password">Helper Text</Label>
+          <Label>Helper Text</Label>
           <Input
             type='text'
-            placeholder='Password'
+            placeholder='Standard error'
             id="helpertext"
             defaultValue="Default Value"
           />

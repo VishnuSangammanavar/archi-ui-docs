@@ -19,7 +19,7 @@ const InputValidation = () => {
           <Label htmlFor="fname">First name</Label>
           <Input
             type='text'
-            placeholder='Standard Error with helper text'
+            placeholder='Standard Error'
             defaultValue="Default Value"
             variant='standard'
             error
@@ -42,7 +42,7 @@ const InputValidation = () => {
           <Label htmlFor="fname">First name</Label>
           <Input
             type='text'
-            placeholder='Standard Error with helper text'
+            placeholder='Standard Error'
             defaultValue="Default Value"
             variant='filled'
             error
@@ -64,7 +64,7 @@ const InputValidation = () => {
           <Label htmlFor="fname">First name</Label>
           <Input
             type='text'
-            placeholder='Standard Error with helper text'
+            placeholder='Standard Error'
             defaultValue="Default Value"
             error
           />

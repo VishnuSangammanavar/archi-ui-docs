@@ -6,7 +6,7 @@ const FormProps = () => {
     <div className="flex flex-col items-center justify-center gap-6">
       <div className="flex flex-wrap justify-center gap-2">
         <FormControl>
-          <Label htmlFor="fname" required>First name</Label>
+          <Label required>First name</Label>
           <Input
             type='text'
             placeholder='Standard Required'
@@ -16,7 +16,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="fname" disabled>First name</Label>
+          <Label disabled>First name</Label>
           <Input
             type='text'
             placeholder='Standard disabled'
@@ -26,7 +26,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Password</Label>
+          <Label>Password</Label>
           <Input
             type='password'
             placeholder='Password'
@@ -35,7 +35,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Read only</Label>
+          <Label>Read only</Label>
           <Input
             type='text'
             placeholder='Read only'
@@ -46,7 +46,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Search</Label>
+          <Label>Search</Label>
           <Input
             type='search'
             placeholder='search'
@@ -55,9 +55,9 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Helper Text</Label>
+          <Label>Helper Text</Label>
           <Input
-            type='text'
+            type='password'
             placeholder='Password'
             id="helpertext"
             defaultValue="Default Value"
@@ -68,7 +68,7 @@ const FormProps = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-2">
         <FormControl>
-          <Label htmlFor="fname" required>First name</Label>
+          <Label required>First name</Label>
           <Input
             type='text'
             placeholder='Outlined Required'
@@ -77,7 +77,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="fname" disabled>First name</Label>
+          <Label disabled>First name</Label>
           <Input
             type='text'
             placeholder='Outlined disabled'
@@ -86,7 +86,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Password</Label>
+          <Label>Password</Label>
           <Input
             type='password'
             placeholder='Password'
@@ -94,7 +94,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Read only</Label>
+          <Label>Read only</Label>
           <Input
             type='text'
             placeholder='Read only'
@@ -105,7 +105,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Search</Label>
+          <Label>Search</Label>
           <Input
             type='search'
             placeholder='search'
@@ -114,9 +114,9 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Helper Text</Label>
+          <Label>Helper Text</Label>
           <Input
-            type='text'
+            type='password'
             placeholder='Password'
             id="helpertext"
             defaultValue="Default Value"
@@ -127,7 +127,7 @@ const FormProps = () => {
       </div>
       <div className="flex flex-wrap justify-center gap-2">
         <FormControl>
-          <Label htmlFor="fname" required>First name</Label>
+          <Label required>First name</Label>
           <Input
             type='text'
             placeholder='Filled Required'
@@ -136,7 +136,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="fname" disabled>First name</Label>
+          <Label disabled>First name</Label>
           <Input
             type='text'
             placeholder='Filled disabled'
@@ -146,7 +146,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Password</Label>
+          <Label>Password</Label>
           <Input
             type='password'
             placeholder='Password'
@@ -155,7 +155,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Read only</Label>
+          <Label>Read only</Label>
           <Input
             type='text'
             placeholder='Read only'
@@ -166,7 +166,7 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Search</Label>
+          <Label>Search</Label>
           <Input
             type='search'
             placeholder='search'
@@ -175,9 +175,9 @@ const FormProps = () => {
           />
         </FormControl>
         <FormControl>
-          <Label htmlFor="password">Helper Text</Label>
+          <Label>Helper Text</Label>
           <Input
-            type='text'
+            type='password'
             placeholder='Password'
             id="helpertext"
             defaultValue="Default Value"

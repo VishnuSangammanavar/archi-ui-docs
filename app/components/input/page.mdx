@@ -94,7 +94,7 @@ Standard form attributes are supported, for example required, disabled, type, et
         <div className="flex flex-col items-center justify-center gap-6">
           <div className="flex flex-wrap justify-center gap-2">
             <FormControl>
-              <Label htmlFor="fname" required>First name</Label>
+              <Label required>First name</Label>
               <Input
                 type='text'
                 placeholder='Standard Required'
@@ -104,7 +104,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="fname" disabled>First name</Label>
+              <Label disabled>First name</Label>
               <Input
                 type='text'
                 placeholder='Standard disabled'
@@ -114,7 +114,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Password</Label>
+              <Label>Password</Label>
               <Input
                 type='password'
                 placeholder='Password'
@@ -123,7 +123,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Read only</Label>
+              <Label>Read only</Label>
               <Input
                 type='text'
                 placeholder='Read only'
@@ -134,7 +134,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Search</Label>
+              <Label>Search</Label>
               <Input
                 type='search'
                 placeholder='search'
@@ -143,9 +143,9 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Helper Text</Label>
+              <Label>Helper Text</Label>
               <Input
-                type='text'
+                type='password'
                 placeholder='Password'
                 id="helpertext"
                 defaultValue="Default Value"
@@ -156,7 +156,7 @@ Standard form attributes are supported, for example required, disabled, type, et
           </div>
           <div className="flex flex-wrap justify-center gap-2">
             <FormControl>
-              <Label htmlFor="fname" required>First name</Label>
+              <Label required>First name</Label>
               <Input
                 type='text'
                 placeholder='Outlined Required'
@@ -165,7 +165,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="fname" disabled>First name</Label>
+              <Label disabled>First name</Label>
               <Input
                 type='text'
                 placeholder='Outlined disabled'
@@ -174,7 +174,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Password</Label>
+              <Label>Password</Label>
               <Input
                 type='password'
                 placeholder='Password'
@@ -182,7 +182,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Read only</Label>
+              <Label>Read only</Label>
               <Input
                 type='text'
                 placeholder='Read only'
@@ -193,7 +193,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Search</Label>
+              <Label>Search</Label>
               <Input
                 type='search'
                 placeholder='search'
@@ -202,9 +202,9 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Helper Text</Label>
+              <Label>Helper Text</Label>
               <Input
-                type='text'
+                type='password'
                 placeholder='Password'
                 id="helpertext"
                 defaultValue="Default Value"
@@ -215,7 +215,7 @@ Standard form attributes are supported, for example required, disabled, type, et
           </div>
           <div className="flex flex-wrap justify-center gap-2">
             <FormControl>
-              <Label htmlFor="fname" required>First name</Label>
+              <Label required>First name</Label>
               <Input
                 type='text'
                 placeholder='Filled Required'
@@ -224,7 +224,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="fname" disabled>First name</Label>
+              <Label disabled>First name</Label>
               <Input
                 type='text'
                 placeholder='Filled disabled'
@@ -234,7 +234,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Password</Label>
+              <Label>Password</Label>
               <Input
                 type='password'
                 placeholder='Password'
@@ -243,7 +243,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Read only</Label>
+              <Label>Read only</Label>
               <Input
                 type='text'
                 placeholder='Read only'
@@ -254,7 +254,7 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Search</Label>
+              <Label>Search</Label>
               <Input
                 type='search'
                 placeholder='search'
@@ -263,9 +263,9 @@ Standard form attributes are supported, for example required, disabled, type, et
               />
             </FormControl>
             <FormControl>
-              <Label htmlFor="password">Helper Text</Label>
+              <Label>Helper Text</Label>
               <Input
-                type='text'
+                type='password'
                 placeholder='Password'
                 id="helpertext"
                 defaultValue="Default Value"
@@ -404,7 +404,7 @@ The `error` prop toggles the error state. The `FormHelperText` can then be used 
               <Label htmlFor="fname">First name</Label>
               <Input
                 type='text'
-                placeholder='Standard Error with helper text'
+                placeholder='Standard Error'
                 defaultValue="Default Value"
                 variant='standard'
                 error
@@ -427,7 +427,7 @@ The `error` prop toggles the error state. The `FormHelperText` can then be used 
               <Label htmlFor="fname">First name</Label>
               <Input
                 type='text'
-                placeholder='Standard Error with helper text'
+                placeholder='Standard Error'
                 defaultValue="Default Value"
                 variant='filled'
                 error
@@ -449,7 +449,7 @@ The `error` prop toggles the error state. The `FormHelperText` can then be used 
               <Label htmlFor="fname">First name</Label>
               <Input
                 type='text'
-                placeholder='Standard Error with helper text'
+                placeholder='Standard Error'
                 defaultValue="Default Value"
                 error
               />
@@ -551,7 +551,7 @@ This context is used by following components:
         <div className="flex flex-wrap items-center justify-center gap-2">
           <div className="flex flex-wrap justify-center gap-2">
             <FormControl variant='standard' required>
-              <Label htmlFor="fname">First name</Label>
+              <Label>First name</Label>
               <Input
                 type='text'
                 placeholder='Standard Required'
@@ -559,7 +559,7 @@ This context is used by following components:
               />
             </FormControl>
             <FormControl variant='standard' disabled>
-              <Label htmlFor="fname">First name</Label>
+              <Label>First name</Label>
               <Input
                 type='text'
                 placeholder='Standard disabled'
@@ -567,10 +567,10 @@ This context is used by following components:
               />
             </FormControl>
             <FormControl variant='standard' error>
-              <Label htmlFor="password">Helper Text</Label>
+              <Label>Helper Text</Label>
               <Input
                 type='text'
-                placeholder='Password'
+                placeholder='Standard error'
                 id="helpertext"
                 defaultValue="Default Value"
               />
@@ -579,7 +579,7 @@ This context is used by following components:
           </div>
           <div className="flex flex-wrap justify-center gap-2">
             <FormControl variant='outlined' required>
-              <Label htmlFor="fname">First name</Label>
+              <Label>First name</Label>
               <Input
                 type='text'
                 placeholder='Outlined Required'
@@ -587,7 +587,7 @@ This context is used by following components:
               />
             </FormControl>
             <FormControl variant='outlined' disabled>
-              <Label htmlFor="fname">First name</Label>
+              <Label>First name</Label>
               <Input
                 type='text'
                 placeholder='Outlined disabled'
@@ -595,10 +595,10 @@ This context is used by following components:
               />
             </FormControl>
             <FormControl variant='outlined' error>
-              <Label htmlFor="password">Helper Text</Label>
+              <Label>Helper Text</Label>
               <Input
                 type='text'
-                placeholder='Password'
+                placeholder='Standard error'
                 id="helpertext"
                 defaultValue="Default Value"
                 variant='outlined'
@@ -608,7 +608,7 @@ This context is used by following components:
           </div>
           <div className="flex flex-wrap justify-center gap-2">
             <FormControl variant='filled' required>
-              <Label htmlFor="fname">First name</Label>
+              <Label>First name</Label>
               <Input
                 type='text'
                 placeholder='Filled Required'
@@ -616,7 +616,7 @@ This context is used by following components:
               />
             </FormControl>
             <FormControl variant='filled' disabled>
-              <Label htmlFor="fname">First name</Label>
+              <Label>First name</Label>
               <Input
                 type='text'
                 placeholder='Filled disabled'
@@ -624,10 +624,10 @@ This context is used by following components:
               />
             </FormControl>
             <FormControl variant='filled' error>
-              <Label htmlFor="password">Helper Text</Label>
+              <Label>Helper Text</Label>
               <Input
                 type='text'
-                placeholder='Password'
+                placeholder='Standard error'
                 id="helpertext"
                 defaultValue="Default Value"
               />
