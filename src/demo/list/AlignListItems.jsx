@@ -7,7 +7,7 @@ const AlignListItems = () => {
       <List style={{ width: '100%', maxWidth: '360px' }} className='bg-accent'>
         <ListItem alignItems="flexStart">
           <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="Eren Jaeger" src="/eren-jaeger.webp" />
           </ListItemAvatar>
           <ListItemText
             primary="Brunch this weekend?"
@@ -27,7 +27,7 @@ const AlignListItems = () => {
         <Divider variant="inset" />
         <ListItem alignItems="flexStart">
           <ListItemAvatar>
-            <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+            <Avatar alt="Levi Ackermen" src="/levi-ackermen.jpg" />
           </ListItemAvatar>
           <ListItemText
             primary="Summer BBQ"
@@ -47,7 +47,7 @@ const AlignListItems = () => {
         <Divider variant="inset" />
         <ListItem alignItems="flexStart">
           <ListItemAvatar>
-            <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+            <Avatar alt="Naruto Uzumaki" src="/naruto-uzumaki.webp" />
           </ListItemAvatar>
           <ListItemText
             primary="Oui Oui"

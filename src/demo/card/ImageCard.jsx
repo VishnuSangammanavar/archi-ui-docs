@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, IconButton } from 'archi-ui'
-import { EllipsisVertical } from 'lucide-react'
+import { EllipsisVertical, Heart, Share2 } from 'lucide-react'
 
 const ImageCard = () => {
   return (
@@ -18,12 +18,19 @@ const ImageCard = () => {
             </IconButton>
           }
         />
+        <img src='/caterpillar.jpg' alt='Caterpillar' />
         <CardContent className='flex flex-col items-center'>
-          <img src='/img/docusaurus.png' alt='Image' />
           <p className='text-justify'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugiat voluptas rem quasi similique tempora? Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </CardContent>
         <CardActions className='justify-between'>
-          <Button color='success'>Share</Button>
+          <div className='flex items-center gap-2'>
+            <IconButton>
+              <Heart />
+            </IconButton>
+            <IconButton>
+              <Share2 />
+            </IconButton>
+          </div>
           <Button variant='link'>Read more</Button>
         </CardActions>
       </Card>

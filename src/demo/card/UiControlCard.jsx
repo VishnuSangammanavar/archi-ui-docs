@@ -6,7 +6,7 @@ const UiControlCard = () => {
   return (
     <div className='flex items-center justify-center'>
       <Card className='flex' style={{ width: '360px' }}>
-        <div className='flex flex-col'>
+        <div className='flex flex-col flex-5/6'>
           <CardContent className='flex flex-col'>
             <Typography variant="h3">
               Live From Space
@@ -30,11 +30,13 @@ const UiControlCard = () => {
             </IconButton>
           </div>
         </div>
-        <img
-          src="/static/images/cards/live-from-space.jpg"
-          alt="Live from space album cover"
-          style={{ width: '120px', height: '100%' }}
-        />
+        <div>
+          <img
+            src='/music1.jpg'
+            alt="Live from space album cover"
+            style={{ height: '100%' }}
+          />
+        </div>
       </Card>
     </div>
   )

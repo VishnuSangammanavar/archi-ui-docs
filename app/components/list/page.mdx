@@ -360,7 +360,7 @@ When displaying three lines or more, the avatar is not aligned at the top. You s
           <List style={{ width: '100%', maxWidth: '360px' }} className='bg-accent'>
             <ListItem alignItems="flexStart">
               <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="Eren Jaeger" src="/eren-jaeger.webp" />
               </ListItemAvatar>
               <ListItemText
                 primary="Brunch this weekend?"
@@ -368,7 +368,7 @@ When displaying three lines or more, the avatar is not aligned at the top. You s
                   <React.Fragment>
                     <Typography
                       variant="body2"
-                      className='text-primary inline'
+                      className='text-foreground inline'
                     >
                       Ali Connors
                     </Typography>
@@ -380,7 +380,7 @@ When displaying three lines or more, the avatar is not aligned at the top. You s
             <Divider variant="inset" />
             <ListItem alignItems="flexStart">
               <ListItemAvatar>
-                <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Levi Ackermen" src="/levi-ackermen.jpg" />
               </ListItemAvatar>
               <ListItemText
                 primary="Summer BBQ"
@@ -400,7 +400,7 @@ When displaying three lines or more, the avatar is not aligned at the top. You s
             <Divider variant="inset" />
             <ListItem alignItems="flexStart">
               <ListItemAvatar>
-                <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+                <Avatar alt="Naruto Uzumaki" src="/naruto-uzumaki.webp" />
               </ListItemAvatar>
               <ListItemText
                 primary="Oui Oui"
@@ -554,7 +554,10 @@ The checkbox is the secondary action for the list item and a separate target.
                 >
                   <ListItemButton dense>
                     <ListItemAvatar>
-                      <Avatar />
+                      <Avatar
+                        alt={`Avatar ${value + 1}`}
+                        src="/naruto-uzumaki.webp"
+                      />
                     </ListItemAvatar>
                     <ListItemText primary={`List item ${value + 1}`} />
                     <Checkbox onChange={() => handleToggle(value)} checked={checked.includes(value)} />

@@ -2,6 +2,8 @@ import { Tabs, Table } from 'nextra/components'
 import BasicSkeleton from '../../../src/demo/skeleton/BasicSkeleton.jsx'
 import SkeletonVariant from '../../../src/demo/skeleton/SkeletonVariant.jsx'
 import SkeletonAnimation from '../../../src/demo/skeleton/SkeletonAnimation.jsx'
+import PulsateExample from '../../../src/demo/skeleton/PulsateExample.jsx'
+import WaveExample from '../../../src/demo/skeleton/WaveExample.jsx'
 
 # Skeleton
 
@@ -96,6 +98,189 @@ By default, the skeleton pulsates, but you can change the animation to a wave or
           <Skeleton animation='pulse' variant='rectangular' className='h-16' />
           <Skeleton animation='wave' variant='rectangular' className='h-16' />
           <Skeleton animation='none' variant='rectangular' className='h-16' />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Pulsate Example
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <PulsateExample />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Skeleton from 'archi-ui/Skeleton'
+    import Typography from 'archi-ui/Typography'
+
+    const data = [
+      {
+        src: '/tomorrowland.webp',
+        title: 'Don Diablo @ Tomorrowland Main Stage 2019 | Official…',
+        channel: 'Don Diablo',
+        views: '396k views',
+        createdAt: 'a week ago',
+      },
+      {
+        src: '/promises.webp',
+        title: 'Queen - Greatest Hits',
+        channel: 'Queen Official',
+        views: '40M views',
+        createdAt: '3 years ago',
+      },
+      {
+        src: '/promises.webp',
+        title: 'Calvin Harris, Sam Smith - Promises (Official Video)',
+        channel: 'Calvin Harris',
+        views: '130M views',
+        createdAt: '10 months ago',
+      },
+    ];
+
+    function Media(props) {
+      const { loading = false } = props;
+
+      return (
+        <div className='flex justify-center flex-nowrap'>
+          {(loading ? Array.from(new Array(3)) : data).map((item, index) => (
+            <div key={index} style={{ width: '210px' }} className='mr-0.5 my-5'>
+              {item ? (
+                <img
+                  style={{ width: '210px', height:'118px' }}
+                  alt={item.title}
+                  src={item.src}
+                />
+              ) : (
+                <Skeleton variant='rectangular' style={{ width: '210px', height:'118px' }} />
+              )}
+              {item ? (
+                <div className='pr-2'>
+                  <Typography gutterBottom variant="body2">
+                    {item.title}
+                  </Typography>
+                  <Typography
+                    variant="caption"
+                    className='block text-secondary'
+                  >
+                    {item.channel}
+                  </Typography>
+                  <Typography variant="caption" className='text-secondary'>
+                    {`${item.views} • ${item.createdAt}`}
+                  </Typography>
+                </div>
+              ) : (
+                <div className='flex flex-col pt-5 gap-2'>
+                  <Skeleton />
+                  <Skeleton className='w-1/2' />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    export default function PulsateExample() {
+      return (
+        <div className='overflow-hidden'>
+          <Media loading={true} />
+          <Media />
+        </div>
+      );
+    }
+    ```
+  </Tabs.Tab>
+</Tabs>
+
+## Wave Example
+
+<Tabs items={['Preview', 'code']}>
+  <Tabs.Tab value='Preview'>
+    <WaveExample />
+  </Tabs.Tab>
+  <Tabs.Tab value='Code'>
+    ```jsx showLineNumbers
+    import React from 'react';
+    import Skeleton from 'archi-ui/Skeleton'
+    import Typography from 'archi-ui/Typography'
+    import { MoreVertical } from 'lucide-react';
+
+    function Media(props) {
+      const { loading = false } = props;
+
+      return (
+        <Card style={{ width: '345px' }} className='m-2'>
+          <CardHeader
+            avatar={
+              loading ? (
+                <Skeleton animation="wave" variant="circular" style={{ width: "40px", height: "40px" }} />
+              ) : (
+                <Avatar
+                  alt="Ted talk"
+                  src="/ted-talks.jpg"
+                />
+              )
+            }
+            action={
+              loading ? null : (
+                <IconButton>
+                  <MoreVertical />
+                </IconButton>
+              )
+            }
+            title={
+              loading ? (
+                <Skeleton
+                  animation="wave"
+                  style={{ width: "80%", height: "10px" }}
+                  className='mb-2'
+                />
+              ) : (
+                'Ted'
+              )
+            }
+            subheader={
+              loading ? (
+                <Skeleton animation="wave" style={{ width: "40%", height: "10px" }} />
+              ) : (
+                '5 hours ago'
+              )
+            }
+          />
+          {loading ? (
+            <Skeleton style={{ height: '190px' }} animation="wave" variant="rectangular" />
+          ) : (
+            <img
+              height="140px"
+              src="/nicola-sturgeon.jpg"
+              alt="Nicola Sturgeon on a TED talk stage"
+            />
+          )}
+          <CardContent>
+            {loading ? (
+              <React.Fragment>
+                <Skeleton animation="wave" style={{ height: '10px', marginBottom: '6px' }} />
+                <Skeleton animation="wave" style={{ width: "80%", height: "10px" }} />
+              </React.Fragment>
+            ) : (
+              <Typography>
+                Why First Minister of Scotland Nicola Sturgeon thinks GDP is the wrong measure of a country's success:
+              </Typography>
+            )}
+          </CardContent>
+        </Card>
+      );
+    }
+
+    export default function WaveExample() {
+      return (
+        <div>
+          <Media loading={true} />
+          <Media />
         </div>
       );
     }

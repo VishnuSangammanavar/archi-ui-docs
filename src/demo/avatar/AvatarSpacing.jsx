@@ -5,22 +5,22 @@ const AvatarSpacing = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
       <AvatarGroup spacing='lg'>
-        <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-        <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-        <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-        <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+        <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+        <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+        <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+        <Avatar alt='Armin' src='/armin.jpg' />
       </AvatarGroup>
       <AvatarGroup spacing='md'>
-        <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-        <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-        <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-        <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+        <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+        <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+        <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+        <Avatar alt='Armin' src='/armin.jpg' />
       </AvatarGroup>
       <AvatarGroup spacing='sm'>
-        <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-        <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-        <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-        <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+        <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+        <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+        <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+        <Avatar alt='Armin' src='/armin.jpg' />
       </AvatarGroup>
     </div>
   )

@@ -9,20 +9,20 @@ const LoginCard = () => {
           <Avatar className='w-12 h-12 bg-secondary' />
         </div>
         <CardContent>
-          <FormControl error required>
-            <Label>Email:</Label>
+          <FormControl error>
+            <Label htmlFor='email'>Email:</Label>
             <Input type='email' placeholder='Email' defaultValue='jhondoe@gmail.co' fullwidth />
             <FormHelperText>Invalid email Id</FormHelperText>
           </FormControl>
           <FormControl>
-            <Label>Password:</Label>
+            <Label htmlFor='password'>Password:</Label>
             <Input type='password' placeholder='Password' fullwidth />
           </FormControl>
-          <Link href='#' className='hover:text-primary'>Forget password?</Link>
+          <Link href='#' underline='hover'>Forget password?</Link>
         </CardContent>
         <CardActions className='flex flex-col justify-center gap-2'>
           <Button variant='filled' color='primary' fullwidth>Login</Button>
-          <Link href='#' className='lowercase hover:text-primary no-underline'>Don't have account? Sign-up</Link>
+          <Link href='#' underline='hover'>Don't have account? Sign-up</Link>
         </CardActions>
       </Card>
     </div>

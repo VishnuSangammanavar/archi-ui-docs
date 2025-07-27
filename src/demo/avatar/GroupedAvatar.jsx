@@ -5,11 +5,11 @@ const GroupedAvatar = () => {
   return (
     <div className="flex items-center justify-center">
       <AvatarGroup max={4}>
-        <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-        <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-        <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-        <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
-        <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+        <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+        <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+        <Avatar alt='Armin' src='/armin.jpg' />
+        <Avatar alt='Levi Ackerman' src='/levi-ackermen.jpg' />
+        <Avatar alt='Naruto Uzumaki' src='/naruto-uzumaki.webp' />
       </AvatarGroup>
     </div>
   )

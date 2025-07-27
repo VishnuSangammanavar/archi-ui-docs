@@ -35,7 +35,10 @@ const AvatarControlledList = () => {
             >
               <ListItemButton dense>
                 <ListItemAvatar>
-                  <Avatar />
+                  <Avatar
+                    alt={`Avatar ${value + 1}`}
+                    src="/naruto-uzumaki.webp"
+                  />
                 </ListItemAvatar>
                 <ListItemText primary={`List item ${value + 1}`} />
                 <Checkbox onChange={() => handleToggle(value)} checked={checked.includes(value)} />

@@ -202,7 +202,7 @@ Use the `avatar` prop to add an avatar or use the `icon` prop to add an icon.
       return (
         <div className="flex items-center justify-center gap-2">
           <Chip avatar={<Avatar size='sm'>V</Avatar>} variant='filled'>Avatar</Chip>
-          <Chip avatar={<Avatar size='sm' alt='logo' src='./images/header/logo.png' />} variant='outlined'>Avatar</Chip>
+          <Chip avatar={<Avatar size='sm' alt='Naruto Uzumaki' src='/naruto-uzumaki.webp' />} variant='outlined'>Avatar</Chip>
         </div>
       );
     }
@@ -224,8 +224,8 @@ Use the `avatar` prop to add an avatar or use the `icon` prop to add an icon.
     export default function MyReactPage() {
       return (
         <div className="flex items-center justify-center gap-2">
-          <Chip icon={<Check />} variant='filled'>Icon</Chip>
-          <Chip icon={<Puzzle />} variant='outlined'>Icon</Chip>
+          <Chip icon={<Check />} variant='filled'>With Icon</Chip>
+          <Chip icon={<Puzzle />} variant='outlined'>With Icon</Chip>
         </div>
       );
     }

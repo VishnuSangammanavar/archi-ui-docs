@@ -158,7 +158,7 @@ The `Card` comes with two variants: outlined, elevation.
     import CardContent from 'archi-ui/CardContent'
     import CardHeader from 'archi-ui/CardHeader'
     import IconButton from 'archi-ui/IconButton'
-    import { EllipsisVertical } from 'lucide-react'
+    import { EllipsisVertical, Heart, Share2 } from 'lucide-react'
 
     export default function MyReactPage() {
       return (
@@ -176,12 +176,19 @@ The `Card` comes with two variants: outlined, elevation.
                 </IconButton>
               }
             />
+            <img src='/caterpillar.jpg' alt='Caterpillar' />
             <CardContent className='flex flex-col items-center'>
-              <img src='/img/docusaurus.png' alt='Image' />
               <p className='text-justify'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione fugiat voluptas rem quasi similique tempora? Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </CardContent>
             <CardActions className='justify-between'>
-              <Button color='success'>Share</Button>
+              <div className='flex items-center gap-2'>
+                <IconButton>
+                  <Heart />
+                </IconButton>
+                <IconButton>
+                  <Share2 />
+                </IconButton>
+              </div>
               <Button variant='link'>Read more</Button>
             </CardActions>
           </Card>
@@ -219,20 +226,20 @@ The `Card` comes with two variants: outlined, elevation.
               <Avatar className='w-12 h-12 bg-secondary' />
             </div>
             <CardContent>
-              <FormControl error required>
-                <Label>Email:</Label>
+              <FormControl error>
+                <Label htmlFor='email'>Email:</Label>
                 <Input type='email' placeholder='Email' defaultValue='jhondoe@gmail.co' fullwidth />
                 <FormHelperText>Invalid email Id</FormHelperText>
               </FormControl>
               <FormControl>
-                <Label>Password:</Label>
+                <Label htmlFor='password'>Password:</Label>
                 <Input type='password' placeholder='Password' fullwidth />
               </FormControl>
-              <Link href='#' className='hover:text-primary'>Forget password?</Link>
+              <Link href='#' underline='hover'>Forget password?</Link>
             </CardContent>
             <CardActions className='flex flex-col justify-center gap-2'>
               <Button variant='filled' color='primary' fullwidth>Login</Button>
-              <Link href='#' className='lowercase hover:text-primary no-underline'>Don't have account? Sign-up</Link>
+              <Link href='#' underline='hover'>Don't have account? Sign-up</Link>
             </CardActions>
           </Card>
         </div>
@@ -243,6 +250,9 @@ The `Card` comes with two variants: outlined, elevation.
 </Tabs>
 
 ## UI Control Card
+Supplemental actions within the card are explicitly called out using icons, text, and UI controls, typically placed at the bottom of the card.
+
+Here's an example of a media control card.
 <Tabs items={['Preview', 'code']}>
   <Tabs.Tab value='Preview'>
     <UiControlCard />
@@ -260,7 +270,7 @@ The `Card` comes with two variants: outlined, elevation.
       return (
         <div className='flex items-center justify-center'>
           <Card className='flex' style={{ width: '360px' }}>
-            <div className='flex flex-col'>
+            <div className='flex flex-col flex-5/6'>
               <CardContent className='flex flex-col'>
                 <Typography variant="h3">
                   Live From Space
@@ -284,11 +294,13 @@ The `Card` comes with two variants: outlined, elevation.
                 </IconButton>
               </div>
             </div>
-            <img
-              src="/static/images/cards/live-from-space.jpg"
-              alt="Live from space album cover"
-              style={{ width: '120px', height: '100%' }}
-            />
+            <div>
+              <img
+                src='/music1.jpg'
+                alt="Live from space album cover"
+                style={{ height: '100%' }}
+              />
+            </div>
           </Card>
         </div>
       );

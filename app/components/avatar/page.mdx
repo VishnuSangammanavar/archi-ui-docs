@@ -61,9 +61,9 @@ Image avatars can be created by passing standard `img` prop `src` to the compone
     export default function MyReactPage() {
       return (
         <div className="flex items-center justify-center gap-2">
-          <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-          <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-          <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
+          <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+          <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+          <Avatar alt='Armin' src='/armin.jpg' />
         </div>
       );
     }
@@ -143,9 +143,9 @@ Use `size` prop to change the size of the Avatar.
     export default function MyReactPage() {
       return (
         <div className="flex items-center justify-center gap-2">
-          <Avatar size='lg' />
-          <Avatar size='md' />
-          <Avatar size='sm' />
+          <Avatar alt='Naruto' src='/naruto-uzumaki.webp' size='lg' />
+          <Avatar alt='Naruto' src='/naruto-uzumaki.webp' size='md' />
+          <Avatar alt='Naruto' src='/naruto-uzumaki.webp' size='sm' />
         </div>
       );
     }
@@ -234,11 +234,11 @@ If there is an error loading the avatar image, the component falls back to an al
       return (
         <div className="flex items-center justify-center">
           <AvatarGroup max={4}>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
-            <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
+            <Avatar alt='Levi Ackerman' src='/levi-ackermen.jpg' />
+            <Avatar alt='Naruto Uzumaki' src='/naruto-uzumaki.webp' />
           </AvatarGroup>
         </div>
       );
@@ -264,22 +264,22 @@ You can controll the avatars shape, size, and outline from `AvatarGroup` compone
       return (
         <div className="flex flex-col items-center justify-center gap-2">
           <AvatarGroup variant='circular' size='lg' outlined={true}>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
+            <Avatar alt='Levi Ackerman' src='/levi-ackermen.jpg' />
           </AvatarGroup>
           <AvatarGroup variant='circular' size='md' outlined={true}>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
+            <Avatar alt='Levi Ackerman' src='/levi-ackermen.jpg' />
           </AvatarGroup>
           <AvatarGroup variant='circular' size='sm' outlined={true}>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
+            <Avatar alt='Levi Ackerman' src='/levi-ackermen.jpg' />
           </AvatarGroup>
         </div>
       );
@@ -305,10 +305,10 @@ If you need to control the total number of avatars not shown, you can use the `t
       return (
         <div className="flex items-center justify-center">
           <AvatarGroup total={24}>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
+            <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
           </AvatarGroup>
         </div>
       );
@@ -338,11 +338,11 @@ The `renderSurplus` prop is useful when you need to render the surplus based on 
       return (
         <div className="flex items-center justify-center">
           <AvatarGroup total={5500} renderSurplus={(surplus) => <span>+{surplus.toString()[0]}K</span>}>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
-            <Avatar alt='Naruto' src='/static/images/avatar/5.jpg' />
+            <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
+            <Avatar alt='Levi Ackerman' src='/levi-ackermen.jpg' />
           </AvatarGroup>
         </div>
       );
@@ -368,22 +368,22 @@ You can change the spacing between avatars using `spacing` prop. You can use one
       return (
         <div className="flex flex-col items-center justify-center gap-2">
           <AvatarGroup spacing='lg'>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
           </AvatarGroup>
           <AvatarGroup spacing='md'>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
           </AvatarGroup>
           <AvatarGroup spacing='sm'>
-            <Avatar alt='Eren Yeager' src='/static/images/avatar/1.jpg' />
-            <Avatar alt='Mikasa Ackerman' src='/static/images/avatar/2.jpg' />
-            <Avatar alt='Armin' src='/static/images/avatar/3.jpg' />
-            <Avatar alt='Levi Ackerman' src='/static/images/avatar/4.jpg' />
+            <Avatar alt='Naruto' src='/naruto-uzumaki.webp' />
+            <Avatar alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Avatar alt='Mikasa Ackerman' src='/mikasa-ackermen.jpg' />
+            <Avatar alt='Armin' src='/armin.jpg' />
           </AvatarGroup>
         </div>
       );
@@ -407,12 +407,16 @@ You can change the spacing between avatars using `spacing` prop. You can use one
       return (
         <div className="flex items-center justify-center gap-2">
           <div className="relative inline-flex items-center">
-            <Avatar src='./images/' className='bg-warning' />
+            <Avatar size='lg' alt='Naruto' src='/naruto-uzumaki.webp' />
             <Badge variant='dot' color='success' className='absolute bottom-0 right-0 ring-1 ring-background' />
           </div>
           <div className="relative inline-flex items-center">
-            <Avatar src='./images/' className='bg-success' />
-            <Badge badgeContent={<Avatar className='w-4 h-4 bg-secondary'>v</Avatar>} className='absolute bottom-0 right-0 ring-1 ring-background p-0' />
+            <Avatar size='lg' alt='Levi Ackerman' src='/levi-ackermen.jpg' />
+            <Badge badgeContent='1m' color='success' size='sm' className='absolute bottom-0 right-0 ring-1 py-0 ring-background' />
+          </div>
+          <div className="relative inline-flex items-center">
+            <Avatar size='lg' alt='Eren Yeager' src='/eren-jaeger.webp' />
+            <Badge badgeContent={<Avatar alt='Naruto' src='/naruto-uzumaki.webp' className='w-4 h-4 bg-secondary' />} className='absolute bottom-0 right-0 ring-1 ring-background p-0' />
           </div>
         </div>
       );
