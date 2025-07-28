@@ -22,7 +22,7 @@ Example of a badge containing text.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Badge from 'archi-ui/Badge'
+    import { Badge } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -37,8 +37,6 @@ Example of a badge containing text.
 
 ## Usage
 ```jsx
-import Badge from 'archi-ui/Badge'
-// or
 import { Badge } from 'archi-ui'
 ```
 ```jsx
@@ -59,7 +57,7 @@ The `dot` prop changes a badge into a small dot. This can be used as a notificat
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /variant/
     import React from 'react';
-    import Badge from 'archi-ui/Badge'
+    import { Badge } from 'archi-ui'
     import { Heart, Mail } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -94,8 +92,7 @@ Use `color` prop to apply different colors to component.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /color/
     import React from 'react';
-    import Avatar from 'archi-ui/Avatar'
-    import Button from 'archi-ui/Button'
+    import { Avatar, Badge } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -141,8 +138,7 @@ Use `size` prop to change the size of the badge.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /size/
     import React from 'react';
-    import Badge from 'archi-ui/Badge'
-    import Button from 'archi-ui/Button'
+    import { Badge, Button } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -178,10 +174,7 @@ The visibility of badges can be controlled using the `invisible` prop.
     "use client"
 
     import React, { useState } from 'react'
-    import Badge from 'archi-ui/Badge'
-    import Button from 'archi-ui/Button'
-    import ButtonGroup from 'archi-ui/ButtonGroup'
-    import Switch from 'archi-ui/Switch'
+    import { Badge, Button, ButtonGroup, Switch } from 'archi-ui'
     import { Plus, Minus, Mail } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -232,7 +225,7 @@ The badge hides automatically when `badgeContent` is zero. You can override this
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /showZero/
     import React from 'react';
-    import Badge from 'archi-ui/Badge'
+    import { Badge } from 'archi-ui'
     import { Mail } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -263,7 +256,7 @@ You can use the `max` prop to cap the value of the badge content.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /max/
     import React from 'react';
-    import Badge from 'archi-ui/Badge'
+    import { Badge } from 'archi-ui'
     import { Mail } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -296,8 +289,7 @@ You can use the `max` prop to cap the value of the badge content.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Badge from 'archi-ui/Badge'
-    import Button from 'archi-ui/Button'
+    import { Badge, Button } from 'archi-ui'
 
     export default function MyReactPage() {
       return (

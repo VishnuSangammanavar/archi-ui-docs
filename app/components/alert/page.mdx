@@ -23,8 +23,7 @@ Alerts give users brief and potentially time-sensitive information in an unobtru
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertDescription } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -39,10 +38,6 @@ Alerts give users brief and potentially time-sensitive information in an unobtru
 
 ## Usage
 ```jsx
-import Alert from 'archi-ui/Alert'
-import AlertTitle from 'archi-ui/AlertTitle'
-import AlertDescription from 'archi-ui/AlertDescription'
-// or
 import { Alert, AlertTitle, AlertDescription } from 'archi-ui'
 ```
 ```jsx
@@ -62,8 +57,7 @@ The `severity` prop accepts for values representing different states - `success`
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /severity/
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertDescription } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -100,8 +94,7 @@ To set different variants use `variant` prop.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /variant='filled'/
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertDescription } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -133,8 +126,7 @@ To set different variants use `variant` prop.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /variant='outlined'/
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertDescription } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -162,8 +154,6 @@ To set different variants use `variant` prop.
 To add a title to an Alert, import `AlertTitle` component
 
 ```jsx
-import AlertTitle from 'archi-ui/AlertTitle'
-// or
 import { AlertTitle } from 'archi-ui'
 ```
 
@@ -176,9 +166,7 @@ You can nest this component above the message in your Alert for a neatly styled 
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertTitle from 'archi-ui/AlertTitle'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertTitle, AlertDescription } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -218,9 +206,7 @@ Alternatively, you can use the `component` prop to override root node. Either a 
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertTitle from 'archi-ui/AlertTitle'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertTitle, AlertDescription } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -262,9 +248,7 @@ If you provide an `onClose` callback to the Alert without setting the `action` p
     "use client"
 
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertDescription from 'archi-ui/AlertDescription'
-    import Button from 'archi-ui/Button'
+    import { Alert, AlertDescription, Button } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -292,8 +276,7 @@ Use the `icon` prop to override an Alert's icon. As with the `action` prop, your
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {9, 12}
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
-    import AlertDescription from 'archi-ui/AlertDescription'
+    import { Alert, AlertDescription } from 'archi-ui'
     import { CheckCheck } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -322,7 +305,7 @@ If you need to override all instances of an icon for a given severity, you can u
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {10, 11, 12}
     import React from 'react';
-    import Alert from 'archi-ui/Alert'
+    import { Alert } from 'archi-ui'
     import { CheckCircle } from 'lucide-react'
 
     export default function MyReactPage() {

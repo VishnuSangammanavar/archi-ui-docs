@@ -19,11 +19,7 @@ The Archi-UI Divider component renders as a dark gray `<hr>` by default, and fea
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {18}
     import React from 'react';
-    import Card from 'archi-ui/Card'
-    import CardContent from 'archi-ui/CardContent'
-    import Chip from 'archi-ui/Chip'
-    import Divider from 'archi-ui/Divider'
-    import Typography from 'archi-ui/Typography'
+    import { Card, CardContent, Chip, Divider, Typography } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -55,8 +51,6 @@ The Archi-UI Divider component renders as a dark gray `<hr>` by default, and fea
 
 ## Usage
 ```jsx
-import Divider from 'archi-ui/Divider'
-// or
 import { Divider } from 'archi-ui'
 ```
 ```jsx
@@ -73,10 +67,7 @@ The Divider component supports three variants: `fullwidth`(default), `inset`, an
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {14, 18, 22}
     import React from 'react';
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemText from 'archi-ui/ListItemText'
-    import Divider from 'archi-ui/Divider'
+    import { Divider, List, ListItem, ListItemText } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -115,9 +106,7 @@ Use the `orientation` prop to change the Divider from horizontal to vertical. Wh
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {12, 14, 16, 23, 28}
     import React from 'react';
-    import Card from 'archi-ui/Card'
-    import Divider from 'archi-ui/Divider'
-    import Typography from 'archi-ui/Typography'
+    import { Card, Divider, Typography } from 'archi-ui'
     import { AlignCenter, AlignLeft, AlignRight, Bold, Italic } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -161,8 +150,7 @@ Use the `textAlign` prop to align elements that are wrapped by the Divider.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /textAlign/
     import React from 'react';
-    import Divider from 'archi-ui/Divider'
-    import Chip from 'archi-ui/Chip'
+    import { Chip, Divider } from 'archi-ui'
 
     export default function MyReactPage() {
       return (

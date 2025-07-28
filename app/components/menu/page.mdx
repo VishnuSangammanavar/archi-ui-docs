@@ -33,9 +33,7 @@ You should configure the component so that selecting an option immediately confi
     "use client"
 
     import React, { useState } from 'react'
-    import Button from 'archi-ui/Button'
-    import Menu from 'archi-ui/Menu'
-    import MenuItem from 'archi-ui/MenuItem'
+    import { Button, Menu, MenuItem } from 'archi-ui';
 
     export default function MyReactPage() {
 
@@ -70,9 +68,6 @@ You should configure the component so that selecting an option immediately confi
 
 ## Usage
 ```jsx
-import Menu from 'archi-ui/Menu'
-import MenuItem from 'archi-ui/MenuItem'
-// or
 import { Menu, MenuItem } from 'archi-ui'
 ```
 ```jsx
@@ -92,11 +87,7 @@ import { Menu, MenuItem } from 'archi-ui'
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import ListItemText from 'archi-ui/ListItemText'
-    import MenuItem from 'archi-ui/MenuItem'
-    import MenuList from 'archi-ui/MenuList'
-    import Typography from 'archi-ui/Typography'
+    import { ListItemIcon, ListItemText, MenuItem, MenuList, Typography } from 'archi-ui'
     import { Clipboard, Copy, Scissors } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -142,11 +133,7 @@ For the menu taht has long list and long text, you can use the `dense` prop in `
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /dense/
     import React from 'react';
-    import Divider from 'archi-ui/Divider'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import ListItemText from 'archi-ui/ListItemText'
-    import MenuItem from 'archi-ui/MenuItem'
-    import MenuList from 'archi-ui/MenuList'
+    import { Divider, ListItemIcon, ListItemText, MenuItem, MenuList } from 'archi-ui'
     import { ArrowDownUp, Brush, MonitorCog, Plus, RotateCw, SquareTerminal } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -219,10 +206,7 @@ If used for item selection, when opened, simple menus places the initial focus o
     "use client"
 
     import React, { useState } from 'react'
-    import Button from 'archi-ui/Button'
-    import Menu from 'archi-ui/Menu'
-    import MenuItem from 'archi-ui/MenuItem'
-    import Typography from 'archi-ui/Typography'
+    import { Button, Menu, MenuItem, Typography } from 'archi-ui';
 
     export default function MyReactPage() {
 
@@ -288,9 +272,7 @@ You can display the menu on top of the anchor.
     "use client"
 
     import React, { useState } from 'react'
-    import Button from 'archi-ui/Button'
-    import Menu from 'archi-ui/Menu'
-    import MenuItem from 'archi-ui/MenuItem'
+    import { Button, Menu, MenuItem } from 'archi-ui';
 
     export default function MyReactPage() {
 
@@ -349,13 +331,7 @@ You can display the menu on top of the anchor.
     "use client"
 
     import React, { useState } from 'react'
-    import Avatar from 'archi-ui/Avatar'
-    import IconButton from 'archi-ui/IconButton'
-    import ListItemAvatar from 'archi-ui/ListItemAvatar'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import Menu from 'archi-ui/Menu'
-    import MenuItem from 'archi-ui/MenuItem'
-    import Typography from 'archi-ui/Typography'
+    import { Avatar, IconButton, ListItemAvatar, ListItemIcon, Menu, MenuItem, Typography } from 'archi-ui';
     import { LogOut, Plus, Settings } from 'lucide-react';
 
     export default function MyReactPage() {
@@ -435,9 +411,7 @@ If the height of a menu prevents all menu items from being displayed, the menu c
     "use client"
 
     import React, { useState } from 'react'
-    import Menu from 'archi-ui/Menu'
-    import MenuItem from 'archi-ui/MenuItem'
-    import IconButton from 'archi-ui/IconButton'
+    import { Menu, MenuItem, IconButton } from 'archi-ui'
     import { MoreVertical } from 'lucide-react';
 
     export default function MyReactPage() {

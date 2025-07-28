@@ -17,9 +17,7 @@ A breadcrumbs is a list of links that help visualize a page's location within a 
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Breadcrumbs from 'archi-ui/Breadcrumbs'
-    import Link from 'archi-ui/Link'
-    import Typography from 'archi-ui/Typography'
+    import { Breadcrumbs, Link, Typography } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -39,10 +37,6 @@ A breadcrumbs is a list of links that help visualize a page's location within a 
 
 ## Usage
 ```jsx
-import Breadcrumbs from 'archi-ui/Breadcrumbs'
-import Link from 'archi-ui/Link'
-import Typography from 'archi-ui/Typography'
-// or
 import { Breadcrumbs, Link, Typography } from 'archi-ui'
 ```
 ```jsx
@@ -64,9 +58,7 @@ In The following examples, we are using string separator and an SVG icon.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /separator/
     import React from 'react';
-    import Breadcrumbs from 'archi-ui/Breadcrumbs'
-    import Link from 'archi-ui/Link'
-    import Typography from 'archi-ui/Typography'
+    import { Breadcrumbs, Link, Typography } from 'archi-ui'
     import { ChevronRight } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -99,9 +91,7 @@ In The following examples, we are using string separator and an SVG icon.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Breadcrumbs from 'archi-ui/Breadcrumbs'
-    import Link from 'archi-ui/Link'
-    import Typography from 'archi-ui/Typography'
+    import { Breadcrumbs, Link, Typography } from 'archi-ui'
     import { Home, ServerIcon, TreePalm, User } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -140,9 +130,7 @@ In The following examples, we are using string separator and an SVG icon.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {9}
     import React from 'react';
-    import Breadcrumbs from 'archi-ui/Breadcrumbs'
-    import Link from 'archi-ui/Link'
-    import Typography from 'archi-ui/Typography'
+    import { Breadcrumbs, Link, Typography } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -175,11 +163,7 @@ As an alternative, consider adding a Menu component to display the condensed lin
     "use client"
 
     import React, { useState } from 'react'
-    import Breadcrumbs from 'archi-ui/Breadcrumbs'
-    import IconButton from 'archi-ui/IconButton'
-    import Menu from 'archi-ui/Menu'
-    import MenuItem from 'archi-ui/MenuItem'
-    import Link from 'archi-ui/Link'
+    import { Breadcrumbs, IconButton, Menu, MenuItem, Link } from 'archi-ui';
     import { Ellipsis } from 'lucide-react';
 
     export default function MyReactPage() {

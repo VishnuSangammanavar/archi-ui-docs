@@ -38,8 +38,7 @@ Archi-UI lists are implemented using a collection of related compenents:
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
+    import { List, ListItem } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -58,9 +57,6 @@ Archi-UI lists are implemented using a collection of related compenents:
 
 ## Usage
 ```jsx
-import List from 'archi-ui/List'
-import ListItem from 'archi-ui/ListItem'
-// or
 import { List, ListItem } from 'archi-ui'
 ```
 ```jsx
@@ -81,11 +77,7 @@ import { List, ListItem } from 'archi-ui'
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Avatar from 'archi-ui/Avatar'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemAvatar from 'archi-ui/ListItemAvatar'
-    import ListItemText from 'archi-ui/ListItemText'
+    import { Avatar, List, ListItem, ListItemAvatar, ListItemText } from 'archi-ui'
     import { BriefcaseBusiness, Image, TreePalm } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -132,14 +124,7 @@ import { List, ListItem } from 'archi-ui'
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Avatar from 'archi-ui/Avatar'
-    import IconButton from 'archi-ui/IconButton'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemAvatar from 'archi-ui/ListItemAvatar'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import ListItemText from 'archi-ui/ListItemText'
-    import Typography from 'archi-ui/Typography'
+    import { Avatar, IconButton, List, ListItem, ListItemAvatar, ListItemIcon, ListItemText, Typography } from 'archi-ui'
     import { Trash, Folder } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -220,8 +205,8 @@ import { List, ListItem } from 'archi-ui'
                 <List className='bg-accent' style={{ width: '300px' }}>
                   <ListItem secondaryAction={
                     <IconButton>
-                        <Trash />
-                      </IconButton>
+                      <Trash />
+                    </IconButton>
                   }>
                     <ListItemAvatar>
                       <Avatar>
@@ -244,8 +229,8 @@ import { List, ListItem } from 'archi-ui'
                   </ListItem>
                   <ListItem secondaryAction={
                     <IconButton>
-                        <Trash />
-                      </IconButton>
+                      <Trash />
+                    </IconButton>
                   }>
                     <ListItemAvatar>
                       <Avatar>
@@ -275,11 +260,7 @@ import { List, ListItem } from 'archi-ui'
     "use client"
 
     import React, { useState } from 'react'
-    import Divider from 'archi-ui/Divider'
-    import List from 'archi-ui/List'
-    import ListItemButton from 'archi-ui/ListItemButton'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import ListItemText from 'archi-ui/ListItemText'
+    import { Divider, List, ListItemButton, ListItemIcon, ListItemText } from 'archi-ui'
     import { Inbox, MailOpen } from 'lucide-react';
 
     export default function MyReactPage() {
@@ -346,13 +327,7 @@ When displaying three lines or more, the avatar is not aligned at the top. You s
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /alignItems/
     import React from 'react'
-    import Avatar from 'archi-ui/Avatar'
-    import Divider from 'archi-ui/Divider'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemAvatar from 'archi-ui/ListItemAvatar'
-    import ListItemText from 'archi-ui/ListItemText'
-    import Typography from 'archi-ui/Typography'
+    import { Avatar, Divider, List, ListItem, ListItemAvatar, ListItemText, Typography } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -441,13 +416,7 @@ The checkbox is the primary action and the state indicator for the list item. Th
     "use client"
 
     import React, { useState } from 'react'
-    import Checkbox from 'archi-ui/Checkbox'
-    import IconButton from 'archi-ui/IconButton'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemButton from 'archi-ui/ListItemButton'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import ListItemText from 'archi-ui/ListItemText'
+    import { Checkbox, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from 'archi-ui'
     import { Plus } from 'lucide-react';
 
     export default function MyReactPage() {
@@ -514,13 +483,7 @@ The checkbox is the secondary action for the list item and a separate target.
     "use client"
 
     import React, { useState } from 'react'
-    import Avatar from 'archi-ui/Avatar'
-    import Checkbox from 'archi-ui/Checkbox'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemAvatar from 'archi-ui/ListItemAvatar'
-    import ListItemButton from 'archi-ui/ListItemButton'
-    import ListItemText from 'archi-ui/ListItemText'
+    import { Avatar, Checkbox, List, ListItem, ListItemAvatar, ListItemButton, ListItemText } from 'archi-ui';
 
     export default function MyReactPage() {
 
@@ -585,12 +548,7 @@ The switch is the secondary action and a separate target.
     "use client"
 
     import React, { useState } from 'react'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemIcon from 'archi-ui/ListItemIcon'
-    import ListItemText from 'archi-ui/ListItemText'
-    import ListSubheader from 'archi-ui/ListSubheader'
-    import Switch from 'archi-ui/Switch'
+    import { List, ListItem, ListItemIcon, ListItemText, ListSubheader, Switch } from 'archi-ui'
     import { Bluetooth, Wifi } from 'lucide-react';
 
     export default function MyReactPage() {
@@ -651,10 +609,7 @@ Upon scrolling, subheaders remain pinned to the top of the screen until pushed o
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {18}
     import React from 'react';
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemText from 'archi-ui/ListItemText'
-    import ListSubheader from 'archi-ui/ListSubheader'
+    import { List, ListItem, ListItemText, ListSubheader } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -694,10 +649,7 @@ When rendering a list within a component that defines its own gutters, `ListItem
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers {15}
     import React from 'react'
-    import IconButton from 'archi-ui/IconButton'
-    import List from 'archi-ui/List'
-    import ListItem from 'archi-ui/ListItem'
-    import ListItemText from 'archi-ui/ListItemText'
+    import { IconButton, List, ListItem, ListItemText } from 'archi-ui'
     import { MessageSquareText } from 'lucide-react'
 
     export default function MyReactPage() {  

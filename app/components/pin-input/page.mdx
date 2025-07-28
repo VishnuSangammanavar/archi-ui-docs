@@ -17,7 +17,7 @@ Used to capture a pin code or otp from the user.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react'
-    import PinInput from 'archi-ui/PinInput'
+    import { PinInput } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -32,8 +32,6 @@ Used to capture a pin code or otp from the user.
 
 ## Usage
 ```jsx
-import PinInput from 'archi-ui/PinInput'
-// or
 import { PinInput } from 'archi-ui'
 ```
 ```jsx
@@ -50,7 +48,7 @@ The `PinInput` comes with three variants: outlined(default), filled, standard.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import PinInput from 'archi-ui/PinInput'
+    import { PinInput } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -75,7 +73,7 @@ For different size of Input like small, medium, large use `size` prop.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import PinInput from 'archi-ui/PinInput'
+    import { PinInput } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -101,7 +99,7 @@ Used to capture a pin code or otp from the user.
     "use client"
 
     import React, { useState } from 'react'
-    import PinInput from 'archi-ui/PinInput'
+    import { PinInput } from 'archi-ui'
 
     export default function MyReactPage() {
 
@@ -137,7 +135,7 @@ The `error` prop toggles the error state. The `FormHelperText` can then be used 
     "use client"
 
     import React, { useState } from 'react'
-    import PinInput from 'archi-ui/PinInput'
+    import { FormControl, FormHelperText, PinInput } from 'archi-ui'
 
     export default function MyReactPage() {
 

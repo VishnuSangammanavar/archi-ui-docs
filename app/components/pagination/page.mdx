@@ -21,7 +21,7 @@ The Pagination component enables the user to select a specific page from a range
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -39,8 +39,6 @@ The Pagination component enables the user to select a specific page from a range
 
 ## Usage
 ```jsx
-import Pagination from 'archi-ui/Pagination'
-// or
 import { Pagination } from 'archi-ui'
 ```
 ```jsx
@@ -57,7 +55,7 @@ Use `disabled` prop to make the pagination disabled.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -81,7 +79,7 @@ The `Pagination` comes with two variants: ghost(default), outlined.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -105,7 +103,7 @@ Use `shape` prop to give different shape to the pagination item.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /shape/
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -157,7 +155,7 @@ The `Pagination` comes with three variants: outlined(default), filled, standard.
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -194,7 +192,7 @@ You can optionally enable first-page and last-page buttons using `showFirstButto
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /showFirstButton/ /showLastButton/ /firstButtonIcon/ /lastButtonIcon/
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
     import { ChevronFirst, ChevronLast } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -226,7 +224,7 @@ It's possible to customize the control icons using `previousIcon`, `nextIcon` pr
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /previousIcon/ /nextIcon/
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
     import { ChevronLeftCircle, ChevronRightCircle } from 'lucide-react'
 
     export default function MyReactPage() {
@@ -263,7 +261,7 @@ You can specify how many digits to display either side of the current page with 
   <Tabs.Tab value='Code'>
     ```jsx showLineNumbers /siblingCount/ /boundaryCount/
     import React from 'react';
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
       return (
@@ -321,7 +319,7 @@ If the `page` is set using useState, to update to next page or previous page on 
     "use client"
 
     import React, { useState }  from 'react'
-    import Pagination from 'archi-ui/Pagination'
+    import { Pagination } from 'archi-ui'
 
     export default function MyReactPage() {
 
